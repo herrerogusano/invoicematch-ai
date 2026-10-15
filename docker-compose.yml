@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: invoicematch-postgres
+    environment:
+      POSTGRES_USER: invoicematch
+      POSTGRES_PASSWORD: invoicematch
+      POSTGRES_DB: invoicematch
+    ports:
+      - "54329:5432"
+    volumes:
+      - invoicematch-pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U invoicematch -d invoicematch"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+volumes:
+  invoicematch-pg:

@@ -1,0 +1,373 @@
+{
+  "kind": "offline-deterministic",
+  "disclaimer": "Agent decisions come from a scripted MOCK model (invoicematch-mock-v1) running inside the real Mastra agent loop. Not LLM evidence.",
+  "startedAt": "2026-10-15T09:40:40.162Z",
+  "finishedAt": "2026-10-15T09:40:50.256Z",
+  "scenarioFileVersion": 1,
+  "score": "16 / 16",
+  "failed": [],
+  "outcomes": [
+    {
+      "id": "S01-exact-match",
+      "title": "Exact match",
+      "expectedStatus": "MATCHED",
+      "actualStatus": "MATCHED",
+      "expectedRuleIds": [],
+      "actualRuleIds": [],
+      "statusOk": true,
+      "rulesOk": true,
+      "pass": true,
+      "agentInvoked": false,
+      "agentMode": "mock",
+      "toolCalls": [],
+      "poNumber": "PO-1001",
+      "invoiceTotal": "572.46",
+      "error": null
+    },
+    {
+      "id": "S02-quantity-mismatch",
+      "title": "Quantity mismatch",
+      "expectedStatus": "REVIEW_REQUIRED",
+      "actualStatus": "REVIEW_REQUIRED",
+      "expectedRuleIds": [
+        "LINE_QUANTITY_MISMATCH",
+        "TOTAL_VS_PO_MISMATCH"
+      ],
+      "actualRuleIds": [
+        "LINE_QUANTITY_MISMATCH",
+        "TOTAL_VS_PO_MISMATCH"
+      ],
+      "statusOk": true,
+      "rulesOk": true,
+      "pass": true,
+      "agentInvoked": false,
+      "agentMode": "mock",
+      "toolCalls": [],
+      "poNumber": "PO-1001",
+      "invoiceTotal": "681.24",
+      "error": null
+    },
+    {
+      "id": "S03-unit-price-mismatch",
+      "title": "Unit price mismatch",
+      "expectedStatus": "REVIEW_REQUIRED",
+      "actualStatus": "REVIEW_REQUIRED",
+      "expectedRuleIds": [
+        "LINE_UNIT_PRICE_MISMATCH",
+        "TOTAL_VS_PO_MISMATCH"
+      ],
+      "actualRuleIds": [
+        "LINE_UNIT_PRICE_MISMATCH",
+        "TOTAL_VS_PO_MISMATCH"
+      ],
+      "statusOk": true,
+      "rulesOk": true,
+      "pass": true,
+      "agentInvoked": false,
+      "agentMode": "mock",
+      "toolCalls": [],
+      "poNumber": "PO-2001",
+      "invoiceTotal": "661.76",
+      "error": null
+    },
+    {
+      "id": "S04-missing-line",
+      "title": "Missing line",
+      "expectedStatus": "REVIEW_REQUIRED",
+      "actualStatus": "REVIEW_REQUIRED",
+      "expectedRuleIds": [
+        "LINE_MISSING_ON_INVOICE",
+        "TOTAL_VS_PO_MISMATCH"
+      ],
+      "actualRuleIds": [
+        "LINE_MISSING_ON_INVOICE",
+        "TOTAL_VS_PO_MISMATCH"
+      ],
+      "statusOk": true,
+      "rulesOk": true,
+      "pass": true,
+      "agentInvoked": false,
+      "agentMode": "mock",
+      "toolCalls": [],
+      "poNumber": "PO-2001",
+      "invoiceTotal": "582.62",
+      "error": null
+    },
+    {
+      "id": "S05-extra-line",
+      "title": "Extra line",
+      "expectedStatus": "REVIEW_REQUIRED",
+      "actualStatus": "REVIEW_REQUIRED",
+      "expectedRuleIds": [
+        "LINE_UNMATCHED_INVOICE",
+        "TOTAL_VS_PO_MISMATCH"
+      ],
+      "actualRuleIds": [
+        "LINE_UNMATCHED_INVOICE",
+        "TOTAL_VS_PO_MISMATCH"
+      ],
+      "statusOk": true,
+      "rulesOk": true,
+      "pass": true,
+      "agentInvoked": false,
+      "agentMode": "mock",
+      "toolCalls": [],
+      "poNumber": "PO-1002",
+      "invoiceTotal": "1451.94",
+      "error": null
+    },
+    {
+      "id": "S06-wrong-supplier",
+      "title": "Wrong supplier",
+      "expectedStatus": "REVIEW_REQUIRED",
+      "actualStatus": "REVIEW_REQUIRED",
+      "expectedRuleIds": [
+        "SUPPLIER_MISMATCH"
+      ],
+      "actualRuleIds": [
+        "SUPPLIER_MISMATCH"
+      ],
+      "statusOk": true,
+      "rulesOk": true,
+      "pass": true,
+      "agentInvoked": false,
+      "agentMode": "mock",
+      "toolCalls": [],
+      "poNumber": "PO-2001",
+      "invoiceTotal": "652.24",
+      "error": null
+    },
+    {
+      "id": "S07-wrong-currency",
+      "title": "Wrong currency",
+      "expectedStatus": "REVIEW_REQUIRED",
+      "actualStatus": "REVIEW_REQUIRED",
+      "expectedRuleIds": [
+        "CURRENCY_MISMATCH"
+      ],
+      "actualRuleIds": [
+        "CURRENCY_MISMATCH"
+      ],
+      "statusOk": true,
+      "rulesOk": true,
+      "pass": true,
+      "agentInvoked": false,
+      "agentMode": "mock",
+      "toolCalls": [],
+      "poNumber": "PO-3001",
+      "invoiceTotal": "1800.00",
+      "error": null
+    },
+    {
+      "id": "S08-duplicate-invoice",
+      "title": "Duplicate invoice",
+      "expectedStatus": "REVIEW_REQUIRED",
+      "actualStatus": "REVIEW_REQUIRED",
+      "expectedRuleIds": [
+        "DUPLICATE_INVOICE"
+      ],
+      "actualRuleIds": [
+        "DUPLICATE_INVOICE"
+      ],
+      "statusOk": true,
+      "rulesOk": true,
+      "pass": true,
+      "agentInvoked": false,
+      "agentMode": "mock",
+      "toolCalls": [],
+      "poNumber": "PO-1002",
+      "invoiceTotal": "1355.14",
+      "error": null
+    },
+    {
+      "id": "S09-incorrect-tax",
+      "title": "Incorrect tax rate",
+      "expectedStatus": "REVIEW_REQUIRED",
+      "actualStatus": "REVIEW_REQUIRED",
+      "expectedRuleIds": [
+        "LINE_TAX_RATE_MISMATCH",
+        "TOTAL_VS_PO_MISMATCH"
+      ],
+      "actualRuleIds": [
+        "LINE_TAX_RATE_MISMATCH",
+        "TOTAL_VS_PO_MISMATCH"
+      ],
+      "statusOk": true,
+      "rulesOk": true,
+      "pass": true,
+      "agentInvoked": false,
+      "agentMode": "mock",
+      "toolCalls": [],
+      "poNumber": "PO-2001",
+      "invoiceTotal": "653.41",
+      "error": null
+    },
+    {
+      "id": "S10-incorrect-total",
+      "title": "Incorrect declared total",
+      "expectedStatus": "REVIEW_REQUIRED",
+      "actualStatus": "REVIEW_REQUIRED",
+      "expectedRuleIds": [
+        "INV_TOTAL_ARITHMETIC"
+      ],
+      "actualRuleIds": [
+        "INV_TOTAL_ARITHMETIC"
+      ],
+      "statusOk": true,
+      "rulesOk": true,
+      "pass": true,
+      "agentInvoked": false,
+      "agentMode": "mock",
+      "toolCalls": [],
+      "poNumber": "PO-1002",
+      "invoiceTotal": "1355.14",
+      "error": null
+    },
+    {
+      "id": "S11-unknown-po",
+      "title": "Unknown purchase order",
+      "expectedStatus": "UNMATCHED",
+      "actualStatus": "UNMATCHED",
+      "expectedRuleIds": [
+        "PO_NOT_FOUND"
+      ],
+      "actualRuleIds": [
+        "PO_NOT_FOUND"
+      ],
+      "statusOk": true,
+      "rulesOk": true,
+      "pass": true,
+      "agentInvoked": false,
+      "agentMode": "mock",
+      "toolCalls": [],
+      "poNumber": null,
+      "invoiceTotal": "624.97",
+      "error": null
+    },
+    {
+      "id": "S12-ambiguous-candidates",
+      "title": "Ambiguous candidates",
+      "expectedStatus": "UNMATCHED",
+      "actualStatus": "UNMATCHED",
+      "expectedRuleIds": [
+        "LOW_AGENT_CONFIDENCE",
+        "PO_AMBIGUOUS"
+      ],
+      "actualRuleIds": [
+        "LOW_AGENT_CONFIDENCE",
+        "PO_AMBIGUOUS"
+      ],
+      "statusOk": true,
+      "rulesOk": true,
+      "pass": true,
+      "agentInvoked": true,
+      "agentMode": "mock",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "getSupplierAndOrderDetails",
+        "getSupplierAndOrderDetails",
+        "getSupplierAndOrderDetails"
+      ],
+      "poNumber": null,
+      "invoiceTotal": "231.81",
+      "error": null
+    },
+    {
+      "id": "S13-agent-selected-po",
+      "title": "PO selected by the agent",
+      "expectedStatus": "REVIEW_REQUIRED",
+      "actualStatus": "REVIEW_REQUIRED",
+      "expectedRuleIds": [
+        "LINE_SEMANTIC_MAPPING",
+        "LINE_SEMANTIC_MAPPING",
+        "PO_SELECTED_BY_AGENT"
+      ],
+      "actualRuleIds": [
+        "LINE_SEMANTIC_MAPPING",
+        "LINE_SEMANTIC_MAPPING",
+        "PO_SELECTED_BY_AGENT"
+      ],
+      "statusOk": true,
+      "rulesOk": true,
+      "pass": true,
+      "agentInvoked": true,
+      "agentMode": "mock",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "getSupplierAndOrderDetails"
+      ],
+      "poNumber": "PO-3001",
+      "invoiceTotal": "1800.00",
+      "error": null
+    },
+    {
+      "id": "S14-closed-po",
+      "title": "Closed purchase order",
+      "expectedStatus": "REVIEW_REQUIRED",
+      "actualStatus": "REVIEW_REQUIRED",
+      "expectedRuleIds": [
+        "PO_CLOSED"
+      ],
+      "actualRuleIds": [
+        "PO_CLOSED"
+      ],
+      "statusOk": true,
+      "rulesOk": true,
+      "pass": true,
+      "agentInvoked": false,
+      "agentMode": "mock",
+      "toolCalls": [],
+      "poNumber": "PO-1003",
+      "invoiceTotal": "167.71",
+      "error": null
+    },
+    {
+      "id": "S15-line-arithmetic",
+      "title": "Inconsistent printed line amount",
+      "expectedStatus": "REVIEW_REQUIRED",
+      "actualStatus": "REVIEW_REQUIRED",
+      "expectedRuleIds": [
+        "INV_LINE_ARITHMETIC"
+      ],
+      "actualRuleIds": [
+        "INV_LINE_ARITHMETIC"
+      ],
+      "statusOk": true,
+      "rulesOk": true,
+      "pass": true,
+      "agentInvoked": false,
+      "agentMode": "mock",
+      "toolCalls": [],
+      "poNumber": "PO-2001",
+      "invoiceTotal": "652.24",
+      "error": null
+    },
+    {
+      "id": "S16-semantic-line-mapping",
+      "title": "Referenced PO, descriptions only",
+      "expectedStatus": "REVIEW_REQUIRED",
+      "actualStatus": "REVIEW_REQUIRED",
+      "expectedRuleIds": [
+        "LINE_SEMANTIC_MAPPING",
+        "LINE_SEMANTIC_MAPPING",
+        "LINE_SEMANTIC_MAPPING"
+      ],
+      "actualRuleIds": [
+        "LINE_SEMANTIC_MAPPING",
+        "LINE_SEMANTIC_MAPPING",
+        "LINE_SEMANTIC_MAPPING"
+      ],
+      "statusOk": true,
+      "rulesOk": true,
+      "pass": true,
+      "agentInvoked": true,
+      "agentMode": "mock",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "poNumber": "PO-1001",
+      "invoiceTotal": "572.46",
+      "error": null
+    }
+  ]
+}

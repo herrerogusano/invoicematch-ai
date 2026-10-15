@@ -1,0 +1,98 @@
+{
+  "_note": "Synthetic, fictional data only. Supplier names and tax identifiers are invented.",
+  "suppliers": [
+    { "code": "SUP-ACME", "name": "Acme Office Supplies S.L. (fictional)", "taxId": "XX-FICT-0001" },
+    { "code": "SUP-NORD", "name": "Nordwind Industrial GmbH (fictional)", "taxId": "XX-FICT-0002" },
+    { "code": "SUP-BLUE", "name": "Bluepeak Software Ltd (fictional)", "taxId": "XX-FICT-0003" },
+    { "code": "SUP-ORCA", "name": "Orca Logistics S.A. (fictional)", "taxId": null }
+  ],
+  "purchaseOrders": [
+    {
+      "poNumber": "PO-1001",
+      "supplierCode": "SUP-ACME",
+      "currency": "EUR",
+      "status": "OPEN",
+      "lines": [
+        { "lineId": "PO-1001-L1", "sku": "PAP-A4-500", "description": "A4 copy paper, 500 sheets", "quantity": "20", "unitPrice": "4.50", "taxRate": "0.21" },
+        { "lineId": "PO-1001-L2", "sku": "TON-HP-26A", "description": "HP 26A toner cartridge", "quantity": "4", "unitPrice": "89.90", "taxRate": "0.21" },
+        { "lineId": "PO-1001-L3", "sku": "STP-24-6", "description": "Staples 24/6, box of 5000", "quantity": "10", "unitPrice": "2.35", "taxRate": "0.21" }
+      ]
+    },
+    {
+      "poNumber": "PO-1002",
+      "supplierCode": "SUP-ACME",
+      "currency": "EUR",
+      "status": "OPEN",
+      "lines": [
+        { "lineId": "PO-1002-L1", "sku": "CHAIR-ERGO", "description": "Ergonomic office chair", "quantity": "5", "unitPrice": "189.00", "taxRate": "0.21" },
+        { "lineId": "PO-1002-L2", "sku": "LAMP-LED", "description": "LED desk lamp", "quantity": "5", "unitPrice": "34.99", "taxRate": "0.21" }
+      ]
+    },
+    {
+      "poNumber": "PO-1003",
+      "supplierCode": "SUP-ACME",
+      "currency": "EUR",
+      "status": "CLOSED",
+      "lines": [
+        { "lineId": "PO-1003-L1", "sku": "PAP-A3-500", "description": "A3 copy paper, 500 sheets", "quantity": "10", "unitPrice": "8.90", "taxRate": "0.21" },
+        { "lineId": "PO-1003-L2", "sku": "ENV-C4-250", "description": "C4 envelopes, box of 250", "quantity": "4", "unitPrice": "12.40", "taxRate": "0.21" }
+      ]
+    },
+    {
+      "poNumber": "PO-2001",
+      "supplierCode": "SUP-NORD",
+      "currency": "EUR",
+      "status": "OPEN",
+      "lines": [
+        { "lineId": "PO-2001-L1", "sku": "BRG-6204", "description": "Ball bearing 6204-2RS", "quantity": "100", "unitPrice": "3.12", "taxRate": "0.19" },
+        { "lineId": "PO-2001-L2", "sku": "BLT-M8-40", "description": "Hex bolt M8x40, box of 100", "quantity": "12", "unitPrice": "14.80", "taxRate": "0.19" },
+        { "lineId": "PO-2001-L3", "sku": "GRS-500", "description": "Lithium grease 500 g", "quantity": "6", "unitPrice": "9.75", "taxRate": "0.19" }
+      ]
+    },
+    {
+      "poNumber": "PO-2002",
+      "supplierCode": "SUP-NORD",
+      "currency": "EUR",
+      "status": "OPEN",
+      "lines": [
+        { "lineId": "PO-2002-L1", "sku": "BRG-6205", "description": "Ball bearing 6205-2RS sealed", "quantity": "50", "unitPrice": "3.40", "taxRate": "0.19" },
+        { "lineId": "PO-2002-L2", "sku": "NUT-M8-100", "description": "Hex nut M8, box of 100", "quantity": "4", "unitPrice": "6.20", "taxRate": "0.19" }
+      ]
+    },
+    {
+      "poNumber": "PO-2003",
+      "supplierCode": "SUP-NORD",
+      "currency": "EUR",
+      "status": "OPEN",
+      "lines": [
+        { "lineId": "PO-2003-L1", "sku": "BRG-6205", "description": "Ball bearing 6205-2RS sealed", "quantity": "50", "unitPrice": "3.40", "taxRate": "0.19" },
+        { "lineId": "PO-2003-L2", "sku": "NUT-M8-100", "description": "Hex nut M8, box of 100", "quantity": "4", "unitPrice": "6.20", "taxRate": "0.19" }
+      ]
+    },
+    {
+      "poNumber": "PO-3001",
+      "supplierCode": "SUP-BLUE",
+      "currency": "USD",
+      "status": "OPEN",
+      "lines": [
+        { "lineId": "PO-3001-L1", "sku": "LIC-PRO-12M", "description": "Pro license, annual subscription", "quantity": "10", "unitPrice": "120.00", "taxRate": "0" },
+        { "lineId": "PO-3001-L2", "sku": "SUP-PREM-12M", "description": "Premium support, annual", "quantity": "1", "unitPrice": "600.00", "taxRate": "0" }
+      ]
+    }
+  ],
+  "historicalInvoices": [
+    {
+      "_note": "Previously received invoice; exists so the duplicate-invoice scenario is order-independent.",
+      "invoiceNumber": "INV-A-0999",
+      "supplierCode": "SUP-ACME",
+      "poReference": "PO-1002",
+      "invoiceDate": "2026-09-30",
+      "currency": "EUR",
+      "lines": [
+        { "lineId": "1", "sku": "CHAIR-ERGO", "description": "Ergonomic office chair", "quantity": "5", "unitPrice": "189.00", "taxRate": "0.21", "lineSubtotal": "945.00" },
+        { "lineId": "2", "sku": "LAMP-LED", "description": "LED desk lamp", "quantity": "5", "unitPrice": "34.99", "taxRate": "0.21", "lineSubtotal": "174.95" }
+      ],
+      "declared": { "subtotal": "1119.95", "tax": "235.19", "total": "1355.14" }
+    }
+  ]
+}

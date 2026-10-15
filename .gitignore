@@ -1,0 +1,26 @@
+# dependencies
+node_modules/
+
+# next.js / build
+.next/
+out/
+build/
+next-env.d.ts
+*.tsbuildinfo
+
+# testing
+coverage/
+
+# env files (never commit secrets; .env.example is the only tracked template)
+.env
+.env.*
+!.env.example
+
+# logs and OS
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# vercel / mastra local artefacts
+.vercel
+.mastra/

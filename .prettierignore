@@ -1,0 +1,6 @@
+.next
+node_modules
+package-lock.json
+evals/results
+MASTER_PLAN.md
+.harness
