@@ -19,7 +19,7 @@ Synthetic, fictional data only. No payments, emails, OCR or ERP integration.
 | Offline evaluation | **16 / 16** labeled scenarios (mock model, see below) |
 | Unit / integration tests | 34 / 34 · 29 / 29 |
 | Live Claude calls | **Not run yet**: blocked on API credits (`BLOCKED_CREDITS`) |
-| Langfuse Cloud delivery | Instrumentation verified offline; cloud delivery needs keys |
+| Langfuse Cloud delivery | Verified: full trace (workflow, agent, model, both tools) arrives in Langfuse Cloud EU (`npm run check:langfuse`, mock model) |
 | Public deployment | **None.** Local only by owner decision ([gate](docs/deployment-feasibility.md)) |
 
 The offline runs use a **scripted mock language model**. It is plugged into the real Mastra agent loop, so tool calls and persistence are real, but its "decisions" are a transparent heuristic, not an LLM. The UI labels it everywhere.
@@ -81,7 +81,7 @@ npm run dev                     # http://localhost:3000
 | `SESSION_SECRET` | ≥ 32 random characters |
 | `AGENT_MODE` | `mock` (default) or `anthropic` |
 | `ANTHROPIC_API_KEY`, `ANTHROPIC_MODEL`, `LLM_BUDGET_USD`, `LLM_MAX_REQUESTS` | live mode only |
-| `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_BASE_URL`, `LANGFUSE_PROJECT_URL` | optional tracing |
+| `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_BASE_URL`, `LANGFUSE_PROJECT_URL` | optional tracing (`LANGFUSE_PROJECT_URL` = `https://cloud.langfuse.com/project/<id>`, without `/traces`) |
 
 Demo credentials policy: there are no shared demo credentials. The owner sets their own passphrase locally; deployments must use Supabase Auth.
 
@@ -99,6 +99,7 @@ Demo credentials policy: there are no shared demo credentials. The owner sets th
 | `npm run eval:offline` | 16 scenarios → `evals/results/latest.json` and the public `data/samples/precomputed.json` |
 | `npm run eval:live` | Opt-in live smoke (S12, S13, S16). Needs `ANTHROPIC_API_KEY` and `EVAL_LIVE_CONFIRM=yes` |
 | `npm run check:secrets` | Fails on tracked env files or secret-looking strings |
+| `npm run check:langfuse` | Runs one mock reconciliation on a scratch DB and confirms the full trace in Langfuse (needs Langfuse keys; no LLM spend) |
 | `BASE_URL=… npx tsx scripts/screenshots.ts` | Browser smoke + real screenshots with local Chrome |
 
 CI (`.github/workflows/ci.yml`) runs everything offline against a Postgres service, with no external secrets.

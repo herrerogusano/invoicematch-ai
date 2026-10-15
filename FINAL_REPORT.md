@@ -29,7 +29,8 @@ Implementation by Claude Code under `MASTER_PLAN.md`, local-only by owner decisi
 | Manual HTTP flow across server restart | PASS: suspended under `next dev`, approved after restart under `next start`, second decision 409, anonymous 401 |
 | Browser smoke (`scripts/screenshots.ts`, local Chrome) | PASS, 6 real screenshots |
 | GitHub Actions CI, run 38720997620 on `feature/mvp` | PASS (all 13 steps) |
-| **Real Claude + Langfuse run** | **BLOCKED**: no API key (credits expected from 2026-10-16) and no Langfuse keys. No live result is claimed |
+| Langfuse Cloud delivery (follow-up) | PASS: `npm run check:langfuse`, full trace with agent, model and both tools (mock model) |
+| **Real Claude run** | **BLOCKED**: no API key (credits expected from 2026-10-16). No live result is claimed |
 
 Live vs mock: every agent decision observed in this run came from the **mock model** `invoicematch-mock-v1`. Tool execution, persistence, workflow and rules were real.
 
@@ -62,7 +63,6 @@ Live vs mock: every agent decision observed in this run came from the **mock mod
 | Item | Status | Needed |
 |---|---|---|
 | Live Claude smoke (3 scenarios) and model choice confirmation | BLOCKED_CREDITS | Owner claims credits, creates a restricted key with a Console spend limit, puts it in `.env.local`, confirms the cap; then `EVAL_LIVE_CONFIRM=yes npm run eval:live` |
-| Langfuse Cloud trace arrival | BLOCKED_USER_ACTION | EU project keys in `.env.local` |
 | Supabase project, migrations on cloud, `@mastra/pg` via pooler | BLOCKED_USER_ACTION | Owner login, new free project |
 | Supabase magic-link sign-in UI (callback page) | not built | Needed before any deployment |
 | Vercel deployment | BLOCKED_USER_ACTION | Account, non-commercial confirmation, env vars |

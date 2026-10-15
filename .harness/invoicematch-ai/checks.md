@@ -22,7 +22,7 @@ Verdict: `pass`, `fail` or `unresolved`. Evidence is a command or test that was 
 | 4 | UI: public read-only samples, owner run, review, audit after reload, mobile | pass | `scripts/screenshots.ts` against `next start` (6 real screenshots in `docs/screenshots/`) |
 | 4 | Pending review survives a server restart | pass | manual: suspended under `next dev`, killed (PID 86104), approved under `next start`; second decision 409 |
 | 5 | Tracing spans for workflow, agent, model, each tool; correlation; no secrets | pass | `tracing.test.ts` with Mastra `TestExporter` |
-| 5 | Langfuse Cloud trace arrival | unresolved | BLOCKED_USER_ACTION: no Langfuse keys |
+| 5 | Langfuse Cloud trace arrival | pass | 2026-10-15 follow-up: `npm run check:langfuse` → 22 observations incl. agent, 2 generations, both tools (mock model) |
 | 5 | ≥12 labeled scenarios, scored N/N with failed IDs | pass | `npm run eval:offline` → 16 / 16, `evals/results/latest.json` |
 | 5 | Small live LLM smoke with cost accounting | unresolved | BLOCKED_CREDITS: no API key; `eval:live` refuses without key (verified) |
 | 6 | Deployment gate run, deploy if feasible and approved | unresolved | Not approved this session (local-only); gate table in `docs/deployment-feasibility.md` |

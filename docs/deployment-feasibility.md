@@ -13,7 +13,7 @@ Updated 2026-10-15 after local runtime tests. Documentation evidence is in `docs
 | 5 | Supabase Free limits, pausing/restore, free slot | BLOCKED_USER_ACTION | Docs verified. Needs owner login and a new free project. `@mastra/pg` through the transaction pooler (port 6543) is PENDING TEST; fallback is the session pooler (5432). |
 | 6 | Vercel Hobby terms (personal, non-commercial) and quotas | BLOCKED_USER_ACTION | Docs verified; owner must confirm non-commercial use and connect the account. |
 | 7 | Authenticated live endpoints, spend guardrails, no anonymous billable calls | VERIFIED locally (app side) · BLOCKED_USER_ACTION (provider side) | `api-security.test.ts`; local auth refused when `VERCEL` is set, so production must use Supabase Auth. Console workspace spend limit must be set by the owner. |
-| 8 | Langfuse free tier, retention, cardinality | BLOCKED_USER_ACTION | Instrumentation verified with `TestExporter`; spans per run ≈ 1 workflow + 6 steps + agent/model/tool spans only when the agent runs. Hobby: 50k units/month, 30-day access. |
+| 8 | Langfuse free tier, retention, cardinality | VERIFIED (delivery, Hobby EU project) | `npm run check:langfuse`: full trace arrives (22 observations per agent run with the mock model). Instrumentation also verified with `TestExporter`; spans per run ≈ 1 workflow + 6 steps + agent/model/tool spans only when the agent runs. Hobby: 50k units/month, 30-day access. |
 | 9 | Cloud app + DB rebuildable from tracked migrations/seed/docs | VERIFIED locally · PENDING TEST on Supabase | `npm run db:reset` (local-guarded) and `db:migrate` + `db:seed` are idempotent; CI applies them on a fresh Postgres service. |
 
 ## Steps to deploy later (owner actions marked 👤)
@@ -22,7 +22,7 @@ Updated 2026-10-15 after local runtime tests. Documentation evidence is in `docs
 2. 👤 Supabase: create a new free project `invoicematch-ai` (EU region). Do not reuse SpendInsight. Copy the **session pooler** connection string into `DATABASE_URL` (env only).
 3. `npm run db:migrate && npm run db:seed` against that URL (never `db:reset`: it refuses non-local URLs).
 4. 👤 Supabase Auth: enable email magic link; set `AUTH_MODE=supabase`, `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `OWNER_EMAILS`. The magic-link callback page is not built yet (see FINAL_REPORT "Not done").
-5. 👤 Langfuse: EU project, keys into env; set `LANGFUSE_PROJECT_URL`.
+5. ✅ Langfuse: EU project created and keys in `.env.local` (2026-10-15); for Vercel, copy the same keys into the project env.
 6. 👤 Vercel: import the GitHub repo (Hobby), set env vars, deploy. Verify `/api/health`, anonymous 401s, owner run, suspend/resume across invocations, trace arrival.
 
 ## Supabase Free pausing

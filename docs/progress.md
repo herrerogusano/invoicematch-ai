@@ -13,4 +13,6 @@ Times are Europe/Madrid, 2026-10-15. Detailed checks: `.harness/invoicematch-ai/
 | 12:20 | 4 | Real HTTP flow across a server restart; real screenshots via local Chrome. Commit `5ac4564`. |
 | 12:30 | 5–7 | Secret scan, opt-in live eval (refuses without key), CI workflow, docs, README. |
 
-Blocked (owner action needed): Claude API credits, Supabase project, Langfuse keys, Vercel deployment.
+| 14:35 | 5 | Langfuse Cloud EU keys added by the owner; `npm run check:langfuse` PASS (full trace via v2 observations API). |
+
+Blocked (owner action needed): Claude API credits, Supabase project, Vercel deployment.

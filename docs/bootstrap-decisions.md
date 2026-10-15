@@ -7,7 +7,7 @@ Agreed with the owner on 2026-10-15. No secrets in this file.
 | 1 | Repository | Isolated local repo `invoicematch-ai`; private GitHub repo `herrerogusano/invoicematch-ai`; push a feature branch; never force-push | APPROVED (create private repo, push branch) |
 | 2 | Claude API credits | Not yet available (subscription is under 7 days old; expected from 2026-10-16). Mock agent adapter until then. Default cap for later: $3 estimated / 30 live requests, confirmed when credits exist | BLOCKED_CREDITS |
 | 3 | Supabase | Deferred; local Docker Postgres. A new free project will be created later, never reusing SpendInsight | BLOCKED_USER_ACTION |
-| 4 | Langfuse | Deferred; exporter installed, no-op without keys | BLOCKED_USER_ACTION |
+| 4 | Langfuse | Langfuse Cloud EU, Hobby (free) project; keys only in `.env.local`. Exporter stays a no-op without keys | DONE 2026-10-15 (delivery verified) |
 | 5 | Vercel | No deployment in this run | BLOCKED_USER_ACTION |
 | 6 | Owner authentication | Local signed-session adapter now (refused on deployed environments); Supabase Auth adapter wired for later. Owner allowlist via `OWNER_EMAILS` | APPROVED (local) |
 | 7 | Deploy / push | Push allowed for the private repo feature branch; no deployment | APPROVED (push) · BLOCKED (deploy) |
