@@ -20,7 +20,7 @@ Synthetic, fictional data only. No payments, emails, OCR or ERP integration.
 | Unit / integration tests | 34 / 34 · 29 / 29 |
 | Live Claude calls | **Not run yet**: blocked on API credits (`BLOCKED_CREDITS`) |
 | Langfuse Cloud delivery | Verified: full trace (workflow, agent, model, both tools) arrives in Langfuse Cloud EU (`npm run check:langfuse`, mock model) |
-| Public deployment | **None.** Local only by owner decision ([gate](docs/deployment-feasibility.md)) |
+| Public deployment | **https://invoicematch-ai-indol.vercel.app** (Vercel Hobby, `dub1`; Supabase Free eu-west-1). Public read-only samples; owner console behind Supabase magic link. Mock model ([gate](docs/deployment-feasibility.md)) |
 
 The offline runs use a **scripted mock language model**. It is plugged into the real Mastra agent loop, so tool calls and persistence are real, but its "decisions" are a transparent heuristic, not an LLM. The UI labels it everywhere.
 

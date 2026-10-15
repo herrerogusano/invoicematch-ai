@@ -36,7 +36,7 @@ Live vs mock: every agent decision observed in this run came from the **mock mod
 
 ## Deployment
 
-**None.** Owner decision for this run (local only); gate in `docs/deployment-feasibility.md` (items 1–4, 9 verified locally; 5, 6, 8 need owner accounts; 7 verified app-side). Supabase Free projects pause after inactivity and need dashboard restore; no keep-alive is used.
+First run: none (local only). Follow-up on 2026-10-15: **deployed to https://invoicematch-ai-indol.vercel.app** with the owner's approval, after the gate in `docs/deployment-feasibility.md`. It runs the mock model, with the owner console behind Supabase magic link. Supabase Free projects pause after inactivity and need restoring from the dashboard; no keep-alive is used.
 
 ## Costs
 

@@ -5,8 +5,8 @@ Handoff per the Harness Run workflow. Updated 2026-10-15 12:40.
 ## Plan
 
 - Done: steps 0 (research), 1 (skeleton), 2 (DB + engine), 3 (Mastra agent + workflow), 4 (API + UI), 5 (tracing + offline evals), 7 (hardening, CI, docs, private repo + push).
-- Done (follow-up 2026-10-15): Langfuse delivery verified with `npm run check:langfuse`; Supabase project `invoicematch-ai` (eu-west-1) created, magic-link sign-in built and verified end to end locally; Supabase Postgres migrated and seeded (`npm run db:cloud`), cross-process HITL verified on it.
-- Blocked: step 5 live smoke (BLOCKED_CREDITS), step 6 deployment (local-only decision; Supabase/Vercel need owner).
+- Done (follow-up 2026-10-15): Langfuse delivery verified with `npm run check:langfuse`; Supabase project `invoicematch-ai` (eu-west-1) created, magic-link sign-in built and verified end to end locally; Supabase Postgres migrated and seeded (`npm run db:cloud`), cross-process HITL verified on it; deployed to https://invoicematch-ai-indol.vercel.app and verified end to end with the owner.
+- Blocked: step 5 live smoke (BLOCKED_CREDITS).
 - Vault notes: done. Folder rename `Nueva carpeta` → `invoicematch-ai`: FAILED (Windows lock held by the running Claude session itself); the owner renames it after closing the session. Git is unaffected.
 
 ## Outputs
@@ -31,4 +31,4 @@ Handoff per the Harness Run workflow. Updated 2026-10-15 12:40.
 
 ## Next action
 
-When credits exist (from 2026-10-16): confirm budget cap, set `ANTHROPIC_API_KEY` in `.env.local`, run `EVAL_LIVE_CONFIRM=yes npm run eval:live`, record the results in `docs/evaluation.md`. Then Supabase and Vercel per `docs/deployment-feasibility.md`.
+When credits exist (from 2026-10-16): confirm budget cap, set `ANTHROPIC_API_KEY` in `.env.local`, run `EVAL_LIVE_CONFIRM=yes npm run eval:live`, record the results in `docs/evaluation.md`. Then decide whether production switches to `AGENT_MODE=anthropic` (needs `ANTHROPIC_API_KEY` in Vercel env and a redeploy, with a new short-lived Vercel token).
