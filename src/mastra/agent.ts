@@ -103,6 +103,10 @@ export async function runReconciliationAgent(
 ): Promise<AgentRunResult> {
   const mode = testModelOverride && process.env.NODE_ENV === "test" ? "test" : agentMode();
   const modelId = mode === "anthropic" ? liveModelId() : MOCK_MODEL_ID;
+  // Fail closed before any reservation or network call.
+  if (mode === "anthropic" && !process.env.ANTHROPIC_API_KEY) {
+    throw new AgentError("AGENT_NOT_CONFIGURED", "AGENT_MODE=anthropic but ANTHROPIC_API_KEY is not set");
+  }
   const reservation = mode === "anthropic" ? await reserveLiveCall(modelId, meta.reconciliationId).catch((e) => { throw classify(e); }) : null;
 
   const requestContext = new RequestContext();
