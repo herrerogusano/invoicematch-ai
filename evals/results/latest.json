@@ -1,15 +1,15 @@
 {
   "kind": "offline-deterministic",
   "disclaimer": "Agent decisions come from a scripted MOCK model (invoicematch-mock-v1) running inside the real Mastra agent loop. Not LLM evidence.",
-  "startedAt": "2026-10-15T10:16:13.753Z",
-  "finishedAt": "2026-10-15T10:16:22.805Z",
+  "startedAt": "2026-10-15T10:31:15.732Z",
+  "finishedAt": "2026-10-15T10:31:20.197Z",
   "scenarioFileVersion": 1,
   "score": "16 / 16",
   "failed": [],
   "outcomes": [
     {
       "id": "S01-exact-match",
-      "reconciliationId": "de71b0e2-d0ba-4c99-abda-db0d58fb3ac8",
+      "reconciliationId": "fe13fb35-030c-4b6f-a0f1-2f59fc5cf32c",
       "title": "Exact match",
       "expectedStatus": "MATCHED",
       "actualStatus": "MATCHED",
@@ -27,7 +27,7 @@
     },
     {
       "id": "S02-quantity-mismatch",
-      "reconciliationId": "65e0c648-34e8-4ff1-ad06-715374c834cf",
+      "reconciliationId": "b7ff7d65-333e-4b4f-8be8-e228742294f3",
       "title": "Quantity mismatch",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -51,7 +51,7 @@
     },
     {
       "id": "S03-unit-price-mismatch",
-      "reconciliationId": "5ae04ba5-4549-4887-a3db-a0e1cf03abe9",
+      "reconciliationId": "78446678-4369-4c73-8d4d-217d211f9096",
       "title": "Unit price mismatch",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -75,7 +75,7 @@
     },
     {
       "id": "S04-missing-line",
-      "reconciliationId": "64e7925c-5274-4c1f-bd9c-d70a334e6054",
+      "reconciliationId": "87e3ccd7-23bc-448c-9c63-d596cfc968d7",
       "title": "Missing line",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -99,7 +99,7 @@
     },
     {
       "id": "S05-extra-line",
-      "reconciliationId": "26c80115-b6e9-4fee-a3a5-bd5d59ae731e",
+      "reconciliationId": "0e018b1b-1d66-4fb5-bef8-8f5588af8089",
       "title": "Extra line",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -123,7 +123,7 @@
     },
     {
       "id": "S06-wrong-supplier",
-      "reconciliationId": "e144b674-d7f9-4b37-bfc4-cd180a99bc92",
+      "reconciliationId": "4664fdbe-4c1e-45bd-b059-4bf8a4fa4853",
       "title": "Wrong supplier",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -145,7 +145,7 @@
     },
     {
       "id": "S07-wrong-currency",
-      "reconciliationId": "293cf693-591f-40fe-9874-cd42e7a6027d",
+      "reconciliationId": "b6b01347-e12c-414b-9473-06ae438e84ae",
       "title": "Wrong currency",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -167,7 +167,7 @@
     },
     {
       "id": "S08-duplicate-invoice",
-      "reconciliationId": "df76e794-6ed4-465f-86c3-0341f0c00799",
+      "reconciliationId": "614367fa-afc0-42c4-9359-9c5c5990ecdd",
       "title": "Duplicate invoice",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -189,7 +189,7 @@
     },
     {
       "id": "S09-incorrect-tax",
-      "reconciliationId": "2327d342-da46-4473-ab9b-aca7d38de5c5",
+      "reconciliationId": "6803b2bb-e01f-4c1b-9ec9-1c4da209ac83",
       "title": "Incorrect tax rate",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -213,7 +213,7 @@
     },
     {
       "id": "S10-incorrect-total",
-      "reconciliationId": "4dec026d-b93a-4369-940e-18af27bed50c",
+      "reconciliationId": "f4dfd20c-7ba2-4ead-bfe0-ef6bafb87e14",
       "title": "Incorrect declared total",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -235,7 +235,7 @@
     },
     {
       "id": "S11-unknown-po",
-      "reconciliationId": "c18d67b9-f65e-4ed2-915f-3452234252b7",
+      "reconciliationId": "d4a663aa-491a-4e0f-a9dc-0b20ce0ba699",
       "title": "Unknown purchase order",
       "expectedStatus": "UNMATCHED",
       "actualStatus": "UNMATCHED",
@@ -257,7 +257,7 @@
     },
     {
       "id": "S12-ambiguous-candidates",
-      "reconciliationId": "7216c129-5ec5-41cd-83eb-23c45418023c",
+      "reconciliationId": "1d83fbf6-f2f5-4cc3-bca1-c09a1043174d",
       "title": "Ambiguous candidates",
       "expectedStatus": "UNMATCHED",
       "actualStatus": "UNMATCHED",
@@ -286,7 +286,7 @@
     },
     {
       "id": "S13-agent-selected-po",
-      "reconciliationId": "ca8983a8-6da4-4db3-b2c9-d6bf88598f62",
+      "reconciliationId": "3ee27400-9ef8-42b1-bdcc-5f5212826eb4",
       "title": "PO selected by the agent",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -315,7 +315,7 @@
     },
     {
       "id": "S14-closed-po",
-      "reconciliationId": "4da4ee08-f5fa-4f68-991e-fc383c3fc37e",
+      "reconciliationId": "05e867db-8ba5-4d38-9833-9a1f2e7c604e",
       "title": "Closed purchase order",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -337,7 +337,7 @@
     },
     {
       "id": "S15-line-arithmetic",
-      "reconciliationId": "9176792d-4640-453b-8f27-b7135e5c29f2",
+      "reconciliationId": "5016e665-50d1-4c24-aa27-d110eae3004e",
       "title": "Inconsistent printed line amount",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -359,7 +359,7 @@
     },
     {
       "id": "S16-semantic-line-mapping",
-      "reconciliationId": "2d893c0f-4d37-460c-b104-0cbcb56ac55c",
+      "reconciliationId": "a1c421b2-4fc6-4685-be6f-d83a9ab4deb7",
       "title": "Referenced PO, descriptions only",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
