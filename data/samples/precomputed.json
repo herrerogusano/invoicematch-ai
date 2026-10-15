@@ -1,0 +1,1898 @@
+{
+  "generatedAt": "2026-10-15T09:54:01.287Z",
+  "generator": "npm run eval:offline",
+  "disclaimer": "Precomputed with the scripted MOCK agent model on synthetic data. Deterministic rules are real; agent choices are not LLM output.",
+  "samples": [
+    {
+      "scenarioId": "S01-exact-match",
+      "title": "Exact match",
+      "summary": "Every line matches PO-1001 by SKU, quantity, price and tax; totals are consistent.",
+      "invoiceNumber": "INV-A-0001",
+      "supplierName": "Acme Office Supplies S.L. (fictional)",
+      "poNumber": "PO-1001",
+      "currency": "EUR",
+      "status": "MATCHED",
+      "result": {
+        "lines": [
+          {
+            "ok": true,
+            "po": {
+              "sku": "PAP-A4-500",
+              "taxRate": "0.21",
+              "quantity": "20",
+              "subtotal": "90.00",
+              "unitPrice": "4.5",
+              "description": "A4 copy paper, 500 sheets"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "PAP-A4-500",
+              "taxRate": "0.21",
+              "quantity": "20",
+              "subtotal": "90.00",
+              "unitPrice": "4.5",
+              "description": "A4 copy paper, 500 sheets"
+            },
+            "poLineId": "PO-1001-L1",
+            "invoiceLineId": "1",
+            "subtotalDelta": "0.00"
+          },
+          {
+            "ok": true,
+            "po": {
+              "sku": "TON-HP-26A",
+              "taxRate": "0.21",
+              "quantity": "4",
+              "subtotal": "359.60",
+              "unitPrice": "89.9",
+              "description": "HP 26A toner cartridge"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "TON-HP-26A",
+              "taxRate": "0.21",
+              "quantity": "4",
+              "subtotal": "359.60",
+              "unitPrice": "89.9",
+              "description": "HP 26A toner cartridge"
+            },
+            "poLineId": "PO-1001-L2",
+            "invoiceLineId": "2",
+            "subtotalDelta": "0.00"
+          },
+          {
+            "ok": true,
+            "po": {
+              "sku": "STP-24-6",
+              "taxRate": "0.21",
+              "quantity": "10",
+              "subtotal": "23.50",
+              "unitPrice": "2.35",
+              "description": "Staples 24/6, box of 5000"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "STP-24-6",
+              "taxRate": "0.21",
+              "quantity": "10",
+              "subtotal": "23.50",
+              "unitPrice": "2.35",
+              "description": "Staples 24/6, box of 5000"
+            },
+            "poLineId": "PO-1001-L3",
+            "invoiceLineId": "3",
+            "subtotalDelta": "0.00"
+          }
+        ],
+        "status": "MATCHED",
+        "findings": [],
+        "poTotals": {
+          "tax": "99.36",
+          "total": "572.46",
+          "subtotal": "473.10"
+        },
+        "explanation": null,
+        "poSelection": "REFERENCE",
+        "invoiceTotals": {
+          "tax": "99.36",
+          "total": "572.46",
+          "subtotal": "473.10"
+        },
+        "candidateCount": 1,
+        "declaredTotals": {
+          "tax": "99.36",
+          "total": "572.46",
+          "subtotal": "473.10"
+        }
+      },
+      "agent": {
+        "invoked": false,
+        "mode": "mock",
+        "toolCalls": []
+      }
+    },
+    {
+      "scenarioId": "S02-quantity-mismatch",
+      "title": "Quantity mismatch",
+      "summary": "Five toner cartridges invoiced, four ordered.",
+      "invoiceNumber": "INV-A-0002",
+      "supplierName": "Acme Office Supplies S.L. (fictional)",
+      "poNumber": "PO-1001",
+      "currency": "EUR",
+      "status": "REVIEW_REQUIRED",
+      "result": {
+        "lines": [
+          {
+            "ok": true,
+            "po": {
+              "sku": "PAP-A4-500",
+              "taxRate": "0.21",
+              "quantity": "20",
+              "subtotal": "90.00",
+              "unitPrice": "4.5",
+              "description": "A4 copy paper, 500 sheets"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "PAP-A4-500",
+              "taxRate": "0.21",
+              "quantity": "20",
+              "subtotal": "90.00",
+              "unitPrice": "4.5",
+              "description": "A4 copy paper, 500 sheets"
+            },
+            "poLineId": "PO-1001-L1",
+            "invoiceLineId": "1",
+            "subtotalDelta": "0.00"
+          },
+          {
+            "ok": false,
+            "po": {
+              "sku": "TON-HP-26A",
+              "taxRate": "0.21",
+              "quantity": "4",
+              "subtotal": "359.60",
+              "unitPrice": "89.9",
+              "description": "HP 26A toner cartridge"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "TON-HP-26A",
+              "taxRate": "0.21",
+              "quantity": "5",
+              "subtotal": "449.50",
+              "unitPrice": "89.9",
+              "description": "HP 26A toner cartridge"
+            },
+            "poLineId": "PO-1001-L2",
+            "invoiceLineId": "2",
+            "subtotalDelta": "89.90"
+          },
+          {
+            "ok": true,
+            "po": {
+              "sku": "STP-24-6",
+              "taxRate": "0.21",
+              "quantity": "10",
+              "subtotal": "23.50",
+              "unitPrice": "2.35",
+              "description": "Staples 24/6, box of 5000"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "STP-24-6",
+              "taxRate": "0.21",
+              "quantity": "10",
+              "subtotal": "23.50",
+              "unitPrice": "2.35",
+              "description": "Staples 24/6, box of 5000"
+            },
+            "poLineId": "PO-1001-L3",
+            "invoiceLineId": "3",
+            "subtotalDelta": "0.00"
+          }
+        ],
+        "status": "REVIEW_REQUIRED",
+        "findings": [
+          {
+            "delta": "1",
+            "poRef": {
+              "field": "quantity",
+              "lineId": "PO-1001-L2"
+            },
+            "actual": "5",
+            "ruleId": "LINE_QUANTITY_MISMATCH",
+            "message": "Invoiced quantity differs from ordered quantity",
+            "expected": "4",
+            "severity": "ERROR",
+            "invoiceRef": {
+              "field": "quantity",
+              "lineId": "2"
+            }
+          },
+          {
+            "delta": "108.78",
+            "poRef": {
+              "field": "total"
+            },
+            "actual": "681.24",
+            "ruleId": "TOTAL_VS_PO_MISMATCH",
+            "message": "Recomputed invoice total differs from the purchase order total",
+            "expected": "572.46",
+            "severity": "ERROR",
+            "invoiceRef": {
+              "field": "total"
+            }
+          }
+        ],
+        "poTotals": {
+          "tax": "99.36",
+          "total": "572.46",
+          "subtotal": "473.10"
+        },
+        "explanation": null,
+        "poSelection": "REFERENCE",
+        "invoiceTotals": {
+          "tax": "118.24",
+          "total": "681.24",
+          "subtotal": "563.00"
+        },
+        "candidateCount": 1,
+        "declaredTotals": {
+          "tax": "118.24",
+          "total": "681.24",
+          "subtotal": "563.00"
+        }
+      },
+      "agent": {
+        "invoked": false,
+        "mode": "mock",
+        "toolCalls": []
+      }
+    },
+    {
+      "scenarioId": "S03-unit-price-mismatch",
+      "title": "Unit price mismatch",
+      "summary": "Bearings invoiced at 3.20 instead of the ordered 3.12.",
+      "invoiceNumber": "INV-N-0001",
+      "supplierName": "Nordwind Industrial GmbH (fictional)",
+      "poNumber": "PO-2001",
+      "currency": "EUR",
+      "status": "REVIEW_REQUIRED",
+      "result": {
+        "lines": [
+          {
+            "ok": false,
+            "po": {
+              "sku": "BRG-6204",
+              "taxRate": "0.19",
+              "quantity": "100",
+              "subtotal": "312.00",
+              "unitPrice": "3.12",
+              "description": "Ball bearing 6204-2RS"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "BRG-6204",
+              "taxRate": "0.19",
+              "quantity": "100",
+              "subtotal": "320.00",
+              "unitPrice": "3.2",
+              "description": "Ball bearing 6204-2RS"
+            },
+            "poLineId": "PO-2001-L1",
+            "invoiceLineId": "1",
+            "subtotalDelta": "8.00"
+          },
+          {
+            "ok": true,
+            "po": {
+              "sku": "BLT-M8-40",
+              "taxRate": "0.19",
+              "quantity": "12",
+              "subtotal": "177.60",
+              "unitPrice": "14.8",
+              "description": "Hex bolt M8x40, box of 100"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "BLT-M8-40",
+              "taxRate": "0.19",
+              "quantity": "12",
+              "subtotal": "177.60",
+              "unitPrice": "14.8",
+              "description": "Hex bolt M8x40, box of 100"
+            },
+            "poLineId": "PO-2001-L2",
+            "invoiceLineId": "2",
+            "subtotalDelta": "0.00"
+          },
+          {
+            "ok": true,
+            "po": {
+              "sku": "GRS-500",
+              "taxRate": "0.19",
+              "quantity": "6",
+              "subtotal": "58.50",
+              "unitPrice": "9.75",
+              "description": "Lithium grease 500 g"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "GRS-500",
+              "taxRate": "0.19",
+              "quantity": "6",
+              "subtotal": "58.50",
+              "unitPrice": "9.75",
+              "description": "Lithium grease 500 g"
+            },
+            "poLineId": "PO-2001-L3",
+            "invoiceLineId": "3",
+            "subtotalDelta": "0.00"
+          }
+        ],
+        "status": "REVIEW_REQUIRED",
+        "findings": [
+          {
+            "delta": "0.08",
+            "poRef": {
+              "field": "unitPrice",
+              "lineId": "PO-2001-L1"
+            },
+            "actual": "3.2",
+            "ruleId": "LINE_UNIT_PRICE_MISMATCH",
+            "message": "Invoiced unit price differs from ordered unit price",
+            "expected": "3.12",
+            "severity": "ERROR",
+            "invoiceRef": {
+              "field": "unitPrice",
+              "lineId": "1"
+            }
+          },
+          {
+            "delta": "9.52",
+            "poRef": {
+              "field": "total"
+            },
+            "actual": "661.76",
+            "ruleId": "TOTAL_VS_PO_MISMATCH",
+            "message": "Recomputed invoice total differs from the purchase order total",
+            "expected": "652.24",
+            "severity": "ERROR",
+            "invoiceRef": {
+              "field": "total"
+            }
+          }
+        ],
+        "poTotals": {
+          "tax": "104.14",
+          "total": "652.24",
+          "subtotal": "548.10"
+        },
+        "explanation": null,
+        "poSelection": "REFERENCE",
+        "invoiceTotals": {
+          "tax": "105.66",
+          "total": "661.76",
+          "subtotal": "556.10"
+        },
+        "candidateCount": 1,
+        "declaredTotals": {
+          "tax": "105.66",
+          "total": "661.76",
+          "subtotal": "556.10"
+        }
+      },
+      "agent": {
+        "invoked": false,
+        "mode": "mock",
+        "toolCalls": []
+      }
+    },
+    {
+      "scenarioId": "S04-missing-line",
+      "title": "Missing line",
+      "summary": "The grease line ordered on PO-2001 is not invoiced.",
+      "invoiceNumber": "INV-N-0002",
+      "supplierName": "Nordwind Industrial GmbH (fictional)",
+      "poNumber": "PO-2001",
+      "currency": "EUR",
+      "status": "REVIEW_REQUIRED",
+      "result": {
+        "lines": [
+          {
+            "ok": true,
+            "po": {
+              "sku": "BRG-6204",
+              "taxRate": "0.19",
+              "quantity": "100",
+              "subtotal": "312.00",
+              "unitPrice": "3.12",
+              "description": "Ball bearing 6204-2RS"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "BRG-6204",
+              "taxRate": "0.19",
+              "quantity": "100",
+              "subtotal": "312.00",
+              "unitPrice": "3.12",
+              "description": "Ball bearing 6204-2RS"
+            },
+            "poLineId": "PO-2001-L1",
+            "invoiceLineId": "1",
+            "subtotalDelta": "0.00"
+          },
+          {
+            "ok": true,
+            "po": {
+              "sku": "BLT-M8-40",
+              "taxRate": "0.19",
+              "quantity": "12",
+              "subtotal": "177.60",
+              "unitPrice": "14.8",
+              "description": "Hex bolt M8x40, box of 100"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "BLT-M8-40",
+              "taxRate": "0.19",
+              "quantity": "12",
+              "subtotal": "177.60",
+              "unitPrice": "14.8",
+              "description": "Hex bolt M8x40, box of 100"
+            },
+            "poLineId": "PO-2001-L2",
+            "invoiceLineId": "2",
+            "subtotalDelta": "0.00"
+          },
+          {
+            "ok": false,
+            "po": {
+              "sku": "GRS-500",
+              "taxRate": "0.19",
+              "quantity": "6",
+              "subtotal": "58.50",
+              "unitPrice": "9.75",
+              "description": "Lithium grease 500 g"
+            },
+            "basis": null,
+            "invoice": null,
+            "poLineId": "PO-2001-L3",
+            "invoiceLineId": null,
+            "subtotalDelta": null
+          }
+        ],
+        "status": "REVIEW_REQUIRED",
+        "findings": [
+          {
+            "delta": null,
+            "poRef": {
+              "field": "line",
+              "lineId": "PO-2001-L3"
+            },
+            "actual": null,
+            "ruleId": "LINE_MISSING_ON_INVOICE",
+            "message": "Purchase order line is not present on the invoice",
+            "expected": "58.50",
+            "severity": "WARNING",
+            "invoiceRef": null
+          },
+          {
+            "delta": "-69.62",
+            "poRef": {
+              "field": "total"
+            },
+            "actual": "582.62",
+            "ruleId": "TOTAL_VS_PO_MISMATCH",
+            "message": "Recomputed invoice total differs from the purchase order total",
+            "expected": "652.24",
+            "severity": "ERROR",
+            "invoiceRef": {
+              "field": "total"
+            }
+          }
+        ],
+        "poTotals": {
+          "tax": "104.14",
+          "total": "652.24",
+          "subtotal": "548.10"
+        },
+        "explanation": null,
+        "poSelection": "REFERENCE",
+        "invoiceTotals": {
+          "tax": "93.02",
+          "total": "582.62",
+          "subtotal": "489.60"
+        },
+        "candidateCount": 1,
+        "declaredTotals": {
+          "tax": "93.02",
+          "total": "582.62",
+          "subtotal": "489.60"
+        }
+      },
+      "agent": {
+        "invoked": false,
+        "mode": "mock",
+        "toolCalls": []
+      }
+    },
+    {
+      "scenarioId": "S05-extra-line",
+      "title": "Extra line",
+      "summary": "An installation service that was never ordered is added to PO-1002.",
+      "invoiceNumber": "INV-A-0003",
+      "supplierName": "Acme Office Supplies S.L. (fictional)",
+      "poNumber": "PO-1002",
+      "currency": "EUR",
+      "status": "REVIEW_REQUIRED",
+      "result": {
+        "lines": [
+          {
+            "ok": true,
+            "po": {
+              "sku": "CHAIR-ERGO",
+              "taxRate": "0.21",
+              "quantity": "5",
+              "subtotal": "945.00",
+              "unitPrice": "189",
+              "description": "Ergonomic office chair"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "CHAIR-ERGO",
+              "taxRate": "0.21",
+              "quantity": "5",
+              "subtotal": "945.00",
+              "unitPrice": "189",
+              "description": "Ergonomic office chair"
+            },
+            "poLineId": "PO-1002-L1",
+            "invoiceLineId": "1",
+            "subtotalDelta": "0.00"
+          },
+          {
+            "ok": true,
+            "po": {
+              "sku": "LAMP-LED",
+              "taxRate": "0.21",
+              "quantity": "5",
+              "subtotal": "174.95",
+              "unitPrice": "34.99",
+              "description": "LED desk lamp"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "LAMP-LED",
+              "taxRate": "0.21",
+              "quantity": "5",
+              "subtotal": "174.95",
+              "unitPrice": "34.99",
+              "description": "LED desk lamp"
+            },
+            "poLineId": "PO-1002-L2",
+            "invoiceLineId": "2",
+            "subtotalDelta": "0.00"
+          },
+          {
+            "ok": false,
+            "po": null,
+            "basis": null,
+            "invoice": {
+              "sku": "SVC-INSTALL",
+              "taxRate": "0.21",
+              "quantity": "1",
+              "subtotal": "80.00",
+              "unitPrice": "80",
+              "description": "Delivery and installation service"
+            },
+            "poLineId": null,
+            "invoiceLineId": "3",
+            "subtotalDelta": null
+          }
+        ],
+        "status": "REVIEW_REQUIRED",
+        "findings": [
+          {
+            "delta": null,
+            "poRef": null,
+            "actual": "80.00",
+            "ruleId": "LINE_UNMATCHED_INVOICE",
+            "message": "Invoice line has no corresponding purchase order line",
+            "expected": null,
+            "severity": "ERROR",
+            "invoiceRef": {
+              "field": "line",
+              "lineId": "3"
+            }
+          },
+          {
+            "delta": "96.80",
+            "poRef": {
+              "field": "total"
+            },
+            "actual": "1451.94",
+            "ruleId": "TOTAL_VS_PO_MISMATCH",
+            "message": "Recomputed invoice total differs from the purchase order total",
+            "expected": "1355.14",
+            "severity": "ERROR",
+            "invoiceRef": {
+              "field": "total"
+            }
+          }
+        ],
+        "poTotals": {
+          "tax": "235.19",
+          "total": "1355.14",
+          "subtotal": "1119.95"
+        },
+        "explanation": null,
+        "poSelection": "REFERENCE",
+        "invoiceTotals": {
+          "tax": "251.99",
+          "total": "1451.94",
+          "subtotal": "1199.95"
+        },
+        "candidateCount": 1,
+        "declaredTotals": {
+          "tax": "251.99",
+          "total": "1451.94",
+          "subtotal": "1199.95"
+        }
+      },
+      "agent": {
+        "invoked": false,
+        "mode": "mock",
+        "toolCalls": []
+      }
+    },
+    {
+      "scenarioId": "S06-wrong-supplier",
+      "title": "Wrong supplier",
+      "summary": "Acme invoices exactly the lines of a Nordwind purchase order.",
+      "invoiceNumber": "INV-A-0004",
+      "supplierName": "Acme Office Supplies S.L. (fictional)",
+      "poNumber": "PO-2001",
+      "currency": "EUR",
+      "status": "REVIEW_REQUIRED",
+      "result": {
+        "lines": [
+          {
+            "ok": true,
+            "po": {
+              "sku": "BRG-6204",
+              "taxRate": "0.19",
+              "quantity": "100",
+              "subtotal": "312.00",
+              "unitPrice": "3.12",
+              "description": "Ball bearing 6204-2RS"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "BRG-6204",
+              "taxRate": "0.19",
+              "quantity": "100",
+              "subtotal": "312.00",
+              "unitPrice": "3.12",
+              "description": "Ball bearing 6204-2RS"
+            },
+            "poLineId": "PO-2001-L1",
+            "invoiceLineId": "1",
+            "subtotalDelta": "0.00"
+          },
+          {
+            "ok": true,
+            "po": {
+              "sku": "BLT-M8-40",
+              "taxRate": "0.19",
+              "quantity": "12",
+              "subtotal": "177.60",
+              "unitPrice": "14.8",
+              "description": "Hex bolt M8x40, box of 100"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "BLT-M8-40",
+              "taxRate": "0.19",
+              "quantity": "12",
+              "subtotal": "177.60",
+              "unitPrice": "14.8",
+              "description": "Hex bolt M8x40, box of 100"
+            },
+            "poLineId": "PO-2001-L2",
+            "invoiceLineId": "2",
+            "subtotalDelta": "0.00"
+          },
+          {
+            "ok": true,
+            "po": {
+              "sku": "GRS-500",
+              "taxRate": "0.19",
+              "quantity": "6",
+              "subtotal": "58.50",
+              "unitPrice": "9.75",
+              "description": "Lithium grease 500 g"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "GRS-500",
+              "taxRate": "0.19",
+              "quantity": "6",
+              "subtotal": "58.50",
+              "unitPrice": "9.75",
+              "description": "Lithium grease 500 g"
+            },
+            "poLineId": "PO-2001-L3",
+            "invoiceLineId": "3",
+            "subtotalDelta": "0.00"
+          }
+        ],
+        "status": "REVIEW_REQUIRED",
+        "findings": [
+          {
+            "delta": null,
+            "poRef": {
+              "field": "supplier"
+            },
+            "actual": "5e905c71-0edd-4663-a214-4b444df0a593",
+            "ruleId": "SUPPLIER_MISMATCH",
+            "message": "Invoice supplier differs from the purchase order supplier",
+            "expected": "a7906ea3-0631-4e6c-b202-3f12953a434f",
+            "severity": "ERROR",
+            "invoiceRef": {
+              "field": "supplier"
+            }
+          }
+        ],
+        "poTotals": {
+          "tax": "104.14",
+          "total": "652.24",
+          "subtotal": "548.10"
+        },
+        "explanation": null,
+        "poSelection": "REFERENCE",
+        "invoiceTotals": {
+          "tax": "104.14",
+          "total": "652.24",
+          "subtotal": "548.10"
+        },
+        "candidateCount": 1,
+        "declaredTotals": {
+          "tax": "104.14",
+          "total": "652.24",
+          "subtotal": "548.10"
+        }
+      },
+      "agent": {
+        "invoked": false,
+        "mode": "mock",
+        "toolCalls": []
+      }
+    },
+    {
+      "scenarioId": "S07-wrong-currency",
+      "title": "Wrong currency",
+      "summary": "Invoice in EUR against a USD purchase order; no conversion is attempted.",
+      "invoiceNumber": "INV-B-0002",
+      "supplierName": "Bluepeak Software Ltd (fictional)",
+      "poNumber": "PO-3001",
+      "currency": "EUR",
+      "status": "REVIEW_REQUIRED",
+      "result": {
+        "lines": [
+          {
+            "ok": true,
+            "po": {
+              "sku": "LIC-PRO-12M",
+              "taxRate": "0",
+              "quantity": "10",
+              "subtotal": "1200.00",
+              "unitPrice": "120",
+              "description": "Pro license, annual subscription"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "LIC-PRO-12M",
+              "taxRate": "0",
+              "quantity": "10",
+              "subtotal": "1200.00",
+              "unitPrice": "120",
+              "description": "Pro license, annual subscription"
+            },
+            "poLineId": "PO-3001-L1",
+            "invoiceLineId": "1",
+            "subtotalDelta": null
+          },
+          {
+            "ok": true,
+            "po": {
+              "sku": "SUP-PREM-12M",
+              "taxRate": "0",
+              "quantity": "1",
+              "subtotal": "600.00",
+              "unitPrice": "600",
+              "description": "Premium support, annual"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "SUP-PREM-12M",
+              "taxRate": "0",
+              "quantity": "1",
+              "subtotal": "600.00",
+              "unitPrice": "600",
+              "description": "Premium support, annual"
+            },
+            "poLineId": "PO-3001-L2",
+            "invoiceLineId": "2",
+            "subtotalDelta": null
+          }
+        ],
+        "status": "REVIEW_REQUIRED",
+        "findings": [
+          {
+            "delta": null,
+            "poRef": {
+              "field": "currency"
+            },
+            "actual": "EUR",
+            "ruleId": "CURRENCY_MISMATCH",
+            "message": "Invoice currency differs from the purchase order currency",
+            "expected": "USD",
+            "severity": "ERROR",
+            "invoiceRef": {
+              "field": "currency"
+            }
+          }
+        ],
+        "poTotals": {
+          "tax": "0.00",
+          "total": "1800.00",
+          "subtotal": "1800.00"
+        },
+        "explanation": null,
+        "poSelection": "REFERENCE",
+        "invoiceTotals": {
+          "tax": "0.00",
+          "total": "1800.00",
+          "subtotal": "1800.00"
+        },
+        "candidateCount": 1,
+        "declaredTotals": {
+          "tax": "0.00",
+          "total": "1800.00",
+          "subtotal": "1800.00"
+        }
+      },
+      "agent": {
+        "invoked": false,
+        "mode": "mock",
+        "toolCalls": []
+      }
+    },
+    {
+      "scenarioId": "S08-duplicate-invoice",
+      "title": "Duplicate invoice",
+      "summary": "INV-A-0999 was already received (seeded history); the identical invoice arrives again.",
+      "invoiceNumber": "INV-A-0999",
+      "supplierName": "Acme Office Supplies S.L. (fictional)",
+      "poNumber": "PO-1002",
+      "currency": "EUR",
+      "status": "REVIEW_REQUIRED",
+      "result": {
+        "lines": [
+          {
+            "ok": true,
+            "po": {
+              "sku": "CHAIR-ERGO",
+              "taxRate": "0.21",
+              "quantity": "5",
+              "subtotal": "945.00",
+              "unitPrice": "189",
+              "description": "Ergonomic office chair"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "CHAIR-ERGO",
+              "taxRate": "0.21",
+              "quantity": "5",
+              "subtotal": "945.00",
+              "unitPrice": "189",
+              "description": "Ergonomic office chair"
+            },
+            "poLineId": "PO-1002-L1",
+            "invoiceLineId": "1",
+            "subtotalDelta": "0.00"
+          },
+          {
+            "ok": true,
+            "po": {
+              "sku": "LAMP-LED",
+              "taxRate": "0.21",
+              "quantity": "5",
+              "subtotal": "174.95",
+              "unitPrice": "34.99",
+              "description": "LED desk lamp"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "LAMP-LED",
+              "taxRate": "0.21",
+              "quantity": "5",
+              "subtotal": "174.95",
+              "unitPrice": "34.99",
+              "description": "LED desk lamp"
+            },
+            "poLineId": "PO-1002-L2",
+            "invoiceLineId": "2",
+            "subtotalDelta": "0.00"
+          }
+        ],
+        "status": "REVIEW_REQUIRED",
+        "findings": [
+          {
+            "delta": null,
+            "poRef": null,
+            "actual": "INV-A-0999",
+            "ruleId": "DUPLICATE_INVOICE",
+            "message": "Another invoice with the same number exists for this supplier",
+            "expected": "previous invoice ids: 959b95de-cda1-46b0-90b4-4ef938d86aaa",
+            "severity": "ERROR",
+            "invoiceRef": {
+              "field": "invoiceNumber"
+            }
+          }
+        ],
+        "poTotals": {
+          "tax": "235.19",
+          "total": "1355.14",
+          "subtotal": "1119.95"
+        },
+        "explanation": null,
+        "poSelection": "REFERENCE",
+        "invoiceTotals": {
+          "tax": "235.19",
+          "total": "1355.14",
+          "subtotal": "1119.95"
+        },
+        "candidateCount": 1,
+        "declaredTotals": {
+          "tax": "235.19",
+          "total": "1355.14",
+          "subtotal": "1119.95"
+        }
+      },
+      "agent": {
+        "invoked": false,
+        "mode": "mock",
+        "toolCalls": []
+      }
+    },
+    {
+      "scenarioId": "S09-incorrect-tax",
+      "title": "Incorrect tax rate",
+      "summary": "Grease invoiced at 21% VAT; the PO says 19%.",
+      "invoiceNumber": "INV-N-0003",
+      "supplierName": "Nordwind Industrial GmbH (fictional)",
+      "poNumber": "PO-2001",
+      "currency": "EUR",
+      "status": "REVIEW_REQUIRED",
+      "result": {
+        "lines": [
+          {
+            "ok": true,
+            "po": {
+              "sku": "BRG-6204",
+              "taxRate": "0.19",
+              "quantity": "100",
+              "subtotal": "312.00",
+              "unitPrice": "3.12",
+              "description": "Ball bearing 6204-2RS"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "BRG-6204",
+              "taxRate": "0.19",
+              "quantity": "100",
+              "subtotal": "312.00",
+              "unitPrice": "3.12",
+              "description": "Ball bearing 6204-2RS"
+            },
+            "poLineId": "PO-2001-L1",
+            "invoiceLineId": "1",
+            "subtotalDelta": "0.00"
+          },
+          {
+            "ok": true,
+            "po": {
+              "sku": "BLT-M8-40",
+              "taxRate": "0.19",
+              "quantity": "12",
+              "subtotal": "177.60",
+              "unitPrice": "14.8",
+              "description": "Hex bolt M8x40, box of 100"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "BLT-M8-40",
+              "taxRate": "0.19",
+              "quantity": "12",
+              "subtotal": "177.60",
+              "unitPrice": "14.8",
+              "description": "Hex bolt M8x40, box of 100"
+            },
+            "poLineId": "PO-2001-L2",
+            "invoiceLineId": "2",
+            "subtotalDelta": "0.00"
+          },
+          {
+            "ok": false,
+            "po": {
+              "sku": "GRS-500",
+              "taxRate": "0.19",
+              "quantity": "6",
+              "subtotal": "58.50",
+              "unitPrice": "9.75",
+              "description": "Lithium grease 500 g"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "GRS-500",
+              "taxRate": "0.21",
+              "quantity": "6",
+              "subtotal": "58.50",
+              "unitPrice": "9.75",
+              "description": "Lithium grease 500 g"
+            },
+            "poLineId": "PO-2001-L3",
+            "invoiceLineId": "3",
+            "subtotalDelta": "0.00"
+          }
+        ],
+        "status": "REVIEW_REQUIRED",
+        "findings": [
+          {
+            "delta": "0.02",
+            "poRef": {
+              "field": "taxRate",
+              "lineId": "PO-2001-L3"
+            },
+            "actual": "0.21",
+            "ruleId": "LINE_TAX_RATE_MISMATCH",
+            "message": "Invoiced tax rate differs from ordered tax rate",
+            "expected": "0.19",
+            "severity": "ERROR",
+            "invoiceRef": {
+              "field": "taxRate",
+              "lineId": "3"
+            }
+          },
+          {
+            "delta": "1.17",
+            "poRef": {
+              "field": "total"
+            },
+            "actual": "653.41",
+            "ruleId": "TOTAL_VS_PO_MISMATCH",
+            "message": "Recomputed invoice total differs from the purchase order total",
+            "expected": "652.24",
+            "severity": "ERROR",
+            "invoiceRef": {
+              "field": "total"
+            }
+          }
+        ],
+        "poTotals": {
+          "tax": "104.14",
+          "total": "652.24",
+          "subtotal": "548.10"
+        },
+        "explanation": null,
+        "poSelection": "REFERENCE",
+        "invoiceTotals": {
+          "tax": "105.31",
+          "total": "653.41",
+          "subtotal": "548.10"
+        },
+        "candidateCount": 1,
+        "declaredTotals": {
+          "tax": "105.31",
+          "total": "653.41",
+          "subtotal": "548.10"
+        }
+      },
+      "agent": {
+        "invoked": false,
+        "mode": "mock",
+        "toolCalls": []
+      }
+    },
+    {
+      "scenarioId": "S10-incorrect-total",
+      "title": "Incorrect declared total",
+      "summary": "Lines match PO-1002 but the printed total is 10.00 too high.",
+      "invoiceNumber": "INV-A-0005",
+      "supplierName": "Acme Office Supplies S.L. (fictional)",
+      "poNumber": "PO-1002",
+      "currency": "EUR",
+      "status": "REVIEW_REQUIRED",
+      "result": {
+        "lines": [
+          {
+            "ok": true,
+            "po": {
+              "sku": "CHAIR-ERGO",
+              "taxRate": "0.21",
+              "quantity": "5",
+              "subtotal": "945.00",
+              "unitPrice": "189",
+              "description": "Ergonomic office chair"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "CHAIR-ERGO",
+              "taxRate": "0.21",
+              "quantity": "5",
+              "subtotal": "945.00",
+              "unitPrice": "189",
+              "description": "Ergonomic office chair"
+            },
+            "poLineId": "PO-1002-L1",
+            "invoiceLineId": "1",
+            "subtotalDelta": "0.00"
+          },
+          {
+            "ok": true,
+            "po": {
+              "sku": "LAMP-LED",
+              "taxRate": "0.21",
+              "quantity": "5",
+              "subtotal": "174.95",
+              "unitPrice": "34.99",
+              "description": "LED desk lamp"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "LAMP-LED",
+              "taxRate": "0.21",
+              "quantity": "5",
+              "subtotal": "174.95",
+              "unitPrice": "34.99",
+              "description": "LED desk lamp"
+            },
+            "poLineId": "PO-1002-L2",
+            "invoiceLineId": "2",
+            "subtotalDelta": "0.00"
+          }
+        ],
+        "status": "REVIEW_REQUIRED",
+        "findings": [
+          {
+            "delta": "10.00",
+            "poRef": null,
+            "actual": "1365.14",
+            "ruleId": "INV_TOTAL_ARITHMETIC",
+            "message": "Declared invoice total differs from recomputed subtotal + tax",
+            "expected": "1355.14",
+            "severity": "ERROR",
+            "invoiceRef": {
+              "field": "declared.total"
+            }
+          }
+        ],
+        "poTotals": {
+          "tax": "235.19",
+          "total": "1355.14",
+          "subtotal": "1119.95"
+        },
+        "explanation": null,
+        "poSelection": "REFERENCE",
+        "invoiceTotals": {
+          "tax": "235.19",
+          "total": "1355.14",
+          "subtotal": "1119.95"
+        },
+        "candidateCount": 1,
+        "declaredTotals": {
+          "tax": "235.19",
+          "total": "1365.14",
+          "subtotal": "1119.95"
+        }
+      },
+      "agent": {
+        "invoked": false,
+        "mode": "mock",
+        "toolCalls": []
+      }
+    },
+    {
+      "scenarioId": "S11-unknown-po",
+      "title": "Unknown purchase order",
+      "summary": "References PO-9999, which does not exist; the supplier has no purchase orders at all.",
+      "invoiceNumber": "INV-O-0001",
+      "supplierName": "Orca Logistics S.A. (fictional)",
+      "poNumber": null,
+      "currency": "EUR",
+      "status": "UNMATCHED",
+      "result": {
+        "lines": [
+          {
+            "ok": false,
+            "po": null,
+            "basis": null,
+            "invoice": {
+              "sku": null,
+              "taxRate": "0.21",
+              "quantity": "2",
+              "subtotal": "480.00",
+              "unitPrice": "240",
+              "description": "Pallet transport Madrid-Valencia"
+            },
+            "poLineId": null,
+            "invoiceLineId": "1",
+            "subtotalDelta": null
+          },
+          {
+            "ok": false,
+            "po": null,
+            "basis": null,
+            "invoice": {
+              "sku": null,
+              "taxRate": "0.21",
+              "quantity": "1",
+              "subtotal": "36.50",
+              "unitPrice": "36.5",
+              "description": "Fuel surcharge"
+            },
+            "poLineId": null,
+            "invoiceLineId": "2",
+            "subtotalDelta": null
+          }
+        ],
+        "status": "UNMATCHED",
+        "findings": [
+          {
+            "delta": null,
+            "poRef": null,
+            "actual": "PO-9999",
+            "ruleId": "PO_NOT_FOUND",
+            "message": "No purchase order could be associated with the invoice",
+            "expected": null,
+            "severity": "ERROR",
+            "invoiceRef": {
+              "field": "poReference"
+            }
+          }
+        ],
+        "poTotals": null,
+        "explanation": null,
+        "poSelection": "NONE",
+        "invoiceTotals": {
+          "tax": "108.47",
+          "total": "624.97",
+          "subtotal": "516.50"
+        },
+        "candidateCount": 0,
+        "declaredTotals": {
+          "tax": "108.47",
+          "total": "624.97",
+          "subtotal": "516.50"
+        }
+      },
+      "agent": {
+        "invoked": false,
+        "mode": "mock",
+        "toolCalls": []
+      }
+    },
+    {
+      "scenarioId": "S12-ambiguous-candidates",
+      "title": "Ambiguous candidates",
+      "summary": "No PO reference and two identical open Nordwind POs; the agent must not pick one.",
+      "invoiceNumber": "INV-N-0005",
+      "supplierName": "Nordwind Industrial GmbH (fictional)",
+      "poNumber": null,
+      "currency": "EUR",
+      "status": "UNMATCHED",
+      "result": {
+        "lines": [
+          {
+            "ok": false,
+            "po": null,
+            "basis": null,
+            "invoice": {
+              "sku": null,
+              "taxRate": "0.19",
+              "quantity": "50",
+              "subtotal": "170.00",
+              "unitPrice": "3.4",
+              "description": "Sealed ball bearing 6205"
+            },
+            "poLineId": null,
+            "invoiceLineId": "1",
+            "subtotalDelta": null
+          },
+          {
+            "ok": false,
+            "po": null,
+            "basis": null,
+            "invoice": {
+              "sku": null,
+              "taxRate": "0.19",
+              "quantity": "4",
+              "subtotal": "24.80",
+              "unitPrice": "6.2",
+              "description": "M8 hex nuts (box of 100)"
+            },
+            "poLineId": null,
+            "invoiceLineId": "2",
+            "subtotalDelta": null
+          }
+        ],
+        "status": "UNMATCHED",
+        "findings": [
+          {
+            "delta": null,
+            "poRef": null,
+            "actual": "LOW",
+            "ruleId": "LOW_AGENT_CONFIDENCE",
+            "message": "Agent reported low confidence in its selection or mapping",
+            "expected": null,
+            "severity": "WARNING",
+            "invoiceRef": null
+          },
+          {
+            "delta": null,
+            "poRef": null,
+            "actual": null,
+            "ruleId": "PO_AMBIGUOUS",
+            "message": "Several purchase orders are plausible and none was selected with certainty",
+            "expected": "3 plausible candidates",
+            "severity": "ERROR",
+            "invoiceRef": {
+              "field": "poReference"
+            }
+          }
+        ],
+        "poTotals": null,
+        "explanation": "[MOCK] deterministic heuristic, not an LLM candidates PO-2002 and PO-2003 are equally plausible (1.45 vs 1.45)",
+        "poSelection": "NONE",
+        "invoiceTotals": {
+          "tax": "37.01",
+          "total": "231.81",
+          "subtotal": "194.80"
+        },
+        "candidateCount": 3,
+        "declaredTotals": {
+          "tax": "37.01",
+          "total": "231.81",
+          "subtotal": "194.80"
+        }
+      },
+      "agent": {
+        "invoked": true,
+        "mode": "mock",
+        "toolCalls": [
+          "lookupPurchaseOrders",
+          "getSupplierAndOrderDetails",
+          "getSupplierAndOrderDetails",
+          "getSupplierAndOrderDetails"
+        ]
+      }
+    },
+    {
+      "scenarioId": "S13-agent-selected-po",
+      "title": "PO selected by the agent",
+      "summary": "No PO reference and no SKUs; one plausible Bluepeak PO. The agent selects it, the mapping is semantic, so review is required.",
+      "invoiceNumber": "INV-B-0003",
+      "supplierName": "Bluepeak Software Ltd (fictional)",
+      "poNumber": "PO-3001",
+      "currency": "USD",
+      "status": "REVIEW_REQUIRED",
+      "result": {
+        "lines": [
+          {
+            "ok": false,
+            "po": {
+              "sku": "LIC-PRO-12M",
+              "taxRate": "0",
+              "quantity": "10",
+              "subtotal": "1200.00",
+              "unitPrice": "120",
+              "description": "Pro license, annual subscription"
+            },
+            "basis": "SEMANTIC",
+            "invoice": {
+              "sku": null,
+              "taxRate": "0",
+              "quantity": "10",
+              "subtotal": "1200.00",
+              "unitPrice": "120",
+              "description": "Professional edition licence (12 months)"
+            },
+            "poLineId": "PO-3001-L1",
+            "invoiceLineId": "1",
+            "subtotalDelta": "0.00"
+          },
+          {
+            "ok": false,
+            "po": {
+              "sku": "SUP-PREM-12M",
+              "taxRate": "0",
+              "quantity": "1",
+              "subtotal": "600.00",
+              "unitPrice": "600",
+              "description": "Premium support, annual"
+            },
+            "basis": "SEMANTIC",
+            "invoice": {
+              "sku": null,
+              "taxRate": "0",
+              "quantity": "1",
+              "subtotal": "600.00",
+              "unitPrice": "600",
+              "description": "Premium support plan, yearly"
+            },
+            "poLineId": "PO-3001-L2",
+            "invoiceLineId": "2",
+            "subtotalDelta": "0.00"
+          }
+        ],
+        "status": "REVIEW_REQUIRED",
+        "findings": [
+          {
+            "delta": null,
+            "poRef": {
+              "field": "poNumber"
+            },
+            "actual": null,
+            "ruleId": "PO_SELECTED_BY_AGENT",
+            "message": "Purchase order was selected by the agent, not by an explicit reference",
+            "expected": "PO-3001",
+            "severity": "WARNING",
+            "invoiceRef": {
+              "field": "poReference"
+            }
+          },
+          {
+            "delta": null,
+            "poRef": {
+              "field": "description",
+              "lineId": "PO-3001-L1"
+            },
+            "actual": "Professional edition licence (12 months)",
+            "ruleId": "LINE_SEMANTIC_MAPPING",
+            "message": "Line correspondence is semantic (agent-proposed), not an exact SKU match",
+            "expected": "Pro license, annual subscription",
+            "severity": "WARNING",
+            "invoiceRef": {
+              "field": "description",
+              "lineId": "1"
+            }
+          },
+          {
+            "delta": null,
+            "poRef": {
+              "field": "description",
+              "lineId": "PO-3001-L2"
+            },
+            "actual": "Premium support plan, yearly",
+            "ruleId": "LINE_SEMANTIC_MAPPING",
+            "message": "Line correspondence is semantic (agent-proposed), not an exact SKU match",
+            "expected": "Premium support, annual",
+            "severity": "WARNING",
+            "invoiceRef": {
+              "field": "description",
+              "lineId": "2"
+            }
+          }
+        ],
+        "poTotals": {
+          "tax": "0.00",
+          "total": "1800.00",
+          "subtotal": "1800.00"
+        },
+        "explanation": "[MOCK] deterministic heuristic, not an LLM selected PO-3001 with score 1.01",
+        "poSelection": "AGENT",
+        "invoiceTotals": {
+          "tax": "0.00",
+          "total": "1800.00",
+          "subtotal": "1800.00"
+        },
+        "candidateCount": 1,
+        "declaredTotals": {
+          "tax": "0.00",
+          "total": "1800.00",
+          "subtotal": "1800.00"
+        }
+      },
+      "agent": {
+        "invoked": true,
+        "mode": "mock",
+        "toolCalls": [
+          "lookupPurchaseOrders",
+          "getSupplierAndOrderDetails"
+        ]
+      }
+    },
+    {
+      "scenarioId": "S14-closed-po",
+      "title": "Closed purchase order",
+      "summary": "Exact lines of PO-1003, but that order is already closed.",
+      "invoiceNumber": "INV-A-0006",
+      "supplierName": "Acme Office Supplies S.L. (fictional)",
+      "poNumber": "PO-1003",
+      "currency": "EUR",
+      "status": "REVIEW_REQUIRED",
+      "result": {
+        "lines": [
+          {
+            "ok": true,
+            "po": {
+              "sku": "PAP-A3-500",
+              "taxRate": "0.21",
+              "quantity": "10",
+              "subtotal": "89.00",
+              "unitPrice": "8.9",
+              "description": "A3 copy paper, 500 sheets"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "PAP-A3-500",
+              "taxRate": "0.21",
+              "quantity": "10",
+              "subtotal": "89.00",
+              "unitPrice": "8.9",
+              "description": "A3 copy paper, 500 sheets"
+            },
+            "poLineId": "PO-1003-L1",
+            "invoiceLineId": "1",
+            "subtotalDelta": "0.00"
+          },
+          {
+            "ok": true,
+            "po": {
+              "sku": "ENV-C4-250",
+              "taxRate": "0.21",
+              "quantity": "4",
+              "subtotal": "49.60",
+              "unitPrice": "12.4",
+              "description": "C4 envelopes, box of 250"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "ENV-C4-250",
+              "taxRate": "0.21",
+              "quantity": "4",
+              "subtotal": "49.60",
+              "unitPrice": "12.4",
+              "description": "C4 envelopes, box of 250"
+            },
+            "poLineId": "PO-1003-L2",
+            "invoiceLineId": "2",
+            "subtotalDelta": "0.00"
+          }
+        ],
+        "status": "REVIEW_REQUIRED",
+        "findings": [
+          {
+            "delta": null,
+            "poRef": {
+              "field": "status"
+            },
+            "actual": "CLOSED",
+            "ruleId": "PO_CLOSED",
+            "message": "Purchase order is closed",
+            "expected": "OPEN",
+            "severity": "ERROR",
+            "invoiceRef": null
+          }
+        ],
+        "poTotals": {
+          "tax": "29.11",
+          "total": "167.71",
+          "subtotal": "138.60"
+        },
+        "explanation": null,
+        "poSelection": "REFERENCE",
+        "invoiceTotals": {
+          "tax": "29.11",
+          "total": "167.71",
+          "subtotal": "138.60"
+        },
+        "candidateCount": 1,
+        "declaredTotals": {
+          "tax": "29.11",
+          "total": "167.71",
+          "subtotal": "138.60"
+        }
+      },
+      "agent": {
+        "invoked": false,
+        "mode": "mock",
+        "toolCalls": []
+      }
+    },
+    {
+      "scenarioId": "S15-line-arithmetic",
+      "title": "Inconsistent printed line amount",
+      "summary": "The bolt line prints 176.60 although 12 × 14.80 = 177.60; document totals are right.",
+      "invoiceNumber": "INV-N-0006",
+      "supplierName": "Nordwind Industrial GmbH (fictional)",
+      "poNumber": "PO-2001",
+      "currency": "EUR",
+      "status": "REVIEW_REQUIRED",
+      "result": {
+        "lines": [
+          {
+            "ok": true,
+            "po": {
+              "sku": "BRG-6204",
+              "taxRate": "0.19",
+              "quantity": "100",
+              "subtotal": "312.00",
+              "unitPrice": "3.12",
+              "description": "Ball bearing 6204-2RS"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "BRG-6204",
+              "taxRate": "0.19",
+              "quantity": "100",
+              "subtotal": "312.00",
+              "unitPrice": "3.12",
+              "description": "Ball bearing 6204-2RS"
+            },
+            "poLineId": "PO-2001-L1",
+            "invoiceLineId": "1",
+            "subtotalDelta": "0.00"
+          },
+          {
+            "ok": true,
+            "po": {
+              "sku": "BLT-M8-40",
+              "taxRate": "0.19",
+              "quantity": "12",
+              "subtotal": "177.60",
+              "unitPrice": "14.8",
+              "description": "Hex bolt M8x40, box of 100"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "BLT-M8-40",
+              "taxRate": "0.19",
+              "quantity": "12",
+              "subtotal": "177.60",
+              "unitPrice": "14.8",
+              "description": "Hex bolt M8x40, box of 100"
+            },
+            "poLineId": "PO-2001-L2",
+            "invoiceLineId": "2",
+            "subtotalDelta": "0.00"
+          },
+          {
+            "ok": true,
+            "po": {
+              "sku": "GRS-500",
+              "taxRate": "0.19",
+              "quantity": "6",
+              "subtotal": "58.50",
+              "unitPrice": "9.75",
+              "description": "Lithium grease 500 g"
+            },
+            "basis": "SKU",
+            "invoice": {
+              "sku": "GRS-500",
+              "taxRate": "0.19",
+              "quantity": "6",
+              "subtotal": "58.50",
+              "unitPrice": "9.75",
+              "description": "Lithium grease 500 g"
+            },
+            "poLineId": "PO-2001-L3",
+            "invoiceLineId": "3",
+            "subtotalDelta": "0.00"
+          }
+        ],
+        "status": "REVIEW_REQUIRED",
+        "findings": [
+          {
+            "delta": "-1.00",
+            "poRef": null,
+            "actual": "176.60",
+            "ruleId": "INV_LINE_ARITHMETIC",
+            "message": "Printed invoice line subtotal differs from quantity × unit price",
+            "expected": "177.60",
+            "severity": "ERROR",
+            "invoiceRef": {
+              "field": "lineSubtotal",
+              "lineId": "2"
+            }
+          }
+        ],
+        "poTotals": {
+          "tax": "104.14",
+          "total": "652.24",
+          "subtotal": "548.10"
+        },
+        "explanation": null,
+        "poSelection": "REFERENCE",
+        "invoiceTotals": {
+          "tax": "104.14",
+          "total": "652.24",
+          "subtotal": "548.10"
+        },
+        "candidateCount": 1,
+        "declaredTotals": {
+          "tax": "104.14",
+          "total": "652.24",
+          "subtotal": "548.10"
+        }
+      },
+      "agent": {
+        "invoked": false,
+        "mode": "mock",
+        "toolCalls": []
+      }
+    },
+    {
+      "scenarioId": "S16-semantic-line-mapping",
+      "title": "Referenced PO, descriptions only",
+      "summary": "PO-1001 is referenced but lines carry no SKUs; amounts are right, yet semantic mapping always needs review.",
+      "invoiceNumber": "INV-A-0007",
+      "supplierName": "Acme Office Supplies S.L. (fictional)",
+      "poNumber": "PO-1001",
+      "currency": "EUR",
+      "status": "REVIEW_REQUIRED",
+      "result": {
+        "lines": [
+          {
+            "ok": false,
+            "po": {
+              "sku": "PAP-A4-500",
+              "taxRate": "0.21",
+              "quantity": "20",
+              "subtotal": "90.00",
+              "unitPrice": "4.5",
+              "description": "A4 copy paper, 500 sheets"
+            },
+            "basis": "SEMANTIC",
+            "invoice": {
+              "sku": null,
+              "taxRate": "0.21",
+              "quantity": "20",
+              "subtotal": "90.00",
+              "unitPrice": "4.5",
+              "description": "Copy paper A4 (ream of 500)"
+            },
+            "poLineId": "PO-1001-L1",
+            "invoiceLineId": "1",
+            "subtotalDelta": "0.00"
+          },
+          {
+            "ok": false,
+            "po": {
+              "sku": "TON-HP-26A",
+              "taxRate": "0.21",
+              "quantity": "4",
+              "subtotal": "359.60",
+              "unitPrice": "89.9",
+              "description": "HP 26A toner cartridge"
+            },
+            "basis": "SEMANTIC",
+            "invoice": {
+              "sku": null,
+              "taxRate": "0.21",
+              "quantity": "4",
+              "subtotal": "359.60",
+              "unitPrice": "89.9",
+              "description": "Toner HP 26A black"
+            },
+            "poLineId": "PO-1001-L2",
+            "invoiceLineId": "2",
+            "subtotalDelta": "0.00"
+          },
+          {
+            "ok": false,
+            "po": {
+              "sku": "STP-24-6",
+              "taxRate": "0.21",
+              "quantity": "10",
+              "subtotal": "23.50",
+              "unitPrice": "2.35",
+              "description": "Staples 24/6, box of 5000"
+            },
+            "basis": "SEMANTIC",
+            "invoice": {
+              "sku": null,
+              "taxRate": "0.21",
+              "quantity": "10",
+              "subtotal": "23.50",
+              "unitPrice": "2.35",
+              "description": "Staples 24/6 (5000 pcs)"
+            },
+            "poLineId": "PO-1001-L3",
+            "invoiceLineId": "3",
+            "subtotalDelta": "0.00"
+          }
+        ],
+        "status": "REVIEW_REQUIRED",
+        "findings": [
+          {
+            "delta": null,
+            "poRef": {
+              "field": "description",
+              "lineId": "PO-1001-L1"
+            },
+            "actual": "Copy paper A4 (ream of 500)",
+            "ruleId": "LINE_SEMANTIC_MAPPING",
+            "message": "Line correspondence is semantic (agent-proposed), not an exact SKU match",
+            "expected": "A4 copy paper, 500 sheets",
+            "severity": "WARNING",
+            "invoiceRef": {
+              "field": "description",
+              "lineId": "1"
+            }
+          },
+          {
+            "delta": null,
+            "poRef": {
+              "field": "description",
+              "lineId": "PO-1001-L2"
+            },
+            "actual": "Toner HP 26A black",
+            "ruleId": "LINE_SEMANTIC_MAPPING",
+            "message": "Line correspondence is semantic (agent-proposed), not an exact SKU match",
+            "expected": "HP 26A toner cartridge",
+            "severity": "WARNING",
+            "invoiceRef": {
+              "field": "description",
+              "lineId": "2"
+            }
+          },
+          {
+            "delta": null,
+            "poRef": {
+              "field": "description",
+              "lineId": "PO-1001-L3"
+            },
+            "actual": "Staples 24/6 (5000 pcs)",
+            "ruleId": "LINE_SEMANTIC_MAPPING",
+            "message": "Line correspondence is semantic (agent-proposed), not an exact SKU match",
+            "expected": "Staples 24/6, box of 5000",
+            "severity": "WARNING",
+            "invoiceRef": {
+              "field": "description",
+              "lineId": "3"
+            }
+          }
+        ],
+        "poTotals": {
+          "tax": "99.36",
+          "total": "572.46",
+          "subtotal": "473.10"
+        },
+        "explanation": "[MOCK] deterministic heuristic, not an LLM lines mapped against fixed purchase order PO-1001",
+        "poSelection": "REFERENCE",
+        "invoiceTotals": {
+          "tax": "99.36",
+          "total": "572.46",
+          "subtotal": "473.10"
+        },
+        "candidateCount": 1,
+        "declaredTotals": {
+          "tax": "99.36",
+          "total": "572.46",
+          "subtotal": "473.10"
+        }
+      },
+      "agent": {
+        "invoked": true,
+        "mode": "mock",
+        "toolCalls": [
+          "getSupplierAndOrderDetails"
+        ]
+      }
+    }
+  ]
+}

@@ -15,6 +15,7 @@ export async function prepareScratch(name: string) {
 
 export interface ScenarioOutcome {
   id: string;
+  reconciliationId: string | null;
   title: string;
   expectedStatus: string;
   actualStatus: string;
@@ -49,6 +50,7 @@ export async function runScenario(s: Scenario, tag: string): Promise<ScenarioOut
     const rulesOk = JSON.stringify(actualRuleIds) === JSON.stringify(expectedRuleIds);
     return {
       id: s.id,
+      reconciliationId: started.reconciliationId,
       title: s.title,
       expectedStatus: s.expected.status,
       actualStatus: started.status,
@@ -66,7 +68,7 @@ export async function runScenario(s: Scenario, tag: string): Promise<ScenarioOut
     };
   } catch (err) {
     return {
-      id: s.id, title: s.title, expectedStatus: s.expected.status, actualStatus: "ERROR", expectedRuleIds: sorted(s.expected.ruleIds),
+      id: s.id, reconciliationId: null, title: s.title, expectedStatus: s.expected.status, actualStatus: "ERROR", expectedRuleIds: sorted(s.expected.ruleIds),
       actualRuleIds: [], statusOk: false, rulesOk: false, pass: false, agentInvoked: false, agentMode: "unknown", toolCalls: [],
       poNumber: null, invoiceTotal: null, error: (err as Error).message,
     };

@@ -1,14 +1,15 @@
 {
   "kind": "offline-deterministic",
   "disclaimer": "Agent decisions come from a scripted MOCK model (invoicematch-mock-v1) running inside the real Mastra agent loop. Not LLM evidence.",
-  "startedAt": "2026-10-15T09:40:40.162Z",
-  "finishedAt": "2026-10-15T09:40:50.256Z",
+  "startedAt": "2026-10-15T09:53:53.930Z",
+  "finishedAt": "2026-10-15T09:54:01.287Z",
   "scenarioFileVersion": 1,
   "score": "16 / 16",
   "failed": [],
   "outcomes": [
     {
       "id": "S01-exact-match",
+      "reconciliationId": "b25a6652-b841-4fa8-afca-edda74e47866",
       "title": "Exact match",
       "expectedStatus": "MATCHED",
       "actualStatus": "MATCHED",
@@ -26,6 +27,7 @@
     },
     {
       "id": "S02-quantity-mismatch",
+      "reconciliationId": "35f62234-c87e-4418-afba-4a7440168d40",
       "title": "Quantity mismatch",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -49,6 +51,7 @@
     },
     {
       "id": "S03-unit-price-mismatch",
+      "reconciliationId": "f9dd24d3-4429-43e6-a3b6-3dcc447940af",
       "title": "Unit price mismatch",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -72,6 +75,7 @@
     },
     {
       "id": "S04-missing-line",
+      "reconciliationId": "a018e762-be5b-4211-9851-4aec15d8c7d7",
       "title": "Missing line",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -95,6 +99,7 @@
     },
     {
       "id": "S05-extra-line",
+      "reconciliationId": "c3b989f4-29ee-410f-9754-1a75f982da13",
       "title": "Extra line",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -118,6 +123,7 @@
     },
     {
       "id": "S06-wrong-supplier",
+      "reconciliationId": "7bcd2b02-1804-44ce-92a4-5250a343c5da",
       "title": "Wrong supplier",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -139,6 +145,7 @@
     },
     {
       "id": "S07-wrong-currency",
+      "reconciliationId": "53132102-8e01-4dfe-a849-5e61585050d1",
       "title": "Wrong currency",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -160,6 +167,7 @@
     },
     {
       "id": "S08-duplicate-invoice",
+      "reconciliationId": "5292e902-5029-4fa7-91b1-1faeda4a363f",
       "title": "Duplicate invoice",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -181,6 +189,7 @@
     },
     {
       "id": "S09-incorrect-tax",
+      "reconciliationId": "987f5634-9240-424c-bcad-bf4ba3cfb2ed",
       "title": "Incorrect tax rate",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -204,6 +213,7 @@
     },
     {
       "id": "S10-incorrect-total",
+      "reconciliationId": "4121fbb3-a579-4431-8d06-3bbe83020187",
       "title": "Incorrect declared total",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -225,6 +235,7 @@
     },
     {
       "id": "S11-unknown-po",
+      "reconciliationId": "31ece118-5d58-470e-aa00-54411bc11dd9",
       "title": "Unknown purchase order",
       "expectedStatus": "UNMATCHED",
       "actualStatus": "UNMATCHED",
@@ -246,6 +257,7 @@
     },
     {
       "id": "S12-ambiguous-candidates",
+      "reconciliationId": "480f20ac-9212-4caa-af40-91eaab1bf995",
       "title": "Ambiguous candidates",
       "expectedStatus": "UNMATCHED",
       "actualStatus": "UNMATCHED",
@@ -274,6 +286,7 @@
     },
     {
       "id": "S13-agent-selected-po",
+      "reconciliationId": "92c12245-7d74-4c36-a3e5-f75f26bbe9c4",
       "title": "PO selected by the agent",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -302,6 +315,7 @@
     },
     {
       "id": "S14-closed-po",
+      "reconciliationId": "38fa2c21-6f8b-46ea-8328-ea3d1fc7da22",
       "title": "Closed purchase order",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -323,6 +337,7 @@
     },
     {
       "id": "S15-line-arithmetic",
+      "reconciliationId": "c809557c-3282-4741-aefc-12145ac36edd",
       "title": "Inconsistent printed line amount",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
@@ -344,6 +359,7 @@
     },
     {
       "id": "S16-semantic-line-mapping",
+      "reconciliationId": "b3d58fa1-71d8-41cc-acf0-59a11ba8dd24",
       "title": "Referenced PO, descriptions only",
       "expectedStatus": "REVIEW_REQUIRED",
       "actualStatus": "REVIEW_REQUIRED",
