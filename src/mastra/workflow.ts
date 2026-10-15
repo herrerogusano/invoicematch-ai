@@ -264,7 +264,7 @@ const deterministicReconcile = createStep({
         poSelection: context.poSelection,
         candidateCount: context.candidateCount,
         // Labeled recommendation only; it never overrides ruleFindings.
-        explanation: agentRun?.proposal?.reasons?.join(" ") ?? null,
+        explanation: agentRun?.proposal?.reasons?.join(" · ") ?? null,
       },
       agentOutput: agent ?? null,
       agentInvoked: Boolean(agent),

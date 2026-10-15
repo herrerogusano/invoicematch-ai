@@ -46,7 +46,7 @@ export function LoginForm() {
         <input name="passphrase" type="password" required autoComplete="current-password" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
       </label>
       {error && <p className="text-sm text-rose-700">{error}</p>}
-      <button disabled={busy} className="w-full rounded-md bg-slate-900 px-3 py-2 text-sm font-semibold text-white disabled:opacity-50">
+      <button type="submit" disabled={busy} className="w-full rounded-md bg-slate-900 px-3 py-2 text-sm font-semibold text-white disabled:opacity-50">
         {busy ? "Signing in…" : "Sign in"}
       </button>
     </form>

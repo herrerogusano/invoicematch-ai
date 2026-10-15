@@ -37,7 +37,7 @@ export function ReconciliationView({ invoiceNumber, supplierName, poNumber, curr
             <p className="text-lg font-semibold">{poNumber ?? "—"}</p>
             <p className="text-sm text-slate-600">{result?.poSelection ? SELECTION_LABEL[result.poSelection] : ""}</p>
           </div>
-          <div className="text-right">
+          <div className="sm:text-right">
             <p className="text-xs uppercase tracking-wide text-slate-500">Status</p>
             <StatusBadge status={status} />
             <p className="mt-1 text-xs text-slate-500">{currency}</p>

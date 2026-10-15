@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T09:54:01.287Z",
+  "generatedAt": "2026-10-15T10:16:22.805Z",
   "generator": "npm run eval:offline",
   "disclaimer": "Precomputed with the scripted MOCK agent model on synthetic data. Deterministic rules are real; agent choices are not LLM output.",
   "samples": [
@@ -735,10 +735,10 @@
             "poRef": {
               "field": "supplier"
             },
-            "actual": "5e905c71-0edd-4663-a214-4b444df0a593",
+            "actual": "1c78a15f-2166-40b1-867b-36a53c336d5c",
             "ruleId": "SUPPLIER_MISMATCH",
             "message": "Invoice supplier differs from the purchase order supplier",
-            "expected": "a7906ea3-0631-4e6c-b202-3f12953a434f",
+            "expected": "29688fff-2e6e-4abf-a2dd-aeb05ad75ad8",
             "severity": "ERROR",
             "invoiceRef": {
               "field": "supplier"
@@ -936,7 +936,7 @@
             "actual": "INV-A-0999",
             "ruleId": "DUPLICATE_INVOICE",
             "message": "Another invoice with the same number exists for this supplier",
-            "expected": "previous invoice ids: 959b95de-cda1-46b0-90b4-4ef938d86aaa",
+            "expected": "previous invoice ids: 86c4c683-e7b5-433e-aa38-694360f153c6",
             "severity": "ERROR",
             "invoiceRef": {
               "field": "invoiceNumber"
@@ -1355,7 +1355,7 @@
           }
         ],
         "poTotals": null,
-        "explanation": "[MOCK] deterministic heuristic, not an LLM candidates PO-2002 and PO-2003 are equally plausible (1.45 vs 1.45)",
+        "explanation": "[MOCK] deterministic heuristic, not an LLM · candidates PO-2002 and PO-2003 are equally plausible (1.45 vs 1.45)",
         "poSelection": "NONE",
         "invoiceTotals": {
           "tax": "37.01",
@@ -1492,7 +1492,7 @@
           "total": "1800.00",
           "subtotal": "1800.00"
         },
-        "explanation": "[MOCK] deterministic heuristic, not an LLM selected PO-3001 with score 1.01",
+        "explanation": "[MOCK] deterministic heuristic, not an LLM · selected PO-3001 with score 1.01",
         "poSelection": "AGENT",
         "invoiceTotals": {
           "tax": "0.00",
@@ -1872,7 +1872,7 @@
           "total": "572.46",
           "subtotal": "473.10"
         },
-        "explanation": "[MOCK] deterministic heuristic, not an LLM lines mapped against fixed purchase order PO-1001",
+        "explanation": "[MOCK] deterministic heuristic, not an LLM · lines mapped against fixed purchase order PO-1001",
         "poSelection": "REFERENCE",
         "invoiceTotals": {
           "tax": "99.36",
