@@ -21,7 +21,7 @@ export function handleError(err: unknown) {
  * Requests without an Origin header (e.g. curl) are allowed through to the auth check, which still
  * requires a valid owner session.
  */
-function sameOrigin(req: NextRequest): boolean {
+export function sameOrigin(req: NextRequest): boolean {
   const origin = req.headers.get("origin");
   if (!origin) return true;
   try {

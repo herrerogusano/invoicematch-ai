@@ -5,8 +5,8 @@ import { createHmac, timingSafeEqual } from "node:crypto";
  *
  * - local:    passphrase login → HMAC-signed, HttpOnly session cookie. Refused on deployed
  *             environments (VERCEL or DEPLOYED set), where only Supabase Auth is allowed.
- * - supabase: Supabase Auth magic link; the access token is verified server-side against
- *             Supabase's /auth/v1/user endpoint. (Wired; not verified without a Supabase project.)
+ * - supabase: Supabase Auth magic link (PKCE, see supabase-auth.ts) proves the email; the app
+ *             then issues the same kind of signed session cookie, tagged with how it was obtained.
  *
  * In both modes the email must be on the OWNER_EMAILS allowlist. Every mutation checks this
  * server-side; hiding buttons in the UI is never the protection.
@@ -63,10 +63,12 @@ function sign(payload: string): string {
 export interface Session {
   email: string;
   exp: number;
+  /** Sign-in method; a session is only valid while AUTH_MODE matches it. */
+  via: AuthMode;
 }
 
-export function createSessionToken(email: string, now = Date.now()): string {
-  const payload = Buffer.from(JSON.stringify({ email, exp: Math.floor(now / 1000) + SESSION_TTL_SECONDS })).toString("base64url");
+export function createSessionToken(email: string, now = Date.now(), via: AuthMode = "local"): string {
+  const payload = Buffer.from(JSON.stringify({ email, exp: Math.floor(now / 1000) + SESSION_TTL_SECONDS, via })).toString("base64url");
   return `${payload}.${sign(payload)}`;
 }
 
@@ -77,6 +79,7 @@ export function verifySessionToken(token: string | undefined, now = Date.now()):
   try {
     const s = JSON.parse(Buffer.from(payload, "base64url").toString()) as Session;
     if (typeof s.email !== "string" || typeof s.exp !== "number" || s.exp * 1000 < now) return null;
+    if (s.via !== "local" && s.via !== "supabase") return null;
     return s;
   } catch {
     return null;
@@ -97,30 +100,14 @@ export function loginLocal(email: string, passphrase: string): string {
   return createSessionToken(normalized);
 }
 
-async function verifySupabaseToken(accessToken: string | undefined): Promise<string | null> {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  if (!url || !anon) throw new AuthError("AUTH_MISCONFIGURED", 500, "Supabase Auth is not configured");
-  if (!accessToken) return null;
-  const res = await fetch(`${url}/auth/v1/user`, { headers: { apikey: anon, Authorization: `Bearer ${accessToken}` }, cache: "no-store" });
-  if (!res.ok) return null;
-  const user = (await res.json()) as { email?: string };
-  return user.email?.toLowerCase() ?? null;
-}
-
-export const SUPABASE_TOKEN_COOKIE = "im_sb_token";
-
 /** Resolves the current owner from request cookies, or null if not signed in. Fails closed. */
 export async function currentOwner(cookies: { get(name: string): { value: string } | undefined }): Promise<string | null> {
-  let email: string | null = null;
-  if (authMode() === "local") {
-    if (isDeployedEnvironment()) return null;
-    email = verifySessionToken(cookies.get(SESSION_COOKIE)?.value)?.email ?? null;
-  } else {
-    email = await verifySupabaseToken(cookies.get(SUPABASE_TOKEN_COOKIE)?.value);
-  }
-  if (!email) return null;
-  return ownerEmails().includes(email) ? email : null;
+  const mode = authMode();
+  if (mode === "local" && isDeployedEnvironment()) return null;
+  const session = verifySessionToken(cookies.get(SESSION_COOKIE)?.value);
+  // A session minted by one sign-in method is not accepted after switching AUTH_MODE.
+  if (!session || session.via !== mode) return null;
+  return ownerEmails().includes(session.email) ? session.email : null;
 }
 
 export function sessionCookieOptions() {

@@ -93,7 +93,7 @@ Each finding carries `severity`, the invoice field/line ID, the PO field/line ID
 
 - Public: landing page, precomputed samples (`data/samples/precomputed.json`), scenario list, health. No database writes, no model calls.
 - Owner-only: every route that reads run internals or mutates state. Checked server-side in each handler (`src/server/http.ts`), plus a same-origin check for mutations, 32 KB body limit, per-process rate limits.
-- Auth adapters (`src/server/auth.ts`): `local` (passphrase → HMAC-signed HttpOnly cookie, refused when `VERCEL`/`DEPLOYED` is set) and `supabase` (magic-link token verified server-side; wired, not yet verified).
+- Auth adapters (`src/server/auth.ts`): `local` (passphrase → HMAC-signed HttpOnly cookie, refused when `VERCEL`/`DEPLOYED` is set) and `supabase` (`src/server/supabase-auth.ts`: magic link with PKCE, `POST /api/auth/magic-link` → email → `GET /auth/callback` exchanges the code with the HttpOnly verifier cookie, checks the allowlist and issues the same signed session tagged `via: "supabase"`). Sessions are only valid while `AUTH_MODE` matches how they were minted. Non-owner emails get an identical response and never reach Supabase.
 - Spend: `AGENT_MODE=mock` by default. In `anthropic` mode the call fails closed without a key and reserves its worst-case cost in `app.llm_usage` under an advisory lock before any request (`LLM_BUDGET_USD`, `LLM_MAX_REQUESTS`). This complements, and does not replace, the Claude Console spend limit.
 
 ## Observability

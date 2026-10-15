@@ -64,7 +64,7 @@ Live vs mock: every agent decision observed in this run came from the **mock mod
 |---|---|---|
 | Live Claude smoke (3 scenarios) and model choice confirmation | BLOCKED_CREDITS | Owner claims credits, creates a restricted key with a Console spend limit, puts it in `.env.local`, confirms the cap; then `EVAL_LIVE_CONFIRM=yes npm run eval:live` |
 | Supabase project, migrations on cloud, `@mastra/pg` via pooler | BLOCKED_USER_ACTION | Owner login, new free project |
-| Supabase magic-link sign-in UI (callback page) | not built | Needed before any deployment |
+| Supabase magic-link sign-in | DONE in follow-up (2026-10-15) | Verified locally against the real project; see `.harness/invoicematch-ai/checks.md` |
 | Vercel deployment | BLOCKED_USER_ACTION | Account, non-commercial confirmation, env vars |
 | Windows test flakiness | open | One native worker exit (0xC0000409) in ~6 runs of `api-security.test.ts`; not reproduced since |
 

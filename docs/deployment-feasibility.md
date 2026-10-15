@@ -21,7 +21,7 @@ Updated 2026-10-15 after local runtime tests. Documentation evidence is in `docs
 1. 👤 Claude Console: claim subscriber credits, create a dedicated workspace with a low spend limit, create an API key there. Put it only in `.env.local` / Vercel env, never in chat.
 2. 👤 Supabase: create a new free project `invoicematch-ai` (EU region). Do not reuse SpendInsight. Copy the **session pooler** connection string into `DATABASE_URL` (env only).
 3. `npm run db:migrate && npm run db:seed` against that URL (never `db:reset`: it refuses non-local URLs).
-4. 👤 Supabase Auth: enable email magic link; set `AUTH_MODE=supabase`, `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `OWNER_EMAILS`. The magic-link callback page is not built yet (see FINAL_REPORT "Not done").
+4. ✅ Supabase Auth magic link built and verified locally on 2026-10-15 (project `invoicematch-ai`, eu-west-1). For Vercel: add `https://<vercel-domain>/auth/callback` to Auth → Redirect URLs, set Site URL, and set `AUTH_MODE=supabase`, `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` (publishable key), `OWNER_EMAILS`, `SESSION_SECRET`. The built-in email sender allows 2 emails/hour.
 5. ✅ Langfuse: EU project created and keys in `.env.local` (2026-10-15); for Vercel, copy the same keys into the project env.
 6. 👤 Vercel: import the GitHub repo (Hobby), set env vars, deploy. Verify `/api/health`, anonymous 401s, owner run, suspend/resume across invocations, trace arrival.
 

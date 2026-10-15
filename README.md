@@ -120,7 +120,7 @@ Everything is rebuilt from tracked files: `migrations/`, `data/fixtures/`, `npm 
 ## Known limitations
 
 - No live LLM evidence yet; agent quality with Claude is unmeasured.
-- Supabase Auth adapter verifies tokens server-side, but the magic-link sign-in/callback UI is not built; deployments are blocked until it is.
+- Supabase magic-link sign-in (PKCE over REST, no client SDK) verified end to end locally against a real Supabase project; Supabase proves the email, then the app issues its own signed session.
 - Purchase-order consumption across several invoices is not tracked; every invoice is compared with the full PO.
 - Rate limiting is per process (best effort); the DB budget ledger is the hard guard for spend.
 - Re-running a scenario stores a new invoice with the same number, which is flagged as a duplicate by design.

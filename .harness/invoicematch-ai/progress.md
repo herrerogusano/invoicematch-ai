@@ -5,7 +5,7 @@ Handoff per the Harness Run workflow. Updated 2026-10-15 12:40.
 ## Plan
 
 - Done: steps 0 (research), 1 (skeleton), 2 (DB + engine), 3 (Mastra agent + workflow), 4 (API + UI), 5 (tracing + offline evals), 7 (hardening, CI, docs, private repo + push).
-- Done (follow-up 2026-10-15): Langfuse delivery verified with `npm run check:langfuse`.
+- Done (follow-up 2026-10-15): Langfuse delivery verified with `npm run check:langfuse`; Supabase project `invoicematch-ai` (eu-west-1) created, magic-link sign-in built and verified end to end locally.
 - Blocked: step 5 live smoke (BLOCKED_CREDITS), step 6 deployment (local-only decision; Supabase/Vercel need owner).
 - Vault notes: done. Folder rename `Nueva carpeta` → `invoicematch-ai`: FAILED (Windows lock held by the running Claude session itself); the owner renames it after closing the session. Git is unaffected.
 
@@ -27,7 +27,6 @@ Handoff per the Harness Run workflow. Updated 2026-10-15 12:40.
 ## Open
 
 - Windows native worker exit seen once in `api-security.test.ts`.
-- Supabase magic-link UI not built.
 - `npm audit`: moderate `sprintf-js` advisory via Mastra (not reachable).
 
 ## Next action

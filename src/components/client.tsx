@@ -53,6 +53,41 @@ export function LoginForm() {
   );
 }
 
+export function MagicLinkForm() {
+  const [state, setState] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [error, setError] = useState<string | null>(null);
+  if (state === "sent") {
+    return <p className="text-sm text-slate-700">If that address is an owner account, a sign-in link is on its way. Open it in this browser within 10 minutes.</p>;
+  }
+  return (
+    <form
+      className="space-y-3"
+      onSubmit={async (e) => {
+        e.preventDefault();
+        const form = new FormData(e.currentTarget);
+        setState("sending");
+        setError(null);
+        try {
+          await postJson("/api/auth/magic-link", { email: form.get("email") });
+          setState("sent");
+        } catch (err) {
+          setError((err as Error).message);
+          setState("error");
+        }
+      }}
+    >
+      <label className="block text-sm">
+        <span className="text-slate-600">Owner email</span>
+        <input name="email" type="email" required autoComplete="email" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
+      </label>
+      {error && <p className="text-sm text-rose-700">{error}</p>}
+      <button type="submit" disabled={state === "sending"} className="w-full rounded-md bg-slate-900 px-3 py-2 text-sm font-semibold text-white disabled:opacity-50">
+        {state === "sending" ? "Sending…" : "Email me a sign-in link"}
+      </button>
+    </form>
+  );
+}
+
 export function LogoutButton() {
   const router = useRouter();
   return (

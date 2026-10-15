@@ -30,3 +30,4 @@ Verdict: `pass`, `fail` or `unresolved`. Evidence is a command or test that was 
 | 7 | CI offline with Postgres service, no secrets | pass | GitHub Actions run 38720997620 on `feature/mvp`: all 13 steps green (Linux) |
 | 7 | Final local sequence: npm ci → secrets → lint → typecheck → unit → migrate/seed → integration → eval → build | pass | run at 12:30: 34/34, 29/29, 16/16, build OK |
 | 7 | Integration suite stability on Windows | unresolved | 1 of ~6 runs of `api-security.test.ts` ended with native worker exit 0xC0000409 before assertions; all later runs passed |
+| 4 | Supabase magic-link owner sign-in (follow-up) | pass | unit `supabase-auth.test.ts` 8/8 (PKCE, allowlist, no owner oracle, origin, rate limit, session bound to mode); real run 2026-10-15 under `next dev`: `POST /api/auth/magic-link` 200 → email → `GET /auth/callback` 307 → `/owner` 200 |
