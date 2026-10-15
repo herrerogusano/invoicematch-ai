@@ -99,6 +99,7 @@ Demo credentials policy: there are no shared demo credentials. The owner sets th
 | `npm run eval:offline` | 16 scenarios → `evals/results/latest.json` and the public `data/samples/precomputed.json` |
 | `npm run eval:live` | Opt-in live smoke (S12, S13, S16). Needs `ANTHROPIC_API_KEY` and `EVAL_LIVE_CONFIRM=yes` |
 | `npm run check:secrets` | Fails on tracked env files or secret-looking strings |
+| `npm run db:cloud` | Migrates and seeds the Supabase database (session pooler) and checks its schemas are not exposed to public roles |
 | `npm run check:langfuse` | Runs one mock reconciliation on a scratch DB and confirms the full trace in Langfuse (needs Langfuse keys; no LLM spend) |
 | `BASE_URL=… npx tsx scripts/screenshots.ts` | Browser smoke + real screenshots with local Chrome |
 
