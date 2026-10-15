@@ -6,7 +6,7 @@ Verdict: `pass`, `fail` or `unresolved`. Evidence is a command or test that was 
 |---|---|---|---|
 | 0 | Current docs for Mastra, Langfuse, Supabase, Vercel, Anthropic checked and labeled | pass | `docs/feasibility.md` (research agent fetched the official pages; 2 moved URLs noted) |
 | 1 | install, lint, typecheck, build green on the skeleton | pass | `npm run lint`, `tsc --noEmit`, `next build` before stage 2 |
-| 1 | `npm ci` from the lockfile | pass | see final verification row |
+| 1 | `npm ci` from the lockfile | pass | final local verification 12:30 and CI run 38720997620 |
 | 2 | SQL migrations with constraints, FKs, indexes; replayable | pass | `db:migrate` applied `0001`; second run "migrations up to date"; CI applies them on fresh Postgres |
 | 2 | Seed idempotent | pass | `db:seed` twice → 4 suppliers, 7 POs, 16 PO lines, 1 historical invoice (psql count) |
 | 2 | `db:reset` refuses non-local URLs | pass | guard `isLocalDatabaseUrl` + `NODE_ENV=production` check in `scripts/reset.ts`; used locally only |
@@ -27,5 +27,6 @@ Verdict: `pass`, `fail` or `unresolved`. Evidence is a command or test that was 
 | 5 | Small live LLM smoke with cost accounting | unresolved | BLOCKED_CREDITS: no API key; `eval:live` refuses without key (verified) |
 | 6 | Deployment gate run, deploy if feasible and approved | unresolved | Not approved this session (local-only); gate table in `docs/deployment-feasibility.md` |
 | 7 | Secret scan, no tracked env files | pass | `npm run check:secrets` |
-| 7 | CI offline with Postgres service, no secrets | unresolved | Workflow written (`.github/workflows/ci.yml`); first remote run happens after push, result recorded in FINAL_REPORT |
+| 7 | CI offline with Postgres service, no secrets | pass | GitHub Actions run 38720997620 on `feature/mvp`: all 13 steps green (Linux) |
+| 7 | Final local sequence: npm ci → secrets → lint → typecheck → unit → migrate/seed → integration → eval → build | pass | run at 12:30: 34/34, 29/29, 16/16, build OK |
 | 7 | Integration suite stability on Windows | unresolved | 1 of ~6 runs of `api-security.test.ts` ended with native worker exit 0xC0000409 before assertions; all later runs passed |
