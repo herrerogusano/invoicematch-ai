@@ -1,13 +1,13 @@
 # Progress: InvoiceMatch AI harness run
 
-Handoff per the Harness Run workflow. Updated 2026-10-15 12:40.
+Handoff per the Harness Run workflow. Updated 2026-10-21.
 
 ## Plan
 
 - Done: steps 0 (research), 1 (skeleton), 2 (DB + engine), 3 (Mastra agent + workflow), 4 (API + UI), 5 (tracing + offline evals), 7 (hardening, CI, docs, private repo + push).
 - Done (follow-up 2026-10-15): Langfuse delivery verified with `npm run check:langfuse`; Supabase project `invoicematch-ai` (eu-west-1) created, magic-link sign-in built and verified end to end locally; Supabase Postgres migrated and seeded (`npm run db:cloud`), cross-process HITL verified on it; deployed to https://invoicematch-ai-indol.vercel.app and verified end to end with the owner.
-- Blocked: step 5 live smoke (BLOCKED_CREDITS).
-- Vault notes: done. Folder rename `Nueva carpeta` → `invoicematch-ai`: FAILED (Windows lock held by the running Claude session itself); the owner renames it after closing the session. Git is unaffected.
+- Done (2026-10-21): promotional API credits claimed. Live smoke 3/3 on claude-haiku-5-5. Production switched to `AGENT_MODE=anthropic` (cap $5 / 400 requests) and redeployed (`dpl_CiPP1G7NAXmRDnqvyApjc7YbUEk2`).
+- Vault notes: done. The folder now lives at `C:/Users/herre/dev/invoicematch-ai`. The compose project name is pinned (`name: invoicematch-ai`) so moves no longer orphan the container.
 
 ## Outputs
 
@@ -31,4 +31,6 @@ Handoff per the Harness Run workflow. Updated 2026-10-15 12:40.
 
 ## Next action
 
-When credits exist (from 2026-10-16): confirm budget cap, set `ANTHROPIC_API_KEY` in `.env.local`, run `EVAL_LIVE_CONFIRM=yes npm run eval:live`, record the results in `docs/evaluation.md`. Then decide whether production switches to `AGENT_MODE=anthropic` (needs `ANTHROPIC_API_KEY` in Vercel env and a redeploy, with a new short-lived Vercel token).
+- The owner runs S13 in production with the live model and checks the Langfuse trace (tokens and cost).
+- Promotional credits expire 2026-11-12 and the API key expires 2026-11-20. After that, live runs end in an explicit `FAILED` state. Either set Vercel `AGENT_MODE=mock` and redeploy, or add credits and a new key.
+- Still open: PR or merge of `feature/mvp` into `main`, and whether to connect Vercel to GitHub.

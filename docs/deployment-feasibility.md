@@ -2,7 +2,7 @@
 
 Updated 2026-10-15 after local runtime tests. Documentation evidence is in `docs/feasibility.md`.
 
-**Status (2026-10-15 follow-up): deployed** to https://invoicematch-ai-indol.vercel.app with owner approval. Vercel Hobby project `invoicematch-ai`, functions in `dub1` next to Supabase eu-west-1, Node 24. It was deployed with the Vercel CLI from a clean `git archive` of the commit; the project has no Git integration, so pushes do not deploy. Deployment protection: the production domain is public, while deployment URLs and previews need Vercel login. Model: **mock** (no Claude key in production yet). The first session was local-only by owner decision.
+**Status (2026-10-15 follow-up): deployed** to https://invoicematch-ai-indol.vercel.app with owner approval. Vercel Hobby project `invoicematch-ai`, functions in `dub1` next to Supabase eu-west-1, Node 24. It was deployed with the Vercel CLI from a clean `git archive` of the commit; the project has no Git integration, so pushes do not deploy. Deployment protection: the production domain is public, while deployment URLs and previews need Vercel login. Model: **live `claude-haiku-5-5`** since 2026-10-21 (`AGENT_MODE=anthropic`). The production budget ledger is capped at $5 / 400 model requests over the lifetime of the deployment. The key is workspace-scoped with a 30-day expiry, and the promotional credits are the only funds: the organization has no payment method. The first session was local-only by owner decision.
 
 | # | Gate item | Status | Evidence |
 |---|---|---|---|

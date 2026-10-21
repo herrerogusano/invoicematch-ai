@@ -36,7 +36,7 @@ Live vs mock: every agent decision observed in this run came from the **mock mod
 
 ## Deployment
 
-First run: none (local only). Follow-up on 2026-10-15: **deployed to https://invoicematch-ai-indol.vercel.app** with the owner's approval, after the gate in `docs/deployment-feasibility.md`. It runs the mock model, with the owner console behind Supabase magic link. Supabase Free projects pause after inactivity and need restoring from the dashboard; no keep-alive is used.
+First run: none (local only). Follow-up on 2026-10-15: **deployed to https://invoicematch-ai-indol.vercel.app** with the owner's approval, after the gate in `docs/deployment-feasibility.md`. It ran the mock model at first and switched to live `claude-haiku-5-5` on 2026-10-21, with the owner console behind Supabase magic link. Supabase Free projects pause after inactivity and need restoring from the dashboard; no keep-alive is used.
 
 ## Costs
 
@@ -62,7 +62,7 @@ First run: none (local only). Follow-up on 2026-10-15: **deployed to https://inv
 
 | Item | Status | Needed |
 |---|---|---|
-| Live Claude smoke (3 scenarios) and model choice confirmation | BLOCKED_CREDITS | Owner claims credits, creates a restricted key with a Console spend limit, puts it in `.env.local`, confirms the cap; then `EVAL_LIVE_CONFIRM=yes npm run eval:live` |
+| Live Claude smoke (3 scenarios) and model choice confirmation | DONE 2026-10-21 | 3 / 3 PASS on `claude-haiku-5-5`, est. $0.0028 (`docs/evaluation.md` §3). Production switched to the live model |
 | Supabase project, migrations on cloud, `@mastra/pg` via pooler | BLOCKED_USER_ACTION | Owner login, new free project |
 | Supabase magic-link sign-in | DONE in follow-up (2026-10-15) | Verified locally against the real project; see `.harness/invoicematch-ai/checks.md` |
 | Vercel deployment | BLOCKED_USER_ACTION | Account, non-commercial confirmation, env vars |
