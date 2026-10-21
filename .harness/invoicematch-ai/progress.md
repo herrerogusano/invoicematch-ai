@@ -31,6 +31,6 @@ Handoff per the Harness Run workflow. Updated 2026-10-21.
 
 ## Next action
 
-- The owner runs S13 in production with the live model and checks the Langfuse trace (tokens and cost).
+- Verified 2026-10-21: the owner ran S13 in production on the live model and approved it (`APPROVED_WITH_EXCEPTION`). The ledger recorded 3 requests, 4924 input / 779 output tokens, $0.00088. The Langfuse trace `5506085ecf789ec45c8800c313d2a495` (environment `production`) has 34 observations, 3 generations with usage and cost, and both tools. The Vercel deploy token was revoked afterwards (API returns 403).
 - Promotional credits expire 2026-11-12 and the API key expires 2026-11-20. After that, live runs end in an explicit `FAILED` state. Either set Vercel `AGENT_MODE=mock` and redeploy, or add credits and a new key.
 - Still open: PR or merge of `feature/mvp` into `main`, and whether to connect Vercel to GitHub.
