@@ -50,11 +50,19 @@ Totals on 2026-10-15: unit 34/34, integration 29/29 (two consecutive full runs).
 
 ## 3. Live LLM smoke (`npm run eval:live`)
 
-**Status: BLOCKED_CREDITS.** No Claude API key was available in this session (subscriber credits expected from 2026-10-16). No live call has been made; no live result is claimed.
+**Status: 3 / 3 PASS on 2026-10-21** with `claude-haiku-5-5` (`evals/results/live-latest.json`). Usage was 8 requests at an estimated $0.0028, recorded by the budget ledger.
 
-When credits exist: `EVAL_LIVE_CONFIRM=yes npm run eval:live` runs only S12, S13 and S16 (the agent-dependent scenarios) with `AGENT_MODE=anthropic`, inside the budget ledger, and writes `evals/results/live-latest.json` with model id, tool calls and usage. A difference from the label is reported as a qualitative LLM-selection signal (`DIFF`), not as a rule failure.
+| Scenario | Status (expected) | Rule IDs | Tool calls |
+|---|---|---|---|
+| S12 ambiguous candidates | UNMATCHED (UNMATCHED) | LOW_AGENT_CONFIDENCE, PO_AMBIGUOUS | lookupPurchaseOrders, getSupplierAndOrderDetails ×3 |
+| S13 agent-selected PO | REVIEW_REQUIRED (REVIEW_REQUIRED) | LINE_SEMANTIC_MAPPING ×2, PO_SELECTED_BY_AGENT | lookupPurchaseOrders, getSupplierAndOrderDetails |
+| S16 semantic line mapping | REVIEW_REQUIRED (REVIEW_REQUIRED) | LINE_SEMANTIC_MAPPING ×3 | getSupplierAndOrderDetails |
+
+In S12 the model inspected all three candidate POs and declined to choose. This is the behavior the scenario guards against getting wrong.
+
+`EVAL_LIVE_CONFIRM=yes npm run eval:live` runs only S12, S13 and S16, the agent-dependent scenarios. It uses `AGENT_MODE=anthropic` inside the budget ledger. It writes `evals/results/live-latest.json` with the model id, tool calls and usage. A difference from the label is reported as a qualitative LLM-selection signal (`DIFF`), not as a rule failure. This is a single small sample, not a statistical accuracy claim.
 
 ## 4. Tracing
 
 - Instrumentation: VERIFIED offline. `tracing.test.ts` asserts spans of type `workflow_run`, `agent_run`, `model_generation` and `tool_call` (both tools) under one trace id equal to the one stored on the reconciliation, with the reconciliation id in metadata and no secret patterns in span payloads.
-- Delivery to Langfuse Cloud: VERIFIED 2026-10-15: `npm run check:langfuse` ran a mock S13 reconciliation and found the full trace in Langfuse Cloud EU via the v2 observations API (22 observations: workflow, steps, agent, 2 model generations, `lookupPurchaseOrders` and `getSupplierAndOrderDetails`). Organizations created on or after 2026-09-16 get HTTP 410 from the legacy `/api/public/traces` and `/api/public/observations` endpoints; use `/api/public/v2/observations`. With keys, the exporter is registered automatically and the owner page links `LANGFUSE_PROJECT_URL/traces/<traceId>`. Live-model traces (tokens, cost) are still pending credits.
+- Delivery to Langfuse Cloud: VERIFIED 2026-10-15: `npm run check:langfuse` ran a mock S13 reconciliation and found the full trace in Langfuse Cloud EU via the v2 observations API (22 observations: workflow, steps, agent, 2 model generations, `lookupPurchaseOrders` and `getSupplierAndOrderDetails`). Organizations created on or after 2026-09-16 get HTTP 410 from the legacy `/api/public/traces` and `/api/public/observations` endpoints; use `/api/public/v2/observations`. With keys, the exporter is registered automatically and the owner page links `LANGFUSE_PROJECT_URL/traces/<traceId>`.

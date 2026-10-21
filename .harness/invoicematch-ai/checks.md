@@ -24,7 +24,7 @@ Verdict: `pass`, `fail` or `unresolved`. Evidence is a command or test that was 
 | 5 | Tracing spans for workflow, agent, model, each tool; correlation; no secrets | pass | `tracing.test.ts` with Mastra `TestExporter` |
 | 5 | Langfuse Cloud trace arrival | pass | 2026-10-15 follow-up: `npm run check:langfuse` → 22 observations incl. agent, 2 generations, both tools (mock model) |
 | 5 | ≥12 labeled scenarios, scored N/N with failed IDs | pass | `npm run eval:offline` → 16 / 16, `evals/results/latest.json` |
-| 5 | Small live LLM smoke with cost accounting | unresolved | BLOCKED_CREDITS: no API key; `eval:live` refuses without key (verified) |
+| 5 | Small live LLM smoke with cost accounting | pass | 2026-10-21: `EVAL_LIVE_CONFIRM=yes npm run eval:live` 3/3 PASS (S12, S13, S16) on claude-haiku-5-5; 8 requests, est. $0.0028 in the ledger; `evals/results/live-latest.json` |
 | 6 | Deployment gate run, deploy if feasible and approved | unresolved | Not approved this session (local-only); gate table in `docs/deployment-feasibility.md` |
 | 7 | Secret scan, no tracked env files | pass | `npm run check:secrets` |
 | 7 | CI offline with Postgres service, no secrets | pass | GitHub Actions run 38720997620 on `feature/mvp`: all 13 steps green (Linux) |
