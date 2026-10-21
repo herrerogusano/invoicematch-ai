@@ -1,0 +1,46 @@
+name: ci
+
+on:
+  push:
+    branches: [main, "feature/**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-checks:
+    # Offline only: no external secrets, mock agent model, local Postgres service.
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: invoicematch
+          POSTGRES_PASSWORD: invoicematch
+          POSTGRES_DB: invoicematch
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U invoicematch -d invoicematch"
+          --health-interval 2s --health-timeout 3s --health-retries 30
+    env:
+      DATABASE_URL: postgres://invoicematch:invoicematch@localhost:5432/invoicematch
+      AGENT_MODE: mock
+      AUTH_MODE: local
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run check:secrets
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run db:migrate
+      - run: npm run db:seed
+      - run: npm run test:integration
+      - run: npm run eval:offline
+      - run: npm run build

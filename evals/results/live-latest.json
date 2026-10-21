@@ -1,0 +1,101 @@
+{
+  "kind": "live-smoke",
+  "model": "claude-haiku-5-5",
+  "note": "Small live sample. A DIFF is a qualitative signal about LLM selection, not a deterministic-rule failure.",
+  "finishedAt": "2026-10-21T09:54:35.324Z",
+  "usage": {
+    "runs": 3,
+    "requests": 8,
+    "estimatedCostUsd": "0.002763",
+    "limitUsd": 3,
+    "limitRequests": 30
+  },
+  "outcomes": [
+    {
+      "id": "S12-ambiguous-candidates",
+      "reconciliationId": "b355c627-cd0a-45e3-b245-7ed53316690a",
+      "title": "Ambiguous candidates",
+      "expectedStatus": "UNMATCHED",
+      "actualStatus": "UNMATCHED",
+      "expectedRuleIds": [
+        "LOW_AGENT_CONFIDENCE",
+        "PO_AMBIGUOUS"
+      ],
+      "actualRuleIds": [
+        "LOW_AGENT_CONFIDENCE",
+        "PO_AMBIGUOUS"
+      ],
+      "statusOk": true,
+      "rulesOk": true,
+      "pass": true,
+      "agentInvoked": true,
+      "agentMode": "anthropic",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "getSupplierAndOrderDetails",
+        "getSupplierAndOrderDetails",
+        "getSupplierAndOrderDetails"
+      ],
+      "poNumber": null,
+      "invoiceTotal": "231.81",
+      "error": null
+    },
+    {
+      "id": "S13-agent-selected-po",
+      "reconciliationId": "c9289891-e4b4-4e41-9457-db63bbe4f65d",
+      "title": "PO selected by the agent",
+      "expectedStatus": "REVIEW_REQUIRED",
+      "actualStatus": "REVIEW_REQUIRED",
+      "expectedRuleIds": [
+        "LINE_SEMANTIC_MAPPING",
+        "LINE_SEMANTIC_MAPPING",
+        "PO_SELECTED_BY_AGENT"
+      ],
+      "actualRuleIds": [
+        "LINE_SEMANTIC_MAPPING",
+        "LINE_SEMANTIC_MAPPING",
+        "PO_SELECTED_BY_AGENT"
+      ],
+      "statusOk": true,
+      "rulesOk": true,
+      "pass": true,
+      "agentInvoked": true,
+      "agentMode": "anthropic",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "getSupplierAndOrderDetails"
+      ],
+      "poNumber": "PO-3001",
+      "invoiceTotal": "1800.00",
+      "error": null
+    },
+    {
+      "id": "S16-semantic-line-mapping",
+      "reconciliationId": "3d95a8eb-8e32-475c-88c0-5cb75b2138ce",
+      "title": "Referenced PO, descriptions only",
+      "expectedStatus": "REVIEW_REQUIRED",
+      "actualStatus": "REVIEW_REQUIRED",
+      "expectedRuleIds": [
+        "LINE_SEMANTIC_MAPPING",
+        "LINE_SEMANTIC_MAPPING",
+        "LINE_SEMANTIC_MAPPING"
+      ],
+      "actualRuleIds": [
+        "LINE_SEMANTIC_MAPPING",
+        "LINE_SEMANTIC_MAPPING",
+        "LINE_SEMANTIC_MAPPING"
+      ],
+      "statusOk": true,
+      "rulesOk": true,
+      "pass": true,
+      "agentInvoked": true,
+      "agentMode": "anthropic",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "poNumber": "PO-1001",
+      "invoiceTotal": "572.46",
+      "error": null
+    }
+  ]
+}

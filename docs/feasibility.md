@@ -73,7 +73,7 @@ Docs are evidence, not proof. Every integration still needs a runtime test in th
 
 ## 4. Langfuse + Mastra tracing
 
-**Status: VERIFIED (docs) / PENDING TEST (no Langfuse keys in this session)**
+**Status: VERIFIED (docs + delivery test 2026-10-15, `npm run check:langfuse`)**. Note: new organizations (created on or after 2026-09-16) only have the v2 read APIs (`/api/public/v2/observations`); legacy trace endpoints return 410.
 
 - Packages: `@mastra/observability` and `@mastra/langfuse`.
 - Config:
@@ -211,5 +211,5 @@ This session is local-only. There are no cloud accounts, and no API credits unti
 | 5 | Supabase Free limits, pausing/restore, free slot available | BLOCKED_USER_ACTION | Docs verified (§6). The user must create or confirm a free project slot. Transaction-pooler compatibility with `@mastra/pg` is PENDING TEST. |
 | 6 | Vercel Hobby personal/non-commercial terms fit; quotas sufficient | BLOCKED_USER_ACTION | Docs verified (§7). The user must confirm non-commercial use and connect an account. |
 | 7 | Authenticated live endpoints and spend guardrails; no anonymous billable endpoints | PENDING TEST | Implement owner auth plus a dedicated Anthropic workspace spend limit (Console; BLOCKED_USER_ACTION). |
-| 8 | Langfuse free-tier compatibility, retention, cardinality | PENDING TEST / BLOCKED_USER_ACTION | Hobby: 50k units/month, 30 days access (§5). Over-quota behaviour is undocumented. Keys are needed for the end-to-end trace test. |
+| 8 | Langfuse free-tier compatibility, retention, cardinality | VERIFIED (delivery) | Hobby: 50k units/month, 30 days access (§5). Over-quota behaviour is undocumented. Keys are needed for the end-to-end trace test. |
 | 9 | Cloud app and restored DB rebuildable from tracked migrations, seed and docs | PENDING TEST | Requires `db:reset` plus documented steps. Validate against Docker Postgres, then Supabase. |

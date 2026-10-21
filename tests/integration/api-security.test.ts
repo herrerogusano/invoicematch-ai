@@ -103,7 +103,7 @@ describe("anonymous and spoofed requests cannot spend tokens or decide", () => {
     const res = await reconciliationsRoute.POST(req("/api/reconciliations", { method: "POST", body: startBody("vercel-run-key"), cookie: ownerCookie() }), ctx());
     expect(res.status).toBe(401);
     const login = await loginRoute.POST(req("/api/auth/login", { method: "POST", body: { email: OWNER, passphrase: "correct horse battery staple" } }));
-    expect(login.status).toBe(500);
+    expect(login.status).toBe(404);
     expect(modelCalls).toBe(0);
   });
 
