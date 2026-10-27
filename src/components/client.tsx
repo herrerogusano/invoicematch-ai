@@ -6,7 +6,7 @@ import { useState } from "react";
 async function postJson(url: string, body: unknown) {
   const res = await fetch(url, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
   const data = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(data?.error?.message ?? `request failed (${res.status})`);
+  if (!res.ok) throw Object.assign(new Error(data?.error?.message ?? `request failed (${res.status})`), { code: data?.error?.code as string | undefined });
   return data;
 }
 
@@ -149,6 +149,9 @@ export function DecisionForm({ reconciliationId }: { reconciliationId: string })
       router.refresh();
     } catch (err) {
       setError((err as Error).message);
+      // Someone (or an earlier attempt) already decided; the server has finished that decision, so
+      // reload to show the final state instead of leaving a stale form on screen.
+      if ((err as { code?: string }).code === "ALREADY_DECIDED") router.refresh();
     } finally {
       setBusy(null);
     }

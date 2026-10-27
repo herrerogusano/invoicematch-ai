@@ -2,11 +2,13 @@ import Link from "next/link";
 import { Card, Shell, StatusBadge } from "@/components/ui";
 import { listReconciliations } from "@/db/repository";
 import { requireOwnerPage } from "@/server/page-auth";
+import { recoverPendingResumes } from "@/server/reconciliation-service";
 
 export const dynamic = "force-dynamic";
 
 export default async function ReviewsPage() {
   const owner = await requireOwnerPage();
+  await recoverPendingResumes();
   const pending = await listReconciliations({ statuses: ["REVIEW_REQUIRED", "UNMATCHED"] });
   return (
     <Shell owner={owner}>

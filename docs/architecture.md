@@ -54,7 +54,7 @@ flowchart LR
 
 1. `POST /api/reconciliations/:id/decision` locks the reconciliation row, checks it is pending and inserts the decision (`unique(reconciliation_id)`, `unique(idempotency_key)`) plus a `DECISION_RECORDED` event, in one transaction.
 2. Only then it loads the run by `workflow_run_id` (`createRun({ runId })`) and calls `run.resume({ step: "review-gate", resumeData })`. Nothing lives in memory between suspend and resume: the snapshot is in `mastra.mastra_workflow_snapshot`.
-3. If the process dies between 1 and 2, the decision stays `resume_status = PENDING`; replaying the same request or `recoverPendingResumes()` completes it. A concurrent resume that loses Mastra's claim (`WORKFLOW_RESUME_ALREADY_CLAIMED`) is treated as success because the decision row already fixes the outcome.
+3. If the process dies between 1 and 2, the decision stays `resume_status = PENDING`. It is completed the next time anyone looks at the case: replaying the same request, any new decision attempt (which still returns 409), opening the case (page or `GET /api/reconciliations/:id`, via `healPendingResume`) or opening the review queue (page or `GET /api/reviews`, via `recoverPendingResumes`). No background job is needed: Vercel Hobby only allows daily cron, and a stuck case only matters when someone opens it. A concurrent resume that loses Mastra's claim (`WORKFLOW_RESUME_ALREADY_CLAIMED`) is treated as success because the decision row already fixes the outcome.
 
 Mastra internals and business tables are not in one database transaction; the decision row is the source of truth and every state change is a conditional, idempotent update. This is tested (`tests/integration/workflow.test.ts`, `restart.test.ts`).
 

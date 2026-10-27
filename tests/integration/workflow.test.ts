@@ -5,6 +5,7 @@ import { lookupPurchaseOrders, getSupplierAndOrderDetails, TOOL_SCOPE_KEY } from
 import { RequestContext } from "@mastra/core/request-context";
 import {
   decideReview,
+  healPendingResume,
   recoverPendingResumes,
   ServiceError,
   startReconciliation,
@@ -132,6 +133,34 @@ describe("reconciliation workflow (real Mastra workflow + Postgres, mock model)"
     expect(d.status).toBe("REJECTED");
     expect(d.decision!.resumeStatus).toBe("RESUMED");
     expect(await recoverPendingResumes()).toEqual([]);
+  });
+
+  it("opening a stuck case finishes its stored decision; a later decision attempt does too", async () => {
+    const crashAfterCommit = async (id: string, decision: "APPROVE" | "REJECT", key: string) =>
+      getPool().query(
+        `insert into app.review_decisions (reconciliation_id, reviewer, decision, reason, idempotency_key)
+         values ($1, 'owner@example.com', $2, 'decided before the crash', $3)`,
+        [id, decision, key],
+      );
+
+    // 1) The owner opens the case: healPendingResume completes the stored decision.
+    const a = await start("S03-unit-price-mismatch", "wf-test-heal-open");
+    await crashAfterCommit(a.reconciliationId, "APPROVE", "wf-heal-open-decision");
+    expect(await healPendingResume(a.reconciliationId)).toBe(true);
+    const da = (await getReconciliationDetail(a.reconciliationId))!;
+    expect(da.status).toBe("APPROVED_WITH_EXCEPTION");
+    expect(da.decision!.resumeStatus).toBe("RESUMED");
+    expect(await healPendingResume(a.reconciliationId)).toBe(false); // no-op once finished
+
+    // 2) After a reload the form sends a new key: still 409, but the stored decision (REJECT) is finished.
+    const b = await start("S04-missing-line", "wf-test-heal-retry");
+    await crashAfterCommit(b.reconciliationId, "REJECT", "wf-heal-retry-decision");
+    await expect(
+      decideReview(b.reconciliationId, { decision: "APPROVE", reason: "clicked again after reload", idempotencyKey: "wf-heal-retry-new-key" }, "owner@example.com"),
+    ).rejects.toMatchObject({ code: "ALREADY_DECIDED", httpStatus: 409 });
+    const db = (await getReconciliationDetail(b.reconciliationId))!;
+    expect(db.status).toBe("REJECTED");
+    expect(db.decision!.resumeStatus).toBe("RESUMED");
   });
 
   it("no PO + two plausible POs never claims a certain match", async () => {
