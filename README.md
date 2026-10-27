@@ -5,24 +5,24 @@ Invoice ↔ purchase-order reconciliation as a small, honest proof of concept:
 - **One Mastra agent** with two real, database-backed tools picks the purchase order when an invoice has no usable reference and proposes line correspondences.
 - **A Mastra workflow** runs the process and **suspends for human approval** in Postgres. Any process can resume it later: the next request, a restarted server, a new deploy.
 - **Deterministic, exact-decimal code** makes every money decision. The model never computes amounts and can never clear a finding.
-- **Langfuse-ready tracing** of the workflow, agent, model and tool spans.
+- **Langfuse tracing** of the workflow, agent, model and tool spans, with token usage and cost per model call.
 
 Synthetic, fictional data only. No payments, emails, OCR or ERP integration.
 
 ![Landing page](docs/screenshots/01-landing.png)
 
-## Status (2026-10-15)
+## Status (2026-10-27)
 
 | Area | Status |
 |---|---|
-| Deterministic engine, workflow, agent + tools, Postgres persistence, owner auth, UI | Working locally, tested |
+| Deterministic engine, workflow, agent + tools, Postgres persistence, owner auth, UI | Working locally and in production, tested |
 | Offline evaluation | **16 / 16** labeled scenarios (mock model, see below) |
-| Unit / integration tests | 34 / 34 · 29 / 29 |
+| Unit / integration tests | 42 / 42 · 29 / 29 |
 | Live Claude calls | Live smoke **3 / 3** on `claude-haiku-5-5` (S12, S13, S16; [evaluation](docs/evaluation.md#3-live-llm-smoke-npm-run-evallive)). Production runs on Claude since 2026-10-21 |
-| Langfuse Cloud delivery | Verified: full trace (workflow, agent, model, both tools) arrives in Langfuse Cloud EU (`npm run check:langfuse`, mock model) |
+| Langfuse Cloud delivery | Verified: full trace (workflow, agent, model, both tools) arrives in Langfuse Cloud EU, offline with the mock (`npm run check:langfuse`) and in production with Claude (generations with token usage and cost) |
 | Public deployment | **https://invoicematch-ai-indol.vercel.app** (Vercel Hobby, `dub1`; Supabase Free eu-west-1). Public read-only samples; owner console behind Supabase magic link. Live Claude model, capped by the budget ledger ([gate](docs/deployment-feasibility.md)) |
 
-The offline runs use a **scripted mock language model**. It is plugged into the real Mastra agent loop, so tool calls and persistence are real, but its "decisions" are a transparent heuristic, not an LLM. The UI labels it everywhere.
+**Which model runs where.** The deployed app's agent runs on **Claude (`claude-haiku-5-5`)**. Local development, CI, the offline evaluation and the 16 public precomputed samples use a **scripted mock language model** (`AGENT_MODE=mock`, the default), so they cost nothing and are reproducible. The mock is plugged into the real Mastra agent loop, so tool calls and persistence are real, but its "decisions" are a transparent heuristic, not an LLM. The UI labels it wherever it appears.
 
 ## Architecture
 
@@ -52,11 +52,11 @@ Details: [docs/architecture.md](docs/architecture.md). Rounding policy, rule cat
 |---|---|
 | ![](docs/screenshots/04-review-required.png) | ![](docs/screenshots/05-approved-audit-trail.png) |
 
-These are real screenshots of a local production build (`scripts/screenshots.ts`), with the mock agent and synthetic data.
+These are real screenshots of a local production build (`scripts/screenshots.ts`), with the mock agent and synthetic data. In the deployed app the same flow runs on Claude.
 
 ## Tech stack
 
-Next.js 16 (App Router, Node runtime) · TypeScript (strict) · Mastra (`@mastra/core`, `@mastra/pg`, `@mastra/observability`, `@mastra/langfuse`) · Anthropic via `@ai-sdk/anthropic` (default model `claude-haiku-5-5`) · PostgreSQL 17 (Docker locally; Supabase Free planned) · Zod 4 · decimal.js · Tailwind CSS 4 · Vitest · playwright-core (local screenshots only).
+Next.js 16 (App Router, Node runtime) · TypeScript (strict) · Mastra (`@mastra/core`, `@mastra/pg`, `@mastra/observability`, `@mastra/langfuse`) · Anthropic via `@ai-sdk/anthropic` (default model `claude-haiku-5-5`) · PostgreSQL 17 (Docker locally; Supabase Free in production) · Supabase Auth (magic link) · Langfuse Cloud · Vercel Hobby · Zod 4 · decimal.js · Tailwind CSS 4 · Vitest · playwright-core (local screenshots only).
 
 ## Run it locally
 
@@ -111,8 +111,8 @@ CI (`.github/workflows/ci.yml`) runs everything offline against a Postgres servi
 
 ## Costs
 
-- Infrastructure: €0. Only local Docker so far, and the planned services are free tiers with no paid add-ons.
-- Claude API: 0 live requests made. When enabled, the app reserves the worst-case cost per run in a Postgres ledger before calling (default cap $3 / 30 requests). The Claude Console spend limit is the provider-side guard.
+- Infrastructure: €0. Vercel Hobby, Supabase Free and Langfuse Cloud free tiers, with no paid add-ons.
+- Claude API: a reconciliation that needs the agent costs about $0.001 on `claude-haiku-5-5` (production S13: 3 model calls, $0.00088). Before each run the app reserves the worst-case cost in a Postgres ledger and refuses to call the model past the cap (production $5 / 400 requests lifetime; local default $3 / 30). The organization has no payment method, so promotional credits are the only funds.
 
 ## Restore / rebuild
 
@@ -120,8 +120,8 @@ Everything is rebuilt from tracked files: `migrations/`, `data/fixtures/`, `npm 
 
 ## Known limitations
 
-- No live LLM evidence yet; agent quality with Claude is unmeasured.
-- Supabase magic-link sign-in (PKCE over REST, no client SDK) verified end to end locally against a real Supabase project; Supabase proves the email, then the app issues its own signed session.
+- Live evidence is a small sample: 3 / 3 agent-dependent scenarios plus owner runs in production. That shows the agent works with Claude; it is not a statistical accuracy measurement.
+- Supabase magic-link sign-in (PKCE over REST, no client SDK) verified end to end locally and in production against a real Supabase project; Supabase proves the email, then the app issues its own signed session.
 - Purchase-order consumption across several invoices is not tracked; every invoice is compared with the full PO.
 - Rate limiting is per process (best effort); the DB budget ledger is the hard guard for spend.
 - Re-running a scenario stores a new invoice with the same number, which is flagged as a duplicate by design.
@@ -131,7 +131,7 @@ Everything is rebuilt from tracked files: `migrations/`, `data/fixtures/`, `npm 
 - **Agent vs workflow**: the workflow owns order, state and the human gate; the agent is one bounded step for interpretation only.
 - **Tool calling**: two typed Zod tools; supplier scope is injected by the server via `requestContext`, so the model cannot widen it; candidate lists are capped at 5.
 - **Human in the loop**: real `suspend()`; decision row first, then `resume()`; idempotency keys, unique constraints and conditional updates make double clicks, concurrent reviewers and crashes safe.
-- **Observability**: one trace per run with workflow, step, agent, model and tool spans; trace id stored on the business record; verified offline, Langfuse when keys exist.
+- **Observability**: one trace per run with workflow, step, agent, model and tool spans; trace id stored on the business record; verified offline and in Langfuse Cloud in production, including token usage and cost per Claude call.
 - **Deterministic validation**: decimal.js, documented rounding, zero tolerance, every finding cites both sides and the exact delta; agent output can only add findings.
 - **Postgres persistence**: business schema with constraints and append-only audit; Mastra snapshots in their own schema; everything rebuildable from migrations and seeds.
 
