@@ -31,5 +31,5 @@ Handoff per the Harness Run workflow. Updated 2026-10-21.
 ## Next action
 
 - Verified 2026-10-21: the owner ran S13 in production on the live model and approved it (`APPROVED_WITH_EXCEPTION`). The ledger recorded 3 requests, 4924 input / 779 output tokens, $0.00088. The Langfuse trace `5506085ecf789ec45c8800c313d2a495` (environment `production`) has 34 observations, 3 generations with usage and cost, and both tools. The Vercel deploy token was revoked afterwards (API returns 403).
-- Promotional credits expire 2026-11-12 and the API key expires 2026-11-20. After that, live runs end in an explicit `FAILED` state. Either set Vercel `AGENT_MODE=mock` and redeploy, or add credits and a new key.
+- 2026-10-27: the API key was replaced by `invoicematch-ai-prod`, which never expires (Vercel env updated, production redeployed, old key deleted). The promotional credits come with the Max plan and are granted again each billing cycle, so no date needs watching. If a cycle's credits run out, live runs end in an explicit `FAILED` state.
 - Done 2026-10-21: PR #1 (`feature/mvp` → `main`) merged after green CI. `main` is the default branch. Vercel is connected to GitHub with production branch `main`.
