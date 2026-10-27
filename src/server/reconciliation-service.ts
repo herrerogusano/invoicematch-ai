@@ -112,15 +112,31 @@ export interface DecideResult {
 /**
  * Records exactly one human decision, then resumes the workflow.
  * Order: decision row first (source of truth, unique per reconciliation), then resume. If the resume
- * fails, the decision stays PENDING-resume and a retry with the same idempotency key (or
- * recoverPendingResumes) completes it.
+ * fails, the decision stays PENDING-resume; a retry with the same key, any later decision attempt,
+ * opening the case or opening the review queue completes it (healPendingResume / recoverPendingResumes).
  */
 export async function decideReview(
   reconciliationId: string,
   input: ReviewDecisionInput,
   reviewer: string,
 ): Promise<DecideResult> {
-  const recorded = await withTransaction(async (client) => {
+  const recorded = await recordDecision(reconciliationId, input, reviewer).catch(async (err) => {
+    // A decision already exists. If its resume never finished (crash after commit, then a reload that
+    // created a new idempotency key), finish it now so the case does not stay stuck behind the 409.
+    if (err instanceof ServiceError && err.code === "ALREADY_DECIDED") await healPendingResume(reconciliationId);
+    throw err;
+  });
+
+  const status = await resumeWithDecision(reconciliationId);
+  return { reconciliationId, status, ...recorded };
+}
+
+async function recordDecision(
+  reconciliationId: string,
+  input: ReviewDecisionInput,
+  reviewer: string,
+): Promise<{ decisionId: string; replayed: boolean }> {
+  return withTransaction(async (client) => {
     const { rows } = await client.query("select status from app.reconciliations where id = $1 for update", [reconciliationId]);
     if (!rows[0]) throw new ServiceError("NOT_FOUND", 404, "reconciliation not found");
     const existing = await client.query("select id, idempotency_key from app.review_decisions where reconciliation_id = $1", [reconciliationId]);
@@ -146,23 +162,37 @@ export async function decideReview(
     if ((err as { code?: string }).code === "23505") throw new ServiceError("ALREADY_DECIDED", 409, "a decision was already recorded for this reconciliation");
     throw err;
   });
-
-  const status = await resumeWithDecision(reconciliationId);
-  return { reconciliationId, status, ...recorded };
 }
 
-/** Completes decisions whose workflow resume did not finish (crash between commit and resume). */
-export async function recoverPendingResumes(): Promise<string[]> {
-  const { rows } = await getPool().query(
-    `select d.reconciliation_id from app.review_decisions d
+const STUCK_DECISIONS = `select d.reconciliation_id from app.review_decisions d
        join app.reconciliations r on r.id = d.reconciliation_id
-      where d.resume_status = 'PENDING' and r.status in ('REVIEW_REQUIRED', 'UNMATCHED')`,
-  );
-  const done: string[] = [];
-  for (const r of rows) {
-    await resumeWithDecision(r.reconciliation_id);
-    done.push(r.reconciliation_id);
+      where d.resume_status = 'PENDING' and r.status in ('REVIEW_REQUIRED', 'UNMATCHED')`;
+
+/**
+ * Finishes the workflow of one case whose decision is stored but whose resume never ran. Called
+ * whenever the owner looks at the case (detail page/API, decision retry), so a stuck case repairs
+ * itself the moment someone opens it. Cheap no-op otherwise; never throws, so a read still renders.
+ */
+export async function healPendingResume(reconciliationId: string): Promise<boolean> {
+  try {
+    const { rowCount } = await getPool().query(`${STUCK_DECISIONS} and d.reconciliation_id = $1`, [reconciliationId]);
+    if (!rowCount) return false;
+    await resumeWithDecision(reconciliationId);
+    return true;
+  } catch (err) {
+    console.error(`pending resume for ${reconciliationId} could not be completed yet`, err);
+    return false;
   }
+}
+
+/**
+ * Completes every decision whose workflow resume did not finish (crash between commit and resume).
+ * Called when the owner opens the review queue; the cases it repairs leave the queue.
+ */
+export async function recoverPendingResumes(limit = 20): Promise<string[]> {
+  const { rows } = await getPool().query(`${STUCK_DECISIONS} order by d.created_at limit $1`, [limit]);
+  const done: string[] = [];
+  for (const r of rows) if (await healPendingResume(r.reconciliation_id)) done.push(r.reconciliation_id);
   return done;
 }
 

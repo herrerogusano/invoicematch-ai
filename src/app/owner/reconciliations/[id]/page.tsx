@@ -7,6 +7,7 @@ import { Card, Notice, Shell, StatusBadge } from "@/components/ui";
 import { getReconciliationDetail } from "@/db/repository";
 import { PENDING_REVIEW_STATUSES } from "@/domain/status";
 import { requireOwnerPage } from "@/server/page-auth";
+import { healPendingResume } from "@/server/reconciliation-service";
 
 export const dynamic = "force-dynamic";
 
@@ -20,6 +21,7 @@ export default async function ReconciliationPage({ params }: { params: Promise<{
   const owner = await requireOwnerPage();
   const { id } = await params;
   if (!z.string().uuid().safeParse(id).success) notFound();
+  await healPendingResume(id);
   const d = await getReconciliationDetail(id);
   if (!d) notFound();
   const agent = d.agentOutput as { mode?: string; toolCalls?: string[] } | null;

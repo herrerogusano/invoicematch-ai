@@ -10,6 +10,7 @@ import * as decisionRoute from "@/app/api/reconciliations/[id]/decision/route";
 import * as reviewsRoute from "@/app/api/reviews/route";
 import * as samplesRoute from "@/app/api/samples/route";
 import * as loginRoute from "@/app/api/auth/login/route";
+import { getPool } from "@/db/pool";
 import { count, setupScratch, teardownScratch } from "./setup";
 
 const OWNER = "owner@example.com";
@@ -183,5 +184,32 @@ describe("owner flow over HTTP", () => {
     const body = await detail.json();
     expect(body.status).toBe("APPROVED_WITH_EXCEPTION");
     expect(body.decision.reviewer).toBe(OWNER);
+  });
+
+  it("a case stuck after a crash is finished when the owner opens it or the review queue", async () => {
+    const stuck = async (key: string) => {
+      const res = await reconciliationsRoute.POST(
+        req("/api/reconciliations", { method: "POST", body: { scenarioId: "S02-quantity-mismatch", idempotencyKey: key }, cookie: ownerCookie() }),
+        ctx(),
+      );
+      const { reconciliationId } = await res.json();
+      // Decision committed, process died before the workflow resumed.
+      await getPool().query(
+        `insert into app.review_decisions (reconciliation_id, reviewer, decision, reason, idempotency_key)
+         values ($1, $2, 'APPROVE', 'decided before the crash', $3)`,
+        [reconciliationId, OWNER, `${key}-decision`],
+      );
+      return reconciliationId as string;
+    };
+
+    const viaDetail = await stuck("stuck-open-detail");
+    const detail = await detailRoute.GET(req(`/api/reconciliations/${viaDetail}`, { cookie: ownerCookie() }), ctx({ id: viaDetail }));
+    expect((await detail.json()).status).toBe("APPROVED_WITH_EXCEPTION");
+
+    const viaQueue = await stuck("stuck-open-queue");
+    const queue = await reviewsRoute.GET(req("/api/reviews", { cookie: ownerCookie() }), ctx());
+    const pending = (await queue.json()).pending as Array<{ id: string }>;
+    expect(pending.map((p) => p.id)).not.toContain(viaQueue);
+    expect(await count(`select count(*) as n from app.review_decisions where resume_status = 'PENDING'`)).toBe(0);
   });
 });
