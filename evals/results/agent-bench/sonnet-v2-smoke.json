@@ -1,0 +1,132 @@
+{
+  "kind": "agent-bench",
+  "label": "sonnet-v2-smoke",
+  "mode": "anthropic",
+  "model": "claude-sonnet-5-5",
+  "promptVersion": "v2",
+  "reps": 1,
+  "split": "all",
+  "startedAt": "2026-10-27T15:02:37.609Z",
+  "finishedAt": "2026-10-27T15:02:44.727Z",
+  "spend": {
+    "ledgerUsd": 0.01437,
+    "ledgerRequests": 2,
+    "measuredUsd": 0.01437,
+    "budgetUsd": 3,
+    "spentBeforeUsd": 0.385734
+  },
+  "langfuse": {
+    "environment": "agent-bench",
+    "tag": "run:sonnet-v2-smoke",
+    "scoresPosted": 5,
+    "scoresFailed": 0
+  },
+  "aggregate": {
+    "all": {
+      "runs": 1,
+      "cases": 1,
+      "poRuns": 1,
+      "poAccuracy": 1,
+      "wrongPickRate": 0,
+      "overAbstainRate": 0,
+      "errorRate": 0,
+      "highConfidenceWrongPicks": 0,
+      "lineP": 1,
+      "lineR": 1,
+      "lineF1": 1,
+      "exactRate": 1,
+      "meanAgreement": 1,
+      "stableCases": 1,
+      "costUsd": 0.01437,
+      "costPerRunUsd": 0.01437,
+      "meanInputTokens": 4350,
+      "meanOutputTokens": 567,
+      "latencyP50Ms": 5541,
+      "latencyP95Ms": 5541
+    },
+    "dev": {
+      "runs": 1,
+      "cases": 1,
+      "poRuns": 1,
+      "poAccuracy": 1,
+      "wrongPickRate": 0,
+      "overAbstainRate": 0,
+      "errorRate": 0,
+      "highConfidenceWrongPicks": 0,
+      "lineP": 1,
+      "lineR": 1,
+      "lineF1": 1,
+      "exactRate": 1,
+      "meanAgreement": 1,
+      "stableCases": 1,
+      "costUsd": 0.01437,
+      "costPerRunUsd": 0.01437,
+      "meanInputTokens": 4350,
+      "meanOutputTokens": 567,
+      "latencyP50Ms": 5541,
+      "latencyP95Ms": 5541
+    }
+  },
+  "byCategory": {
+    "search": {
+      "runs": 1,
+      "cases": 1,
+      "poRuns": 1,
+      "poAccuracy": 1,
+      "wrongPickRate": 0,
+      "overAbstainRate": 0,
+      "errorRate": 0,
+      "highConfidenceWrongPicks": 0,
+      "lineP": 1,
+      "lineR": 1,
+      "lineF1": 1,
+      "exactRate": 1,
+      "meanAgreement": 1,
+      "stableCases": 1,
+      "costUsd": 0.01437,
+      "costPerRunUsd": 0.01437,
+      "meanInputTokens": 4350,
+      "meanOutputTokens": 567,
+      "latencyP50Ms": 5541,
+      "latencyP95Ms": 5541
+    }
+  },
+  "runs": [
+    {
+      "caseId": "B05-near-duplicate-by-quantity",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-202|1=F202-L1,2=F202-L2,3=F202-L3",
+      "confidence": "HIGH",
+      "inputTokens": 4350,
+      "outputTokens": 567,
+      "requests": 2,
+      "costUsd": 0.01437,
+      "latencyMs": 5541,
+      "traceId": "f4155591a7db83fdca37d0d5350afe83",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-202",
+      "lines": {
+        "1": "F202-L1",
+        "2": "F202-L2",
+        "3": "F202-L3"
+      }
+    }
+  ]
+}

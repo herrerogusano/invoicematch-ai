@@ -33,7 +33,8 @@ function createMastra(): Mastra {
         publicKey: process.env.LANGFUSE_PUBLIC_KEY,
         secretKey: process.env.LANGFUSE_SECRET_KEY,
         baseUrl: process.env.LANGFUSE_BASE_URL || "https://cloud.langfuse.com",
-        environment: process.env.NODE_ENV,
+        // The agent benchmark sets LANGFUSE_ENVIRONMENT=agent-bench to keep its traces apart.
+        environment: process.env.LANGFUSE_ENVIRONMENT || process.env.NODE_ENV,
         // Serverless functions may freeze after the response; flush each event.
         realtime: true,
       }),

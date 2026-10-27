@@ -1,0 +1,477 @@
+{
+  "queriedAt": "2026-10-27T15:14:39.536Z",
+  "runs": {
+    "haiku-v1-baseline": {
+      "window": {
+        "fromTimestamp": "2026-10-27T14:44:01.489Z",
+        "toTimestamp": "2026-10-27T14:50:39.662Z"
+      },
+      "localRuns": 180,
+      "traces": [
+        {
+          "count_count": 170,
+          "p50_latency": 6157.5,
+          "p95_latency": 8766.2,
+          "avg_latency": 6098.252941176471
+        }
+      ],
+      "generations": [
+        {
+          "providedModelName": "claude-haiku-5-5",
+          "name": "chat claude-haiku-5-5",
+          "count_count": 473,
+          "sum_inputTokens": 1001707,
+          "sum_outputTokens": 167956,
+          "sum_totalCost": 0.170030199967,
+          "p50_latency": 2003,
+          "p95_latency": 4134.6
+        }
+      ],
+      "tools": [
+        {
+          "name": "getSupplierAndOrderDetails",
+          "type": "TOOL",
+          "count_count": 524,
+          "p50_latency": 7
+        },
+        {
+          "name": "lookupPurchaseOrders",
+          "type": "TOOL",
+          "count_count": 144,
+          "p50_latency": 4
+        }
+      ],
+      "booleans": [
+        {
+          "name": "bench_exact",
+          "avg_value": 0.9470588235294117,
+          "count_count": 170
+        },
+        {
+          "name": "bench_po_correct",
+          "avg_value": 0.9323308270676691,
+          "count_count": 133
+        },
+        {
+          "name": "bench_wrong_pick",
+          "avg_value": 0,
+          "count_count": 133
+        }
+      ],
+      "numeric": [
+        {
+          "name": "bench_line_f1",
+          "avg_value": 0.9470588235294117,
+          "count_count": 170
+        }
+      ],
+      "outcomes": [
+        {
+          "stringValue": "correct_pick",
+          "count_count": 96
+        },
+        {
+          "stringValue": "fixed_po",
+          "count_count": 37
+        },
+        {
+          "stringValue": "correct_abstain",
+          "count_count": 28
+        },
+        {
+          "stringValue": "over_abstain",
+          "count_count": 9
+        }
+      ]
+    },
+    "haiku-v2-dev": {
+      "window": {
+        "fromTimestamp": "2026-10-27T14:53:11.025Z",
+        "toTimestamp": "2026-10-27T14:54:48.748Z"
+      },
+      "localRuns": 54,
+      "traces": [
+        {
+          "count_count": 54,
+          "p50_latency": 4370.5,
+          "p95_latency": 6383.199999999999,
+          "avg_latency": 4584.111111111111
+        }
+      ],
+      "generations": [
+        {
+          "providedModelName": "claude-haiku-5-5",
+          "name": "chat claude-haiku-5-5",
+          "count_count": 113,
+          "sum_inputTokens": 230686,
+          "sum_outputTokens": 37419,
+          "sum_totalCost": 0.038389599993,
+          "p50_latency": 2140,
+          "p95_latency": 4067.999999999998
+        }
+      ],
+      "tools": [
+        {
+          "name": "lookupPurchaseOrders",
+          "type": "TOOL",
+          "count_count": 48,
+          "p50_latency": 6
+        },
+        {
+          "name": "getSupplierAndOrderDetails",
+          "type": "TOOL",
+          "count_count": 12,
+          "p50_latency": 5
+        }
+      ],
+      "booleans": [
+        {
+          "name": "bench_exact",
+          "avg_value": 1,
+          "count_count": 54
+        },
+        {
+          "name": "bench_po_correct",
+          "avg_value": 1,
+          "count_count": 42
+        },
+        {
+          "name": "bench_wrong_pick",
+          "avg_value": 0,
+          "count_count": 42
+        }
+      ],
+      "numeric": [
+        {
+          "name": "bench_line_f1",
+          "avg_value": 1,
+          "count_count": 54
+        }
+      ],
+      "outcomes": [
+        {
+          "stringValue": "correct_pick",
+          "count_count": 33
+        },
+        {
+          "stringValue": "fixed_po",
+          "count_count": 12
+        },
+        {
+          "stringValue": "correct_abstain",
+          "count_count": 9
+        }
+      ]
+    },
+    "haiku-v2-final": {
+      "window": {
+        "fromTimestamp": "2026-10-27T14:55:11.195Z",
+        "toTimestamp": "2026-10-27T15:00:37.924Z"
+      },
+      "localRuns": 180,
+      "traces": [
+        {
+          "count_count": 180,
+          "p50_latency": 4271.5,
+          "p95_latency": 6444.349999999998,
+          "avg_latency": 4512.816666666667
+        }
+      ],
+      "generations": [
+        {
+          "providedModelName": "claude-haiku-5-5",
+          "name": "chat claude-haiku-5-5",
+          "count_count": 382,
+          "sum_inputTokens": 779674,
+          "sum_outputTokens": 120883,
+          "sum_totalCost": 0.126798399969,
+          "p50_latency": 1759,
+          "p95_latency": 3902.95
+        }
+      ],
+      "tools": [
+        {
+          "name": "lookupPurchaseOrders",
+          "type": "TOOL",
+          "count_count": 168,
+          "p50_latency": 5
+        },
+        {
+          "name": "getSupplierAndOrderDetails",
+          "type": "TOOL",
+          "count_count": 38,
+          "p50_latency": 4
+        }
+      ],
+      "booleans": [
+        {
+          "name": "bench_exact",
+          "avg_value": 0.9888888888888889,
+          "count_count": 180
+        },
+        {
+          "name": "bench_po_correct",
+          "avg_value": 0.9857142857142858,
+          "count_count": 140
+        },
+        {
+          "name": "bench_wrong_pick",
+          "avg_value": 0,
+          "count_count": 140
+        }
+      ],
+      "numeric": [
+        {
+          "name": "bench_line_f1",
+          "avg_value": 0.9888888888888889,
+          "count_count": 180
+        }
+      ],
+      "outcomes": [
+        {
+          "stringValue": "correct_pick",
+          "count_count": 108
+        },
+        {
+          "stringValue": "fixed_po",
+          "count_count": 40
+        },
+        {
+          "stringValue": "correct_abstain",
+          "count_count": 30
+        },
+        {
+          "stringValue": "error",
+          "count_count": 2
+        }
+      ]
+    },
+    "sonnet-v2-final": {
+      "window": {
+        "fromTimestamp": "2026-10-27T15:02:59.267Z",
+        "toTimestamp": "2026-10-27T15:06:25.930Z"
+      },
+      "localRuns": 108,
+      "traces": [
+        {
+          "count_count": 104,
+          "p50_latency": 4940.5,
+          "p95_latency": 7461.199999999995,
+          "avg_latency": 5171.7692307692305
+        }
+      ],
+      "generations": [
+        {
+          "providedModelName": "claude-sonnet-5-5",
+          "name": "chat claude-sonnet-5-5",
+          "count_count": 245,
+          "sum_inputTokens": 520271,
+          "sum_outputTokens": 53304,
+          "sum_totalCost": 1.555421999983,
+          "p50_latency": 1579,
+          "p95_latency": 4186.799999999999
+        }
+      ],
+      "tools": [
+        {
+          "name": "lookupPurchaseOrders",
+          "type": "TOOL",
+          "count_count": 121,
+          "p50_latency": 5
+        },
+        {
+          "name": "getSupplierAndOrderDetails",
+          "type": "TOOL",
+          "count_count": 24,
+          "p50_latency": 4
+        }
+      ],
+      "booleans": [
+        {
+          "name": "bench_exact",
+          "avg_value": 0.9711538461538461,
+          "count_count": 104
+        },
+        {
+          "name": "bench_po_correct",
+          "avg_value": 0.9625,
+          "count_count": 80
+        },
+        {
+          "name": "bench_wrong_pick",
+          "avg_value": 0.0375,
+          "count_count": 80
+        }
+      ],
+      "numeric": [
+        {
+          "name": "bench_line_f1",
+          "avg_value": 1,
+          "count_count": 104
+        }
+      ],
+      "outcomes": [
+        {
+          "stringValue": "correct_pick",
+          "count_count": 62
+        },
+        {
+          "stringValue": "fixed_po",
+          "count_count": 24
+        },
+        {
+          "stringValue": "correct_abstain",
+          "count_count": 15
+        },
+        {
+          "stringValue": "wrong_pick",
+          "count_count": 3
+        }
+      ]
+    },
+    "sonnet-v3-a03": {
+      "window": {
+        "fromTimestamp": "2026-10-27T15:08:10.812Z",
+        "toTimestamp": "2026-10-27T15:08:25.256Z"
+      },
+      "localRuns": 3,
+      "traces": [
+        {
+          "count_count": 3,
+          "p50_latency": 6742,
+          "p95_latency": 7255,
+          "avg_latency": 6816.666666666667
+        }
+      ],
+      "generations": [
+        {
+          "providedModelName": "claude-sonnet-5-5",
+          "name": "chat claude-sonnet-5-5",
+          "count_count": 9,
+          "sum_inputTokens": 24439,
+          "sum_outputTokens": 1590,
+          "sum_totalCost": 0.063378,
+          "p50_latency": 1596,
+          "p95_latency": 3555.5999999999995
+        }
+      ],
+      "tools": [
+        {
+          "name": "lookupPurchaseOrders",
+          "type": "TOOL",
+          "count_count": 6,
+          "p50_latency": 23.5
+        }
+      ],
+      "booleans": [
+        {
+          "name": "bench_exact",
+          "avg_value": 1,
+          "count_count": 3
+        },
+        {
+          "name": "bench_po_correct",
+          "avg_value": 1,
+          "count_count": 3
+        },
+        {
+          "name": "bench_wrong_pick",
+          "avg_value": 0,
+          "count_count": 3
+        }
+      ],
+      "numeric": [
+        {
+          "name": "bench_line_f1",
+          "avg_value": 1,
+          "count_count": 3
+        }
+      ],
+      "outcomes": [
+        {
+          "stringValue": "correct_abstain",
+          "count_count": 3
+        }
+      ]
+    },
+    "haiku-v3-final": {
+      "window": {
+        "fromTimestamp": "2026-10-27T15:08:33.482Z",
+        "toTimestamp": "2026-10-27T15:13:22.884Z"
+      },
+      "localRuns": 180,
+      "traces": [
+        {
+          "count_count": 180,
+          "p50_latency": 4079.5,
+          "p95_latency": 6272.299999999996,
+          "avg_latency": 4298.488888888889
+        }
+      ],
+      "generations": [
+        {
+          "providedModelName": "claude-haiku-5-5",
+          "name": "chat claude-haiku-5-5",
+          "count_count": 386,
+          "sum_inputTokens": 803184,
+          "sum_outputTokens": 120021,
+          "sum_totalCost": 0.130611899954,
+          "p50_latency": 1793,
+          "p95_latency": 3641.5
+        }
+      ],
+      "tools": [
+        {
+          "name": "lookupPurchaseOrders",
+          "type": "TOOL",
+          "count_count": 169,
+          "p50_latency": 5
+        },
+        {
+          "name": "getSupplierAndOrderDetails",
+          "type": "TOOL",
+          "count_count": 41,
+          "p50_latency": 4
+        }
+      ],
+      "booleans": [
+        {
+          "name": "bench_exact",
+          "avg_value": 1,
+          "count_count": 180
+        },
+        {
+          "name": "bench_po_correct",
+          "avg_value": 1,
+          "count_count": 140
+        },
+        {
+          "name": "bench_wrong_pick",
+          "avg_value": 0,
+          "count_count": 140
+        }
+      ],
+      "numeric": [
+        {
+          "name": "bench_line_f1",
+          "avg_value": 1,
+          "count_count": 180
+        }
+      ],
+      "outcomes": [
+        {
+          "stringValue": "correct_pick",
+          "count_count": 110
+        },
+        {
+          "stringValue": "fixed_po",
+          "count_count": 40
+        },
+        {
+          "stringValue": "correct_abstain",
+          "count_count": 30
+        }
+      ]
+    }
+  }
+}

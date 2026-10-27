@@ -156,14 +156,26 @@ describe("agent tools are bounded and supplier-scoped", () => {
     const { rows } = await getPool().query("select id from app.purchase_orders where po_number = 'PO-2001'");
     const out = await getSupplierAndOrderDetails.execute!({ purchaseOrderId: rows[0].id }, ctxFor(acme.id));
     expect(out).toEqual({ found: false, supplier: null, purchaseOrder: null });
-    const list = (await lookupPurchaseOrders.execute!({ poNumber: "PO-2001", includeClosed: true, limit: 5 }, ctxFor(acme.id))) as { candidates: unknown[] };
+    const list = (await lookupPurchaseOrders.execute!({ poNumber: "PO-2001", includeClosed: true, limit: 5, offset: 0 }, ctxFor(acme.id))) as { candidates: unknown[] };
     expect(list.candidates).toEqual([]);
   });
 
   it("caps candidate lists and refuses calls without a server scope", async () => {
     const nord = (await getSupplierByCode("SUP-NORD"))!;
-    const list = (await lookupPurchaseOrders.execute!({ includeClosed: true, limit: 5 }, ctxFor(nord.id))) as { candidates: unknown[] };
+    const list = (await lookupPurchaseOrders.execute!({ includeClosed: true, limit: 5, offset: 0 }, ctxFor(nord.id))) as { candidates: unknown[] };
     expect(list.candidates.length).toBeLessThanOrEqual(5);
-    await expect(lookupPurchaseOrders.execute!({ includeClosed: false, limit: 5 }, {} as never)).rejects.toThrow(/scope/);
+    await expect(lookupPurchaseOrders.execute!({ includeClosed: false, limit: 5, offset: 0 }, {} as never)).rejects.toThrow(/scope/);
+  });
+
+  it("pages through candidates and includes each candidate's lines", async () => {
+    const nord = (await getSupplierByCode("SUP-NORD"))!;
+    type Page = { candidates: Array<{ poNumber: string; lines: Array<{ lineId: string }> }>; total: number; hasMore: boolean };
+    const first = (await lookupPurchaseOrders.execute!({ includeClosed: false, limit: 2, offset: 0 }, ctxFor(nord.id))) as Page;
+    const second = (await lookupPurchaseOrders.execute!({ includeClosed: false, limit: 2, offset: 2 }, ctxFor(nord.id))) as Page;
+    expect(first).toMatchObject({ total: 3, hasMore: true });
+    expect(second).toMatchObject({ total: 3, hasMore: false });
+    const seen = [...first.candidates, ...second.candidates].map((c) => c.poNumber);
+    expect(seen).toEqual(["PO-2001", "PO-2002", "PO-2003"]);
+    expect(first.candidates[0]!.lines.map((l) => l.lineId)).toEqual(["PO-2001-L1", "PO-2001-L2", "PO-2001-L3"]);
   });
 });

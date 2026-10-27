@@ -42,7 +42,7 @@ export const TASK_CLOSE = "</task>";
 export function renderTaskPrompt(task: AgentTask): string {
   const goal = task.fixedPurchaseOrderId
     ? `The purchase order is fixed (${task.fixedPurchaseOrderId}). Fetch it with getSupplierAndOrderDetails and map each listed invoice line to at most one of its lines.`
-    : "Find the purchase order this invoice belongs to with lookupPurchaseOrders, inspect plausible candidates with getSupplierAndOrderDetails, then select one or return null if none or several are equally plausible.";
+    : "Find the purchase order this invoice belongs to with lookupPurchaseOrders (page through the results while hasMore is true and nothing fits yet), compare the candidates' lines with the invoice lines, then select one or return null if none or several are equally plausible.";
   return [
     goal,
     "Return ONLY a JSON object matching the required schema, with no prose around it.",
@@ -57,10 +57,24 @@ export function parseTaskFromPrompt(text: string): AgentTask | null {
   return JSON.parse(text.slice(start + TASK_OPEN.length, end)) as AgentTask;
 }
 
-/** Extracts the first top-level JSON object from model text (tolerates ```json fences). */
+/**
+ * Extracts the first complete top-level JSON object from model text. Tolerates ```json fences and
+ * stray characters after the object (seen in the agent benchmark: a correct answer followed by
+ * "}]"). The result is still validated with Zod and then against the database.
+ */
 export function extractJsonObject(text: string): unknown {
   const start = text.indexOf("{");
-  const end = text.lastIndexOf("}");
-  if (start < 0 || end < start) throw new Error("model output contains no JSON object");
-  return JSON.parse(text.slice(start, end + 1));
+  if (start < 0) throw new Error("model output contains no JSON object");
+  let depth = 0;
+  let inString = false;
+  for (let i = start; i < text.length; i++) {
+    const ch = text[i];
+    if (inString) {
+      if (ch === "\\") i++;
+      else if (ch === '"') inString = false;
+    } else if (ch === '"') inString = true;
+    else if (ch === "{") depth++;
+    else if (ch === "}" && --depth === 0) return JSON.parse(text.slice(start, i + 1));
+  }
+  throw new Error("model output contains no complete JSON object");
 }

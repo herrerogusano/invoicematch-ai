@@ -53,5 +53,9 @@ describe("mock agent heuristic (offline stand-in, not an LLM)", () => {
     expect(parseTaskFromPrompt(renderTaskPrompt(task))).toEqual(task);
     expect(extractJsonObject('```json\n{"a":1}\n```')).toEqual({ a: 1 });
     expect(() => extractJsonObject("no json here")).toThrow();
+    // Agent benchmark B19: correct answer followed by stray closing brackets.
+    expect(extractJsonObject('{"a":{"b":"x}"},"c":[1]}]}')).toEqual({ a: { b: "x}" }, c: [1] });
+    expect(extractJsonObject('{"q":"say \\"hi\\" {"}')).toEqual({ q: 'say "hi" {' });
+    expect(() => extractJsonObject('{"a":1')).toThrow(/complete/);
   });
 });

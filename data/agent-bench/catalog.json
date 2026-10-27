@@ -1,0 +1,167 @@
+{
+  "_note": "Agent benchmark catalog. Synthetic, fictional data only, separate from the demo catalog. Seeded only into the benchmark's scratch database.",
+  "suppliers": [
+    { "code": "SUP-KITE", "name": "Kite Stationery S.L. (fictional)", "taxId": "XX-FICT-1001" },
+    { "code": "SUP-FERRO", "name": "Ferro Industrial GmbH (fictional)", "taxId": "XX-FICT-1002" },
+    { "code": "SUP-NIMBUS", "name": "Nimbus Cloud Inc. (fictional)", "taxId": "XX-FICT-1003" },
+    { "code": "SUP-VERDE", "name": "Verde Catering S.L. (fictional)", "taxId": "XX-FICT-1004" },
+    { "code": "SUP-AXIS", "name": "Axis Lab Supplies B.V. (fictional)", "taxId": "XX-FICT-1005" },
+    { "code": "SUP-SOLO", "name": "Solo Print S.A. (fictional)", "taxId": "XX-FICT-1006" }
+  ],
+  "purchaseOrders": [
+    {
+      "poNumber": "PO-K-099", "supplierCode": "SUP-KITE", "currency": "EUR", "status": "CLOSED",
+      "lines": [
+        { "lineId": "K099-L1", "sku": "SHR-P4", "description": "Paper shredder, security level P-4", "quantity": "2", "unitPrice": "145.00", "taxRate": "0.21" },
+        { "lineId": "K099-L2", "sku": "SHR-OIL-350", "description": "Shredder oil, 350 ml", "quantity": "4", "unitPrice": "7.50", "taxRate": "0.21" }
+      ]
+    },
+    {
+      "poNumber": "PO-K-101", "supplierCode": "SUP-KITE", "currency": "EUR", "status": "OPEN",
+      "lines": [
+        { "lineId": "K101-L1", "sku": "PEN-BL-50", "description": "Ballpoint pens, blue, box of 50", "quantity": "10", "unitPrice": "6.40", "taxRate": "0.21" },
+        { "lineId": "K101-L2", "sku": "NOTE-76-12", "description": "Sticky notes 76x76 mm, yellow, pack of 12", "quantity": "8", "unitPrice": "9.90", "taxRate": "0.21" },
+        { "lineId": "K101-L3", "sku": "FILE-A4-BK", "description": "Lever arch files A4, black", "quantity": "30", "unitPrice": "2.75", "taxRate": "0.21" }
+      ]
+    },
+    {
+      "poNumber": "PO-K-102", "supplierCode": "SUP-KITE", "currency": "EUR", "status": "OPEN",
+      "lines": [
+        { "lineId": "K102-L1", "sku": "WBM-SET4", "description": "Whiteboard markers, assorted colours, set of 4", "quantity": "15", "unitPrice": "5.20", "taxRate": "0.21" },
+        { "lineId": "K102-L2", "sku": "WB-ERASER", "description": "Whiteboard eraser", "quantity": "5", "unitPrice": "3.10", "taxRate": "0.21" }
+      ]
+    },
+    {
+      "poNumber": "PO-K-103", "supplierCode": "SUP-KITE", "currency": "EUR", "status": "OPEN",
+      "lines": [
+        { "lineId": "K103-L1", "sku": "PAP-A4-80", "description": "A4 copy paper 80 g, 500 sheets", "quantity": "40", "unitPrice": "4.60", "taxRate": "0.21" },
+        { "lineId": "K103-L2", "sku": "PAP-A3-80", "description": "A3 copy paper 80 g, 500 sheets", "quantity": "10", "unitPrice": "9.20", "taxRate": "0.21" }
+      ]
+    },
+    {
+      "poNumber": "PO-K-104", "supplierCode": "SUP-KITE", "currency": "EUR", "status": "OPEN",
+      "lines": [
+        { "lineId": "K104-L1", "sku": "LAM-PCH-A4", "description": "Laminating pouches A4, 100 pcs", "quantity": "6", "unitPrice": "11.50", "taxRate": "0.21" },
+        { "lineId": "K104-L2", "sku": "LAM-A3", "description": "Laminator A3", "quantity": "1", "unitPrice": "79.00", "taxRate": "0.21" }
+      ]
+    },
+    {
+      "poNumber": "PO-K-105", "supplierCode": "SUP-KITE", "currency": "EUR", "status": "OPEN",
+      "lines": [
+        { "lineId": "K105-L1", "sku": "ORG-MESH", "description": "Desk organiser, mesh", "quantity": "12", "unitPrice": "8.40", "taxRate": "0.21" },
+        { "lineId": "K105-L2", "sku": "MON-STAND", "description": "Monitor stand, adjustable", "quantity": "4", "unitPrice": "32.00", "taxRate": "0.21" }
+      ]
+    },
+    {
+      "poNumber": "PO-F-201", "supplierCode": "SUP-FERRO", "currency": "EUR", "status": "OPEN",
+      "lines": [
+        { "lineId": "F201-L1", "sku": "BLT-M10-50", "description": "Hex bolt M10x50, zinc plated, box of 50", "quantity": "20", "unitPrice": "12.40", "taxRate": "0.19" },
+        { "lineId": "F201-L2", "sku": "NUT-M10", "description": "Hex nut M10, zinc plated, box of 100", "quantity": "10", "unitPrice": "7.90", "taxRate": "0.19" },
+        { "lineId": "F201-L3", "sku": "WSH-M10", "description": "Flat washer M10, box of 100", "quantity": "10", "unitPrice": "4.20", "taxRate": "0.19" }
+      ]
+    },
+    {
+      "poNumber": "PO-F-202", "supplierCode": "SUP-FERRO", "currency": "EUR", "status": "OPEN",
+      "lines": [
+        { "lineId": "F202-L1", "sku": "BLT-M10-50", "description": "Hex bolt M10x50, zinc plated, box of 50", "quantity": "40", "unitPrice": "12.40", "taxRate": "0.19" },
+        { "lineId": "F202-L2", "sku": "NUT-M10", "description": "Hex nut M10, zinc plated, box of 100", "quantity": "20", "unitPrice": "7.90", "taxRate": "0.19" },
+        { "lineId": "F202-L3", "sku": "WSH-M10", "description": "Flat washer M10, box of 100", "quantity": "20", "unitPrice": "4.20", "taxRate": "0.19" }
+      ]
+    },
+    {
+      "poNumber": "PO-F-203", "supplierCode": "SUP-FERRO", "currency": "EUR", "status": "OPEN",
+      "lines": [
+        { "lineId": "F203-L1", "sku": "BLT-M10-50", "description": "Hex bolt M10x50, zinc plated, box of 50", "quantity": "20", "unitPrice": "12.40", "taxRate": "0.19" },
+        { "lineId": "F203-L2", "sku": "NUT-M10", "description": "Hex nut M10, zinc plated, box of 100", "quantity": "10", "unitPrice": "7.90", "taxRate": "0.19" },
+        { "lineId": "F203-L3", "sku": "WSH-M10", "description": "Flat washer M10, box of 100", "quantity": "10", "unitPrice": "4.20", "taxRate": "0.19" }
+      ]
+    },
+    {
+      "poNumber": "PO-F-204", "supplierCode": "SUP-FERRO", "currency": "EUR", "status": "OPEN",
+      "lines": [
+        { "lineId": "F204-L1", "sku": "DRL-18V", "description": "Cordless drill 18V with 2 batteries", "quantity": "3", "unitPrice": "129.00", "taxRate": "0.19" },
+        { "lineId": "F204-L2", "sku": "BIT-HSS-19", "description": "Drill bit set HSS, 19 pcs", "quantity": "3", "unitPrice": "24.50", "taxRate": "0.19" }
+      ]
+    },
+    {
+      "poNumber": "PO-N-301", "supplierCode": "SUP-NIMBUS", "currency": "USD", "status": "OPEN",
+      "lines": [
+        { "lineId": "N301-L1", "sku": "TEAM-M", "description": "Team plan seat, monthly", "quantity": "50", "unitPrice": "12.00", "taxRate": "0" },
+        { "lineId": "N301-L2", "sku": "ONB-1D", "description": "Onboarding workshop, remote, 1 day", "quantity": "1", "unitPrice": "900.00", "taxRate": "0" }
+      ]
+    },
+    {
+      "poNumber": "PO-N-302", "supplierCode": "SUP-NIMBUS", "currency": "USD", "status": "OPEN",
+      "lines": [
+        { "lineId": "N302-L1", "sku": "TEAM-Y", "description": "Team plan seat, annual", "quantity": "20", "unitPrice": "120.00", "taxRate": "0" },
+        { "lineId": "N302-L2", "sku": "SSO-Y", "description": "SSO add-on, annual", "quantity": "1", "unitPrice": "1500.00", "taxRate": "0" }
+      ]
+    },
+    {
+      "poNumber": "PO-N-303", "supplierCode": "SUP-NIMBUS", "currency": "USD", "status": "OPEN",
+      "lines": [
+        { "lineId": "N303-L1", "sku": "STO-1TB-Y", "description": "Storage add-on 1 TB, annual", "quantity": "5", "unitPrice": "60.00", "taxRate": "0" }
+      ]
+    },
+    {
+      "poNumber": "PO-V-401", "supplierCode": "SUP-VERDE", "currency": "EUR", "status": "OPEN",
+      "lines": [
+        { "lineId": "V401-L1", "sku": null, "description": "Menú del día para evento (por persona)", "quantity": "80", "unitPrice": "14.50", "taxRate": "0.10" },
+        { "lineId": "V401-L2", "sku": null, "description": "Servicio de camareros (hora)", "quantity": "12", "unitPrice": "22.00", "taxRate": "0.10" }
+      ]
+    },
+    {
+      "poNumber": "PO-V-402", "supplierCode": "SUP-VERDE", "currency": "EUR", "status": "OPEN",
+      "lines": [
+        { "lineId": "V402-L1", "sku": null, "description": "Café y bollería (por persona)", "quantity": "40", "unitPrice": "4.80", "taxRate": "0.10" },
+        { "lineId": "V402-L2", "sku": null, "description": "Agua mineral 50 cl", "quantity": "60", "unitPrice": "0.90", "taxRate": "0.10" }
+      ]
+    },
+    {
+      "poNumber": "PO-V-403", "supplierCode": "SUP-VERDE", "currency": "EUR", "status": "OPEN",
+      "lines": [
+        { "lineId": "V403-L1", "sku": null, "description": "Cóctel de bienvenida (por persona)", "quantity": "120", "unitPrice": "9.50", "taxRate": "0.10" },
+        { "lineId": "V403-L2", "sku": null, "description": "Alquiler de mantelería", "quantity": "1", "unitPrice": "85.00", "taxRate": "0.10" }
+      ]
+    },
+    {
+      "poNumber": "PO-X-501", "supplierCode": "SUP-AXIS", "currency": "EUR", "status": "OPEN",
+      "lines": [{ "lineId": "X501-L1", "sku": "GLV-NIT-M", "description": "Nitrile gloves, size M, box of 100", "quantity": "20", "unitPrice": "6.90", "taxRate": "0.21" }]
+    },
+    {
+      "poNumber": "PO-X-502", "supplierCode": "SUP-AXIS", "currency": "EUR", "status": "OPEN",
+      "lines": [{ "lineId": "X502-L1", "sku": "TIP-200", "description": "Pipette tips 200 µl, rack of 96", "quantity": "30", "unitPrice": "5.40", "taxRate": "0.21" }]
+    },
+    {
+      "poNumber": "PO-X-503", "supplierCode": "SUP-AXIS", "currency": "EUR", "status": "OPEN",
+      "lines": [{ "lineId": "X503-L1", "sku": "TUBE-15", "description": "Centrifuge tubes 15 ml, pack of 50", "quantity": "10", "unitPrice": "12.80", "taxRate": "0.21" }]
+    },
+    {
+      "poNumber": "PO-X-504", "supplierCode": "SUP-AXIS", "currency": "EUR", "status": "OPEN",
+      "lines": [{ "lineId": "X504-L1", "sku": "PETRI-90", "description": "Petri dishes 90 mm, sleeve of 20", "quantity": "25", "unitPrice": "4.30", "taxRate": "0.21" }]
+    },
+    {
+      "poNumber": "PO-X-505", "supplierCode": "SUP-AXIS", "currency": "EUR", "status": "OPEN",
+      "lines": [{ "lineId": "X505-L1", "sku": "COAT-L", "description": "Lab coat, white, size L", "quantity": "6", "unitPrice": "18.50", "taxRate": "0.21" }]
+    },
+    {
+      "poNumber": "PO-X-506", "supplierCode": "SUP-AXIS", "currency": "EUR", "status": "OPEN",
+      "lines": [
+        { "lineId": "X506-L1", "sku": "GOG-AF", "description": "Safety goggles, anti-fog", "quantity": "12", "unitPrice": "7.60", "taxRate": "0.21" },
+        { "lineId": "X506-L2", "sku": "SHIELD-PC", "description": "Face shield, polycarbonate", "quantity": "4", "unitPrice": "9.90", "taxRate": "0.21" }
+      ]
+    },
+    {
+      "poNumber": "PO-X-507", "supplierCode": "SUP-AXIS", "currency": "EUR", "status": "OPEN",
+      "lines": [{ "lineId": "X507-L1", "sku": "ETH-70-1L", "description": "Ethanol 70%, 1 l", "quantity": "24", "unitPrice": "3.80", "taxRate": "0.21" }]
+    },
+    {
+      "poNumber": "PO-S-601", "supplierCode": "SUP-SOLO", "currency": "EUR", "status": "OPEN",
+      "lines": [
+        { "lineId": "S601-L1", "sku": "BC-350-500", "description": "Business cards, 350 g matte, 500 pcs", "quantity": "10", "unitPrice": "24.00", "taxRate": "0.21" },
+        { "lineId": "S601-L2", "sku": "ROLLUP-85", "description": "Roll-up banner 85x200 cm", "quantity": "2", "unitPrice": "69.00", "taxRate": "0.21" }
+      ]
+    }
+  ],
+  "historicalInvoices": []
+}

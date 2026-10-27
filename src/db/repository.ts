@@ -35,9 +35,13 @@ export interface PoCandidateSummary {
   currency: CurrencyCode;
   total: string;
   lineCount: number;
+  /** Compact line list so the agent can screen candidates without fetching each order. */
+  lines: Array<{ lineId: string; description: string; quantity: string; unitPrice: string }>;
 }
 
 export const MAX_CANDIDATES = 5;
+/** Lines shown per candidate in search results; the full order is one getSupplierAndOrderDetails call away. */
+export const MAX_SUMMARY_LINES = 10;
 
 export async function getSupplierByCode(code: string, client?: Queryable): Promise<SupplierRecord | null> {
   const { rows } = await q(client).query(
@@ -102,29 +106,54 @@ export function findPurchaseOrderByNumber(poNumber: string, client?: Queryable) 
  * the model, so a tool call can never read another supplier's orders.
  */
 export async function searchPurchaseOrders(
-  params: { supplierId: string; poNumber?: string | null; includeClosed?: boolean; limit?: number },
+  params: { supplierId: string; poNumber?: string | null; includeClosed?: boolean; limit?: number; offset?: number },
   client?: Queryable,
-): Promise<PoCandidateSummary[]> {
+): Promise<{ candidates: PoCandidateSummary[]; total: number }> {
   const limit = Math.min(Math.max(params.limit ?? MAX_CANDIDATES, 1), MAX_CANDIDATES);
-  const { rows } = await q(client).query(
-    `select po.id, po.po_number, po.status, po.currency, po.total,
-            (select count(*)::int from app.purchase_order_lines l where l.purchase_order_id = po.id) as line_count
-       from app.purchase_orders po
-      where po.supplier_id = $1
+  const offset = Math.max(0, Math.floor(params.offset ?? 0));
+  const filter = [params.supplierId, params.poNumber ?? null, params.includeClosed ?? false];
+  const where = `where po.supplier_id = $1
         and ($2::text is null or upper(po.po_number) = upper($2))
-        and ($3::boolean or po.status = 'OPEN')
-      order by po.po_number
-      limit $4`,
-    [params.supplierId, params.poNumber ?? null, params.includeClosed ?? false, limit],
-  );
-  return rows.map((r) => ({
-    id: r.id,
-    poNumber: r.po_number,
-    status: r.status,
-    currency: r.currency,
-    total: num(r.total)!,
-    lineCount: r.line_count,
-  }));
+        and ($3::boolean or po.status = 'OPEN')`;
+  const [{ rows }, count] = await Promise.all([
+    q(client).query(
+      `select po.id, po.po_number, po.status, po.currency, po.total,
+              (select count(*)::int from app.purchase_order_lines l where l.purchase_order_id = po.id) as line_count
+         from app.purchase_orders po
+        ${where}
+        order by po.po_number
+        limit $4 offset $5`,
+      [...filter, limit, offset],
+    ),
+    q(client).query(`select count(*)::int as n from app.purchase_orders po ${where}`, filter),
+  ]);
+  const ids = rows.map((r) => r.id);
+  const lines = ids.length
+    ? (
+        await q(client).query(
+          `select purchase_order_id, line_id, description, quantity, unit_price
+             from (select l.*, row_number() over (partition by purchase_order_id order by position) as rn
+                     from app.purchase_order_lines l where purchase_order_id = any($1::uuid[])) x
+            where rn <= $2
+            order by purchase_order_id, position`,
+          [ids, MAX_SUMMARY_LINES],
+        )
+      ).rows
+    : [];
+  return {
+    total: count.rows[0].n,
+    candidates: rows.map((r) => ({
+      id: r.id,
+      poNumber: r.po_number,
+      status: r.status,
+      currency: r.currency,
+      total: num(r.total)!,
+      lineCount: r.line_count,
+      lines: lines
+        .filter((l) => l.purchase_order_id === r.id)
+        .map((l) => ({ lineId: l.line_id, description: l.description, quantity: num(l.quantity)!, unitPrice: num(l.unit_price)! })),
+    })),
+  };
 }
 
 export async function countOpenPurchaseOrders(supplierId: string, client?: Queryable): Promise<number> {

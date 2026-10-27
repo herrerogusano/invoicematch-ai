@@ -24,6 +24,8 @@
     "db:reset": "tsx scripts/reset.ts",
     "eval:offline": "tsx evals/run-offline.ts",
     "eval:live": "tsx evals/run-live.ts",
+    "eval:bench": "tsx evals/agent-bench/run.ts",
+    "eval:bench:langfuse": "tsx evals/agent-bench/langfuse-report.ts",
     "check:secrets": "tsx scripts/check-secrets.ts",
     "check:langfuse": "tsx scripts/check-langfuse.ts",
     "db:cloud": "tsx scripts/cloud-db.ts"

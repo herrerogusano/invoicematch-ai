@@ -17,8 +17,9 @@ Synthetic, fictional data only. No payments, emails, OCR or ERP integration.
 |---|---|
 | Deterministic engine, workflow, agent + tools, Postgres persistence, owner auth, UI | Working locally and in production, tested |
 | Offline evaluation | **16 / 16** labeled scenarios (mock model, see below) |
-| Unit / integration tests | 42 / 42 · 29 / 29 |
+| Unit / integration tests | 49 / 49 · 30 / 30 |
 | Live Claude calls | Live smoke **3 / 3** on `claude-haiku-5-5` (S12, S13, S16; [evaluation](docs/evaluation.md#3-live-llm-smoke-npm-run-evallive)). Production runs on Claude since 2026-10-21 |
+| Agent benchmark | 36 labeled cases × 5 runs on Claude: PO accuracy **92.9 % → 100 %** (test split), **0 wrong picks**, cost per run −28 %, latency −34 %; Haiku 5.5 vs Sonnet 5.5 compared ([agent evaluation](docs/agent-evaluation.md)) |
 | Langfuse Cloud delivery | Verified: full trace (workflow, agent, model, both tools) arrives in Langfuse Cloud EU, offline with the mock (`npm run check:langfuse`) and in production with Claude (generations with token usage and cost) |
 | Public deployment | **https://invoicematch-ai-indol.vercel.app** (Vercel Hobby, `dub1`; Supabase Free eu-west-1). Public read-only samples; owner console behind Supabase magic link. Live Claude model, capped by the budget ledger ([gate](docs/deployment-feasibility.md)) |
 
@@ -98,6 +99,8 @@ Demo credentials policy: there are no shared demo credentials. The owner sets th
 | `npm run db:reset` | Drop and rebuild. **Refuses any non-local database URL** |
 | `npm run eval:offline` | 16 scenarios → `evals/results/latest.json` and the public `data/samples/precomputed.json` |
 | `npm run eval:live` | Opt-in live smoke (S12, S13, S16). Needs `ANTHROPIC_API_KEY` and `EVAL_LIVE_CONFIRM=yes` |
+| `npm run eval:bench -- --label <name>` | Agent benchmark (36 cases; `--reps`, `--split`, `--model`, `--mock`). Live runs need `EVAL_LIVE_CONFIRM=yes`; global $3 cap over recorded runs. Scores go to Langfuse |
+| `npm run eval:bench:langfuse -- <label>…` | Pulls a benchmark run's traces, generations, tools and scores back from the Langfuse Metrics API |
 | `npm run check:secrets` | Fails on tracked env files or secret-looking strings |
 | `npm run db:cloud` | Migrates and seeds the Supabase database (session pooler) and checks its schemas are not exposed to public roles |
 | `npm run check:langfuse` | Runs one mock reconciliation on a scratch DB and confirms the full trace in Langfuse (needs Langfuse keys; no LLM spend) |
@@ -120,7 +123,7 @@ Everything is rebuilt from tracked files: `migrations/`, `data/fixtures/`, `npm 
 
 ## Known limitations
 
-- Live evidence is a small sample: 3 / 3 agent-dependent scenarios plus owner runs in production. That shows the agent works with Claude; it is not a statistical accuracy measurement.
+- The agent benchmark is synthetic (36 cases) and now saturated at 100 %. It shows the agent behaves correctly on the cases it was designed for; it is not an accuracy estimate for real invoices ([limits](docs/agent-evaluation.md#limits-of-this-study)).
 - Supabase magic-link sign-in (PKCE over REST, no client SDK) verified end to end locally and in production against a real Supabase project; Supabase proves the email, then the app issues its own signed session.
 - Purchase-order consumption across several invoices is not tracked; every invoice is compared with the full PO.
 - Rate limiting is per process (best effort); the DB budget ledger is the hard guard for spend.
@@ -131,6 +134,7 @@ Everything is rebuilt from tracked files: `migrations/`, `data/fixtures/`, `npm 
 - **Agent vs workflow**: the workflow owns order, state and the human gate; the agent is one bounded step for interpretation only.
 - **Tool calling**: two typed Zod tools; supplier scope is injected by the server via `requestContext`, so the model cannot widen it; candidate lists are capped at 5.
 - **Human in the loop**: real `suspend()`; decision row first, then `resume()`; idempotency keys, unique constraints and conditional updates make double clicks, concurrent reviewers and crashes safe.
+- **Evaluation-driven changes**: a labeled benchmark found that the PO search tool hid the right order when a supplier had more than five; paging plus line summaries fixed it and made runs 28 % cheaper. Sonnet was measured, not assumed better.
 - **Observability**: one trace per run with workflow, step, agent, model and tool spans; trace id stored on the business record; verified offline and in Langfuse Cloud in production, including token usage and cost per Claude call.
 - **Deterministic validation**: decimal.js, documented rounding, zero tolerance, every finding cites both sides and the exact delta; agent output can only add findings.
 - **Postgres persistence**: business schema with constraints and append-only audit; Mastra snapshots in their own schema; everything rebuildable from migrations and seeds.

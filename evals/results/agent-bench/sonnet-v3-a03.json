@@ -1,0 +1,204 @@
+{
+  "kind": "agent-bench",
+  "label": "sonnet-v3-a03",
+  "mode": "anthropic",
+  "model": "claude-sonnet-5-5",
+  "promptVersion": "v3",
+  "reps": 3,
+  "split": "all",
+  "startedAt": "2026-10-27T15:08:10.812Z",
+  "finishedAt": "2026-10-27T15:08:20.256Z",
+  "spend": {
+    "ledgerUsd": 0.064778,
+    "ledgerRequests": 9,
+    "measuredUsd": 0.064778,
+    "budgetUsd": 3,
+    "spentBeforeUsd": 2.028836
+  },
+  "langfuse": {
+    "environment": "agent-bench",
+    "tag": "run:sonnet-v3-a03",
+    "scoresPosted": 15,
+    "scoresFailed": 0
+  },
+  "aggregate": {
+    "all": {
+      "runs": 3,
+      "cases": 1,
+      "poRuns": 3,
+      "poAccuracy": 1,
+      "wrongPickRate": 0,
+      "overAbstainRate": 0,
+      "errorRate": 0,
+      "highConfidenceWrongPicks": 0,
+      "lineP": 0,
+      "lineR": 0,
+      "lineF1": 1,
+      "exactRate": 1,
+      "meanAgreement": 1,
+      "stableCases": 1,
+      "costUsd": 0.064778,
+      "costPerRunUsd": 0.021592666666666666,
+      "meanInputTokens": 8146.333333333333,
+      "meanOutputTokens": 530,
+      "latencyP50Ms": 6770,
+      "latencyP95Ms": 7406
+    },
+    "dev": {
+      "runs": 3,
+      "cases": 1,
+      "poRuns": 3,
+      "poAccuracy": 1,
+      "wrongPickRate": 0,
+      "overAbstainRate": 0,
+      "errorRate": 0,
+      "highConfidenceWrongPicks": 0,
+      "lineP": 0,
+      "lineR": 0,
+      "lineF1": 1,
+      "exactRate": 1,
+      "meanAgreement": 1,
+      "stableCases": 1,
+      "costUsd": 0.064778,
+      "costPerRunUsd": 0.021592666666666666,
+      "meanInputTokens": 8146.333333333333,
+      "meanOutputTokens": 530,
+      "latencyP50Ms": 6770,
+      "latencyP95Ms": 7406
+    }
+  },
+  "byCategory": {
+    "abstain": {
+      "runs": 3,
+      "cases": 1,
+      "poRuns": 3,
+      "poAccuracy": 1,
+      "wrongPickRate": 0,
+      "overAbstainRate": 0,
+      "errorRate": 0,
+      "highConfidenceWrongPicks": 0,
+      "lineP": 0,
+      "lineR": 0,
+      "lineF1": 1,
+      "exactRate": 1,
+      "meanAgreement": 1,
+      "stableCases": 1,
+      "costUsd": 0.064778,
+      "costPerRunUsd": 0.021592666666666666,
+      "meanInputTokens": 8146.333333333333,
+      "meanOutputTokens": 530,
+      "latencyP50Ms": 6770,
+      "latencyP95Ms": 7406
+    }
+  },
+  "runs": [
+    {
+      "caseId": "A03-only-closed-po-fits",
+      "split": "dev",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-,2=-",
+      "confidence": "LOW",
+      "inputTokens": 8139,
+      "outputTokens": 515,
+      "requests": 3,
+      "costUsd": 0.021428,
+      "latencyMs": 6770,
+      "traceId": "93a043a1a1216d4a4b3575a515d3bdd2",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null,
+        "2": null
+      }
+    },
+    {
+      "caseId": "A03-only-closed-po-fits",
+      "split": "dev",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-,2=-",
+      "confidence": "LOW",
+      "inputTokens": 8157,
+      "outputTokens": 587,
+      "requests": 3,
+      "costUsd": 0.022184,
+      "latencyMs": 7406,
+      "traceId": "d2d760d137ca79d90d93cdabbf5963a4",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null,
+        "2": null
+      }
+    },
+    {
+      "caseId": "A03-only-closed-po-fits",
+      "split": "dev",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-,2=-",
+      "confidence": "LOW",
+      "inputTokens": 8143,
+      "outputTokens": 488,
+      "requests": 3,
+      "costUsd": 0.021166,
+      "latencyMs": 6491,
+      "traceId": "251aeac83693cd4f5ea6809d87962b76",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null,
+        "2": null
+      }
+    }
+  ]
+}
