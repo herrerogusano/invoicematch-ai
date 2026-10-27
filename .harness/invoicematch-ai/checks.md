@@ -25,11 +25,11 @@ Verdict: `pass`, `fail` or `unresolved`. Evidence is a command or test that was 
 | 5 | Langfuse Cloud trace arrival | pass | 2026-10-15 follow-up: `npm run check:langfuse` → 22 observations incl. agent, 2 generations, both tools (mock model) |
 | 5 | ≥12 labeled scenarios, scored N/N with failed IDs | pass | `npm run eval:offline` → 16 / 16, `evals/results/latest.json` |
 | 5 | Small live LLM smoke with cost accounting | pass | 2026-10-21: `EVAL_LIVE_CONFIRM=yes npm run eval:live` 3/3 PASS (S12, S13, S16) on claude-haiku-5-5; 8 requests, est. $0.0028 in the ledger; `evals/results/live-latest.json`. Production S13 by the owner: approved; ledger 3 requests $0.00088; Langfuse trace 5506085e… with generation usage and cost |
-| 6 | Deployment gate run, deploy if feasible and approved | unresolved | Not approved this session (local-only); gate table in `docs/deployment-feasibility.md` |
+| 6 | Deployment gate run, deploy if feasible and approved | pass | Gate table in `docs/deployment-feasibility.md`; deployed after owner approval (see the production deployment row below) |
 | 7 | Secret scan, no tracked env files | pass | `npm run check:secrets` |
 | 7 | CI offline with Postgres service, no secrets | pass | GitHub Actions run 38720997620 on `feature/mvp`: all 13 steps green (Linux) |
 | 7 | Final local sequence: npm ci → secrets → lint → typecheck → unit → migrate/seed → integration → eval → build | pass | run at 12:30: 34/34, 29/29, 16/16, build OK |
-| 7 | Integration suite stability on Windows | unresolved | 1 of ~6 runs of `api-security.test.ts` ended with native worker exit 0xC0000409 before assertions; all later runs passed |
+| 7 | Integration suite stability on Windows | pass | 2026-10-27: `api-security.test.ts` alone 10/10 and the full integration suite 2/2 (29/29) on Windows, Node 24.15, Vitest 5.0.4. The single earlier native worker exit (0xC0000409, before any assertion) did not reproduce; CI on Linux has always passed |
 | 4 | Supabase magic-link owner sign-in (follow-up) | pass | unit `supabase-auth.test.ts` 8/8 (PKCE, allowlist, no owner oracle, origin, rate limit, session bound to mode); real run 2026-10-15 under `next dev`: `POST /api/auth/magic-link` 200 → email → `GET /auth/callback` 307 → `/owner` 200 |
 | 6 | Supabase Postgres: migrations, Mastra storage, seed, durable HITL across processes (follow-up) | pass | `npm run db:cloud` twice (idempotent); child CLI on Supabase: start S03 → REVIEW_REQUIRED, fresh process approves → APPROVED_WITH_EXCEPTION / snapshot `success`, third process refused; S01 2.8 s, S13 4.7 s |
 | 6 | Supabase exposure of business/workflow data | pass | Data API returns 406 PGRST106 for `app` and `mastra`; `anon`/`authenticated` have no USAGE or table grants; check built into `db:cloud` |
