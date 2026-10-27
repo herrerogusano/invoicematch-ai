@@ -42,6 +42,8 @@ export async function startReconciliation(input: {
   scenarioId: string | null;
   idempotencyKey: string;
   requestedBy: string;
+  /** Extra trace tags and metadata (used by the agent benchmark to label runs in Langfuse). */
+  tracing?: { tags?: string[]; metadata?: Record<string, unknown>; traceId?: string };
 }): Promise<StartResult> {
   const existing = await getReconciliationIdByIdempotencyKey(input.idempotencyKey);
   if (existing) return { reconciliationId: existing, status: await statusOf(existing), deduplicated: true };
@@ -55,6 +57,7 @@ export async function startReconciliation(input: {
       requestedBy: input.requestedBy,
       scenarioId: input.scenarioId,
     },
+    ...(input.tracing ? { tracingOptions: { tags: input.tracing.tags, metadata: input.tracing.metadata, traceId: input.tracing.traceId } } : {}),
   });
 
   const id = await getReconciliationIdByIdempotencyKey(input.idempotencyKey);

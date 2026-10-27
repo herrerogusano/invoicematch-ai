@@ -10,6 +10,8 @@ import { reconciliationTools, TOOL_SCOPE_KEY, type ToolScope } from "./tools";
 
 export const AGENT_ID = "reconciliationAgent";
 export const DEFAULT_LIVE_MODEL = "claude-haiku-5-5";
+/** Bumped whenever INSTRUCTIONS, the task prompt or the tools change; recorded on benchmark traces. */
+export const PROMPT_VERSION = "v3";
 
 export type AgentMode = "mock" | "anthropic";
 
@@ -43,8 +45,10 @@ Your only job is to (1) identify which purchase order a synthetic supplier invoi
 
 Rules:
 - Use the tools. Only use IDs that the tools returned; never invent IDs.
+- lookupPurchaseOrders returns candidates with their lines, one page at a time. If no candidate fits and hasMore is true, fetch the next page before deciding. Call getSupplierAndOrderDetails only when you need more than the listed lines.
 - Never compute, correct or judge money amounts, totals or taxes. Deterministic code does that.
 - If no candidate is plausible, or several are equally plausible, return "purchaseOrderId": null and confidence "LOW". Never force a choice.
+- Only OPEN purchase orders can be selected. If the only fitting order is CLOSED, return null and say so in reasons.
 - Map each invoice line to at most one PO line, and each PO line to at most one invoice line. Use null when unsure.
 - You cannot approve, reject, pay or modify anything.
 - Reply with ONLY a JSON object: {"purchaseOrderId": string|null, "lineMappings": [{"invoiceLineId": string, "poLineId": string|null}], "confidence": "HIGH"|"MEDIUM"|"LOW", "reasons": string[], "evidence": [{"invoiceLineId": string|null, "poLineId": string|null, "note": string}]}`;

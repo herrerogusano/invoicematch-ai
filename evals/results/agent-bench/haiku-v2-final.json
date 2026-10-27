@@ -1,0 +1,6533 @@
+{
+  "kind": "agent-bench",
+  "label": "haiku-v2-final",
+  "mode": "anthropic",
+  "model": "claude-haiku-5-5",
+  "promptVersion": "v2",
+  "reps": 5,
+  "split": "all",
+  "startedAt": "2026-10-27T14:55:11.195Z",
+  "finishedAt": "2026-10-27T15:00:32.924Z",
+  "spend": {
+    "ledgerUsd": 0.147813,
+    "ledgerRequests": 384,
+    "measuredUsd": 0.1388155,
+    "budgetUsd": 3,
+    "spentBeforeUsd": 0.23792100000000002
+  },
+  "langfuse": {
+    "environment": "agent-bench",
+    "tag": "run:haiku-v2-final",
+    "scoresPosted": 820,
+    "scoresFailed": 0
+  },
+  "aggregate": {
+    "all": {
+      "runs": 180,
+      "cases": 36,
+      "poRuns": 140,
+      "poAccuracy": 0.9857142857142858,
+      "wrongPickRate": 0,
+      "overAbstainRate": 0,
+      "errorRate": 0.011111111111111112,
+      "highConfidenceWrongPicks": 0,
+      "lineP": 1,
+      "lineR": 0.9830508474576272,
+      "lineF1": 0.9914529914529915,
+      "exactRate": 0.9888888888888889,
+      "meanAgreement": 0.9888888888888889,
+      "stableCases": 34,
+      "costUsd": 0.1388155,
+      "costPerRunUsd": 0.0007711972222222222,
+      "meanInputTokens": 4349.333333333333,
+      "meanOutputTokens": 672.5277777777778,
+      "latencyP50Ms": 4278,
+      "latencyP95Ms": 6446
+    },
+    "dev": {
+      "runs": 90,
+      "cases": 18,
+      "poRuns": 70,
+      "poAccuracy": 0.9857142857142858,
+      "wrongPickRate": 0,
+      "overAbstainRate": 0,
+      "errorRate": 0.011111111111111112,
+      "highConfidenceWrongPicks": 0,
+      "lineP": 1,
+      "lineR": 0.9875,
+      "lineF1": 0.9937106918238994,
+      "exactRate": 0.9888888888888889,
+      "meanAgreement": 0.9888888888888889,
+      "stableCases": 17,
+      "costUsd": 0.068833,
+      "costPerRunUsd": 0.0007648111111111112,
+      "meanInputTokens": 4263.5,
+      "meanOutputTokens": 676.9222222222222,
+      "latencyP50Ms": 4286,
+      "latencyP95Ms": 6446
+    },
+    "test": {
+      "runs": 90,
+      "cases": 18,
+      "poRuns": 70,
+      "poAccuracy": 0.9857142857142858,
+      "wrongPickRate": 0,
+      "overAbstainRate": 0,
+      "errorRate": 0.011111111111111112,
+      "highConfidenceWrongPicks": 0,
+      "lineP": 1,
+      "lineR": 0.9777777777777777,
+      "lineF1": 0.9887640449438202,
+      "exactRate": 0.9888888888888889,
+      "meanAgreement": 0.9888888888888889,
+      "stableCases": 17,
+      "costUsd": 0.06998250000000002,
+      "costPerRunUsd": 0.0007775833333333335,
+      "meanInputTokens": 4435.166666666667,
+      "meanOutputTokens": 668.1333333333333,
+      "latencyP50Ms": 4248,
+      "latencyP95Ms": 6573
+    }
+  },
+  "byCategory": {
+    "abstain": {
+      "runs": 30,
+      "cases": 6,
+      "poRuns": 30,
+      "poAccuracy": 1,
+      "wrongPickRate": 0,
+      "overAbstainRate": 0,
+      "errorRate": 0,
+      "highConfidenceWrongPicks": 0,
+      "lineP": 0,
+      "lineR": 0,
+      "lineF1": 1,
+      "exactRate": 1,
+      "meanAgreement": 1,
+      "stableCases": 6,
+      "costUsd": 0.020630400000000004,
+      "costPerRunUsd": 0.0006876800000000001,
+      "meanInputTokens": 4176.3,
+      "meanOutputTokens": 540.1,
+      "latencyP50Ms": 4076,
+      "latencyP95Ms": 5720
+    },
+    "search": {
+      "runs": 80,
+      "cases": 16,
+      "poRuns": 80,
+      "poAccuracy": 1,
+      "wrongPickRate": 0,
+      "overAbstainRate": 0,
+      "errorRate": 0,
+      "highConfidenceWrongPicks": 0,
+      "lineP": 1,
+      "lineR": 1,
+      "lineF1": 1,
+      "exactRate": 1,
+      "meanAgreement": 1,
+      "stableCases": 16,
+      "costUsd": 0.05984700000000001,
+      "costPerRunUsd": 0.0007480875000000001,
+      "meanInputTokens": 4073.4375,
+      "meanOutputTokens": 681.4875,
+      "latencyP50Ms": 4208,
+      "latencyP95Ms": 5657
+    },
+    "many-candidates": {
+      "runs": 15,
+      "cases": 3,
+      "poRuns": 15,
+      "poAccuracy": 1,
+      "wrongPickRate": 0,
+      "overAbstainRate": 0,
+      "errorRate": 0,
+      "highConfidenceWrongPicks": 0,
+      "lineP": 1,
+      "lineR": 1,
+      "lineF1": 1,
+      "exactRate": 1,
+      "meanAgreement": 1,
+      "stableCases": 3,
+      "costUsd": 0.015169499999999999,
+      "costPerRunUsd": 0.0010113,
+      "meanInputTokens": 6763,
+      "meanOutputTokens": 670,
+      "latencyP50Ms": 5166,
+      "latencyP95Ms": 6333
+    },
+    "bad-reference": {
+      "runs": 10,
+      "cases": 2,
+      "poRuns": 10,
+      "poAccuracy": 0.8,
+      "wrongPickRate": 0,
+      "overAbstainRate": 0,
+      "errorRate": 0.2,
+      "highConfidenceWrongPicks": 0,
+      "lineP": 1,
+      "lineR": 0.8,
+      "lineF1": 0.8888888888888888,
+      "exactRate": 0.8,
+      "meanAgreement": 0.8,
+      "stableCases": 0,
+      "costUsd": 0.011301199999999999,
+      "costPerRunUsd": 0.0011301199999999999,
+      "meanInputTokens": 5948.7,
+      "meanOutputTokens": 1070.5,
+      "latencyP50Ms": 6573,
+      "latencyP95Ms": 8837
+    },
+    "injection": {
+      "runs": 5,
+      "cases": 1,
+      "poRuns": 5,
+      "poAccuracy": 1,
+      "wrongPickRate": 0,
+      "overAbstainRate": 0,
+      "errorRate": 0,
+      "highConfidenceWrongPicks": 0,
+      "lineP": 1,
+      "lineR": 1,
+      "lineF1": 1,
+      "exactRate": 1,
+      "meanAgreement": 1,
+      "stableCases": 1,
+      "costUsd": 0.0040629,
+      "costPerRunUsd": 0.00081258,
+      "meanInputTokens": 4441.8,
+      "meanOutputTokens": 736.8,
+      "latencyP50Ms": 4747,
+      "latencyP95Ms": 5309
+    },
+    "fixed-po": {
+      "runs": 40,
+      "cases": 8,
+      "poRuns": 0,
+      "poAccuracy": 0,
+      "wrongPickRate": 0,
+      "overAbstainRate": 0,
+      "errorRate": 0,
+      "highConfidenceWrongPicks": 0,
+      "lineP": 1,
+      "lineR": 1,
+      "lineF1": 1,
+      "exactRate": 1,
+      "meanAgreement": 1,
+      "stableCases": 8,
+      "costUsd": 0.027804499999999996,
+      "costPerRunUsd": 0.0006951124999999999,
+      "meanInputTokens": 3714.375,
+      "meanOutputTokens": 647.35,
+      "latencyP50Ms": 3785,
+      "latencyP95Ms": 6446
+    }
+  },
+  "runs": [
+    {
+      "caseId": "A01-identical-candidates",
+      "split": "dev",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-,2=-,3=-",
+      "confidence": "LOW",
+      "inputTokens": 4411,
+      "outputTokens": 685,
+      "requests": 2,
+      "costUsd": 0.0007836000000000001,
+      "latencyMs": 4634,
+      "traceId": "21784b3e242a79bb20e996bf72c84024",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null,
+        "2": null,
+        "3": null
+      }
+    },
+    {
+      "caseId": "A01-identical-candidates",
+      "split": "dev",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-,2=-,3=-",
+      "confidence": "LOW",
+      "inputTokens": 4411,
+      "outputTokens": 690,
+      "requests": 2,
+      "costUsd": 0.0007861,
+      "latencyMs": 4243,
+      "traceId": "709c2a7f8f1cd09cf72e644164ad53c3",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null,
+        "2": null,
+        "3": null
+      }
+    },
+    {
+      "caseId": "A01-identical-candidates",
+      "split": "dev",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-,2=-,3=-",
+      "confidence": "LOW",
+      "inputTokens": 4411,
+      "outputTokens": 686,
+      "requests": 2,
+      "costUsd": 0.0007841,
+      "latencyMs": 4213,
+      "traceId": "a55e8531f5c854e9403093133ff88142",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null,
+        "2": null,
+        "3": null
+      }
+    },
+    {
+      "caseId": "A01-identical-candidates",
+      "split": "dev",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-,2=-,3=-",
+      "confidence": "LOW",
+      "inputTokens": 4411,
+      "outputTokens": 618,
+      "requests": 2,
+      "costUsd": 0.0007501000000000001,
+      "latencyMs": 4420,
+      "traceId": "795fe8854c82a0c46e82a6101f719a3b",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null,
+        "2": null,
+        "3": null
+      }
+    },
+    {
+      "caseId": "A01-identical-candidates",
+      "split": "dev",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-,2=-,3=-",
+      "confidence": "LOW",
+      "inputTokens": 4411,
+      "outputTokens": 813,
+      "requests": 2,
+      "costUsd": 0.0008476,
+      "latencyMs": 5188,
+      "traceId": "29622bb18fab7e75767ee683d67aecd7",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null,
+        "2": null,
+        "3": null
+      }
+    },
+    {
+      "caseId": "A02-identical-candidates-partial",
+      "split": "test",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-",
+      "confidence": "LOW",
+      "inputTokens": 4183,
+      "outputTokens": 817,
+      "requests": 2,
+      "costUsd": 0.0008267999999999999,
+      "latencyMs": 5026,
+      "traceId": "6180a79adf2bc920c0da4a184e2461b3",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null
+      }
+    },
+    {
+      "caseId": "A02-identical-candidates-partial",
+      "split": "test",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-",
+      "confidence": "LOW",
+      "inputTokens": 4183,
+      "outputTokens": 594,
+      "requests": 2,
+      "costUsd": 0.0007153,
+      "latencyMs": 4063,
+      "traceId": "55e088c3396c912dff7c4305f08b7c26",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null
+      }
+    },
+    {
+      "caseId": "A02-identical-candidates-partial",
+      "split": "test",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-",
+      "confidence": "LOW",
+      "inputTokens": 4183,
+      "outputTokens": 682,
+      "requests": 2,
+      "costUsd": 0.0007593,
+      "latencyMs": 4495,
+      "traceId": "29a985a3282e4701aef7b307566acd77",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null
+      }
+    },
+    {
+      "caseId": "A02-identical-candidates-partial",
+      "split": "test",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-",
+      "confidence": "LOW",
+      "inputTokens": 4183,
+      "outputTokens": 786,
+      "requests": 2,
+      "costUsd": 0.0008112999999999999,
+      "latencyMs": 5048,
+      "traceId": "eeb6a5492264e841981402839d1c7a19",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null
+      }
+    },
+    {
+      "caseId": "A02-identical-candidates-partial",
+      "split": "test",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-",
+      "confidence": "LOW",
+      "inputTokens": 4183,
+      "outputTokens": 617,
+      "requests": 2,
+      "costUsd": 0.0007268,
+      "latencyMs": 3817,
+      "traceId": "db01b0c0c039fe565884993a526746da",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null
+      }
+    },
+    {
+      "caseId": "A03-only-closed-po-fits",
+      "split": "dev",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-,2=-",
+      "confidence": "LOW",
+      "inputTokens": 4312,
+      "outputTokens": 505,
+      "requests": 2,
+      "costUsd": 0.0006837000000000001,
+      "latencyMs": 3966,
+      "traceId": "f84306f02c17f82efa1a3ea91b224352",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null,
+        "2": null
+      }
+    },
+    {
+      "caseId": "A03-only-closed-po-fits",
+      "split": "dev",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-,2=-",
+      "confidence": "LOW",
+      "inputTokens": 4312,
+      "outputTokens": 450,
+      "requests": 2,
+      "costUsd": 0.0006562,
+      "latencyMs": 4964,
+      "traceId": "098c45cdc321e07eff52b5a8c12331c3",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null,
+        "2": null
+      }
+    },
+    {
+      "caseId": "A03-only-closed-po-fits",
+      "split": "dev",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-,2=-",
+      "confidence": "LOW",
+      "inputTokens": 4312,
+      "outputTokens": 479,
+      "requests": 2,
+      "costUsd": 0.0006707000000000001,
+      "latencyMs": 5804,
+      "traceId": "e4a0d48118ca6c04d4937b87904b1ab6",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null,
+        "2": null
+      }
+    },
+    {
+      "caseId": "A03-only-closed-po-fits",
+      "split": "dev",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-,2=-",
+      "confidence": "LOW",
+      "inputTokens": 4312,
+      "outputTokens": 533,
+      "requests": 2,
+      "costUsd": 0.0006977000000000001,
+      "latencyMs": 4076,
+      "traceId": "cd3e68d6105f9a156b50cf99d0234fb1",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null,
+        "2": null
+      }
+    },
+    {
+      "caseId": "A03-only-closed-po-fits",
+      "split": "dev",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-,2=-",
+      "confidence": "LOW",
+      "inputTokens": 4312,
+      "outputTokens": 524,
+      "requests": 2,
+      "costUsd": 0.0006932,
+      "latencyMs": 4698,
+      "traceId": "176e50b5e60a9608d1d854646c1cd69f",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null,
+        "2": null
+      }
+    },
+    {
+      "caseId": "A04-no-plausible-po",
+      "split": "test",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-",
+      "confidence": "LOW",
+      "inputTokens": 4191,
+      "outputTokens": 488,
+      "requests": 2,
+      "costUsd": 0.0006631,
+      "latencyMs": 3915,
+      "traceId": "e9a9c1511476e57641e1a5b5ca7e5168",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null
+      }
+    },
+    {
+      "caseId": "A04-no-plausible-po",
+      "split": "test",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-",
+      "confidence": "LOW",
+      "inputTokens": 4191,
+      "outputTokens": 437,
+      "requests": 2,
+      "costUsd": 0.0006376,
+      "latencyMs": 3860,
+      "traceId": "bab904c171fc158120b8f764e7a71c85",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null
+      }
+    },
+    {
+      "caseId": "A04-no-plausible-po",
+      "split": "test",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-",
+      "confidence": "LOW",
+      "inputTokens": 8005,
+      "outputTokens": 628,
+      "requests": 3,
+      "costUsd": 0.0011145,
+      "latencyMs": 5720,
+      "traceId": "a9fd0038bdbd6d0d15cdd1ec7077829b",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null
+      }
+    },
+    {
+      "caseId": "A04-no-plausible-po",
+      "split": "test",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-",
+      "confidence": "LOW",
+      "inputTokens": 4191,
+      "outputTokens": 410,
+      "requests": 2,
+      "costUsd": 0.0006241,
+      "latencyMs": 3108,
+      "traceId": "07a3ca456d7cd1df469e61e037d3e7b0",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null
+      }
+    },
+    {
+      "caseId": "A04-no-plausible-po",
+      "split": "test",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-",
+      "confidence": "LOW",
+      "inputTokens": 4191,
+      "outputTokens": 463,
+      "requests": 2,
+      "costUsd": 0.0006506,
+      "latencyMs": 3184,
+      "traceId": "c4e85a11cb5f28346e471314e695da7f",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null
+      }
+    },
+    {
+      "caseId": "A05-no-plausible-po-services",
+      "split": "dev",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-",
+      "confidence": "LOW",
+      "inputTokens": 3734,
+      "outputTokens": 440,
+      "requests": 2,
+      "costUsd": 0.0005934000000000001,
+      "latencyMs": 3248,
+      "traceId": "1c236759b44cf1e992dbe19002c18165",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null
+      }
+    },
+    {
+      "caseId": "A05-no-plausible-po-services",
+      "split": "dev",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-",
+      "confidence": "LOW",
+      "inputTokens": 3734,
+      "outputTokens": 465,
+      "requests": 2,
+      "costUsd": 0.0006059000000000001,
+      "latencyMs": 3349,
+      "traceId": "9d0b14b41fa5e7d40e48b6c7673da652",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null
+      }
+    },
+    {
+      "caseId": "A05-no-plausible-po-services",
+      "split": "dev",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-",
+      "confidence": "LOW",
+      "inputTokens": 3734,
+      "outputTokens": 413,
+      "requests": 2,
+      "costUsd": 0.0005799000000000001,
+      "latencyMs": 3304,
+      "traceId": "59367efbaea17b52293c5835275076ff",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null
+      }
+    },
+    {
+      "caseId": "A05-no-plausible-po-services",
+      "split": "dev",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-",
+      "confidence": "LOW",
+      "inputTokens": 3734,
+      "outputTokens": 459,
+      "requests": 2,
+      "costUsd": 0.0006029000000000001,
+      "latencyMs": 3615,
+      "traceId": "ebd307ece2ce565c1f9c163db75693f6",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null
+      }
+    },
+    {
+      "caseId": "A05-no-plausible-po-services",
+      "split": "dev",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-",
+      "confidence": "LOW",
+      "inputTokens": 3734,
+      "outputTokens": 510,
+      "requests": 2,
+      "costUsd": 0.0006284000000000001,
+      "latencyMs": 3767,
+      "traceId": "5bb69ef8fd803aa74710f220144c21c3",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null
+      }
+    },
+    {
+      "caseId": "A06-single-po-unrelated",
+      "split": "test",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-",
+      "confidence": "LOW",
+      "inputTokens": 3464,
+      "outputTokens": 386,
+      "requests": 2,
+      "costUsd": 0.0005394000000000001,
+      "latencyMs": 3431,
+      "traceId": "fa2de99b4a0be48dbdf6d298356692d6",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null
+      }
+    },
+    {
+      "caseId": "A06-single-po-unrelated",
+      "split": "test",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-",
+      "confidence": "LOW",
+      "inputTokens": 3464,
+      "outputTokens": 402,
+      "requests": 2,
+      "costUsd": 0.0005474000000000001,
+      "latencyMs": 3128,
+      "traceId": "8eb4e8787620d85d64c1b5d8c35141e3",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null
+      }
+    },
+    {
+      "caseId": "A06-single-po-unrelated",
+      "split": "test",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-",
+      "confidence": "LOW",
+      "inputTokens": 3464,
+      "outputTokens": 415,
+      "requests": 2,
+      "costUsd": 0.0005539000000000001,
+      "latencyMs": 5341,
+      "traceId": "c1b203201df8e52e98300fe4ed5ca711",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null
+      }
+    },
+    {
+      "caseId": "A06-single-po-unrelated",
+      "split": "test",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-",
+      "confidence": "LOW",
+      "inputTokens": 3464,
+      "outputTokens": 412,
+      "requests": 2,
+      "costUsd": 0.0005524000000000001,
+      "latencyMs": 4280,
+      "traceId": "ed9a29244676fcf3546558e815cc0bda",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null
+      }
+    },
+    {
+      "caseId": "A06-single-po-unrelated",
+      "split": "test",
+      "category": "abstain",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_abstain",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "NONE|1=-",
+      "confidence": "LOW",
+      "inputTokens": 3464,
+      "outputTokens": 396,
+      "requests": 2,
+      "costUsd": 0.0005444000000000001,
+      "latencyMs": 4889,
+      "traceId": "2466fbe2ff0e40dee0d01eee38dd08ef",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "UNMATCHED",
+      "errorCode": null,
+      "poNumber": null,
+      "lines": {
+        "1": null
+      }
+    },
+    {
+      "caseId": "B01-synonyms-three-lines",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-101|1=K101-L1,2=K101-L2,3=K101-L3",
+      "confidence": "HIGH",
+      "inputTokens": 4434,
+      "outputTokens": 680,
+      "requests": 2,
+      "costUsd": 0.0007834000000000001,
+      "latencyMs": 5179,
+      "traceId": "9b1a48f77db9386dc8c6be2d66d7b541",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-101",
+      "lines": {
+        "1": "K101-L1",
+        "2": "K101-L2",
+        "3": "K101-L3"
+      }
+    },
+    {
+      "caseId": "B01-synonyms-three-lines",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-101|1=K101-L1,2=K101-L2,3=K101-L3",
+      "confidence": "HIGH",
+      "inputTokens": 4434,
+      "outputTokens": 751,
+      "requests": 2,
+      "costUsd": 0.0008189000000000001,
+      "latencyMs": 5019,
+      "traceId": "cd91ec87167ef74e6138d11cce986fe9",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-101",
+      "lines": {
+        "1": "K101-L1",
+        "2": "K101-L2",
+        "3": "K101-L3"
+      }
+    },
+    {
+      "caseId": "B01-synonyms-three-lines",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-101|1=K101-L1,2=K101-L2,3=K101-L3",
+      "confidence": "HIGH",
+      "inputTokens": 4434,
+      "outputTokens": 646,
+      "requests": 2,
+      "costUsd": 0.0007664000000000001,
+      "latencyMs": 4562,
+      "traceId": "3979fc30bf5f4e4f5b5e546c0ca3917d",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-101",
+      "lines": {
+        "1": "K101-L1",
+        "2": "K101-L2",
+        "3": "K101-L3"
+      }
+    },
+    {
+      "caseId": "B01-synonyms-three-lines",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-101|1=K101-L1,2=K101-L2,3=K101-L3",
+      "confidence": "HIGH",
+      "inputTokens": 4434,
+      "outputTokens": 621,
+      "requests": 2,
+      "costUsd": 0.0007539000000000001,
+      "latencyMs": 4395,
+      "traceId": "aa0b60b5e5fe6fdfea37286dd5216c28",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-101",
+      "lines": {
+        "1": "K101-L1",
+        "2": "K101-L2",
+        "3": "K101-L3"
+      }
+    },
+    {
+      "caseId": "B01-synonyms-three-lines",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-101|1=K101-L1,2=K101-L2,3=K101-L3",
+      "confidence": "HIGH",
+      "inputTokens": 4434,
+      "outputTokens": 555,
+      "requests": 2,
+      "costUsd": 0.0007209000000000001,
+      "latencyMs": 3517,
+      "traceId": "dcbc497c9c2ba1f85ea68617b60d0849",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-101",
+      "lines": {
+        "1": "K101-L1",
+        "2": "K101-L2",
+        "3": "K101-L3"
+      }
+    },
+    {
+      "caseId": "B02-partial-single-line",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-103|1=K103-L1",
+      "confidence": "HIGH",
+      "inputTokens": 4224,
+      "outputTokens": 495,
+      "requests": 2,
+      "costUsd": 0.0006699000000000001,
+      "latencyMs": 3514,
+      "traceId": "16c1344001ee83ed8a36592569dc9e41",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-103",
+      "lines": {
+        "1": "K103-L1"
+      }
+    },
+    {
+      "caseId": "B02-partial-single-line",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-103|1=K103-L1",
+      "confidence": "HIGH",
+      "inputTokens": 4224,
+      "outputTokens": 601,
+      "requests": 2,
+      "costUsd": 0.0007229000000000001,
+      "latencyMs": 5170,
+      "traceId": "38ba1b15fb6e2dee89da11ad26fa34ce",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-103",
+      "lines": {
+        "1": "K103-L1"
+      }
+    },
+    {
+      "caseId": "B02-partial-single-line",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-103|1=K103-L1",
+      "confidence": "HIGH",
+      "inputTokens": 4224,
+      "outputTokens": 623,
+      "requests": 2,
+      "costUsd": 0.0007339000000000001,
+      "latencyMs": 4859,
+      "traceId": "69eb9e05c62d136013238c76814381c0",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-103",
+      "lines": {
+        "1": "K103-L1"
+      }
+    },
+    {
+      "caseId": "B02-partial-single-line",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-103|1=K103-L1",
+      "confidence": "HIGH",
+      "inputTokens": 4224,
+      "outputTokens": 769,
+      "requests": 2,
+      "costUsd": 0.0008069,
+      "latencyMs": 6346,
+      "traceId": "9a4b092f1ccf967afca98817557d2fab",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-103",
+      "lines": {
+        "1": "K103-L1"
+      }
+    },
+    {
+      "caseId": "B02-partial-single-line",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-103|1=K103-L1",
+      "confidence": "HIGH",
+      "inputTokens": 4224,
+      "outputTokens": 675,
+      "requests": 2,
+      "costUsd": 0.0007599000000000001,
+      "latencyMs": 4905,
+      "traceId": "094a1e7389b0d7f9788ef37343b0cb7d",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-103",
+      "lines": {
+        "1": "K103-L1"
+      }
+    },
+    {
+      "caseId": "B03-laminating",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-104|1=K104-L2,2=K104-L1",
+      "confidence": "HIGH",
+      "inputTokens": 4306,
+      "outputTokens": 644,
+      "requests": 2,
+      "costUsd": 0.0007526,
+      "latencyMs": 4350,
+      "traceId": "a304f0fe093585f02528a2b12c999be7",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-104",
+      "lines": {
+        "1": "K104-L2",
+        "2": "K104-L1"
+      }
+    },
+    {
+      "caseId": "B03-laminating",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-104|1=K104-L2,2=K104-L1",
+      "confidence": "HIGH",
+      "inputTokens": 4306,
+      "outputTokens": 697,
+      "requests": 2,
+      "costUsd": 0.0007791,
+      "latencyMs": 4191,
+      "traceId": "d462ecb1bdaedcc3c44b51b1c0da1b03",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-104",
+      "lines": {
+        "1": "K104-L2",
+        "2": "K104-L1"
+      }
+    },
+    {
+      "caseId": "B03-laminating",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-104|1=K104-L2,2=K104-L1",
+      "confidence": "HIGH",
+      "inputTokens": 4306,
+      "outputTokens": 721,
+      "requests": 2,
+      "costUsd": 0.0007911,
+      "latencyMs": 3925,
+      "traceId": "8cd5eeb4fae2265a198c2b172f1dd94d",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-104",
+      "lines": {
+        "1": "K104-L2",
+        "2": "K104-L1"
+      }
+    },
+    {
+      "caseId": "B03-laminating",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-104|1=K104-L2,2=K104-L1",
+      "confidence": "HIGH",
+      "inputTokens": 4306,
+      "outputTokens": 645,
+      "requests": 2,
+      "costUsd": 0.0007531,
+      "latencyMs": 3831,
+      "traceId": "c18a0e6a7dd9484efa30a73c5ec549f1",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-104",
+      "lines": {
+        "1": "K104-L2",
+        "2": "K104-L1"
+      }
+    },
+    {
+      "caseId": "B03-laminating",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-104|1=K104-L2,2=K104-L1",
+      "confidence": "HIGH",
+      "inputTokens": 4306,
+      "outputTokens": 717,
+      "requests": 2,
+      "costUsd": 0.0007891,
+      "latencyMs": 4014,
+      "traceId": "a47caca5bd1395a71b0396e066946c0a",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-104",
+      "lines": {
+        "1": "K104-L2",
+        "2": "K104-L1"
+      }
+    },
+    {
+      "caseId": "B04-desk-accessories",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-105|1=K105-L1,2=K105-L2",
+      "confidence": "HIGH",
+      "inputTokens": 4306,
+      "outputTokens": 779,
+      "requests": 2,
+      "costUsd": 0.0008201,
+      "latencyMs": 4490,
+      "traceId": "7dc436f76e0230b2d0f1c283f9eb6eac",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-105",
+      "lines": {
+        "1": "K105-L1",
+        "2": "K105-L2"
+      }
+    },
+    {
+      "caseId": "B04-desk-accessories",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-105|1=K105-L1,2=K105-L2",
+      "confidence": "HIGH",
+      "inputTokens": 4306,
+      "outputTokens": 751,
+      "requests": 2,
+      "costUsd": 0.0008061,
+      "latencyMs": 4342,
+      "traceId": "bcdfe10d385fd80eac0f1c0f9b7154dc",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-105",
+      "lines": {
+        "1": "K105-L1",
+        "2": "K105-L2"
+      }
+    },
+    {
+      "caseId": "B04-desk-accessories",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-105|1=K105-L1,2=K105-L2",
+      "confidence": "HIGH",
+      "inputTokens": 4306,
+      "outputTokens": 637,
+      "requests": 2,
+      "costUsd": 0.0007491,
+      "latencyMs": 4248,
+      "traceId": "8c2567ba8101de87bcb6cac7d8a90e84",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-105",
+      "lines": {
+        "1": "K105-L1",
+        "2": "K105-L2"
+      }
+    },
+    {
+      "caseId": "B04-desk-accessories",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-105|1=K105-L1,2=K105-L2",
+      "confidence": "HIGH",
+      "inputTokens": 4306,
+      "outputTokens": 878,
+      "requests": 2,
+      "costUsd": 0.0008696,
+      "latencyMs": 5031,
+      "traceId": "6728446a328eed4c198a66bf088ad153",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-105",
+      "lines": {
+        "1": "K105-L1",
+        "2": "K105-L2"
+      }
+    },
+    {
+      "caseId": "B04-desk-accessories",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-105|1=K105-L1,2=K105-L2",
+      "confidence": "HIGH",
+      "inputTokens": 4306,
+      "outputTokens": 805,
+      "requests": 2,
+      "costUsd": 0.0008331,
+      "latencyMs": 5063,
+      "traceId": "dc7f18526c55d0f3a14f784663ac0671",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-105",
+      "lines": {
+        "1": "K105-L1",
+        "2": "K105-L2"
+      }
+    },
+    {
+      "caseId": "B05-near-duplicate-by-quantity",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-202|1=F202-L1,2=F202-L2,3=F202-L3",
+      "confidence": "HIGH",
+      "inputTokens": 4411,
+      "outputTokens": 821,
+      "requests": 2,
+      "costUsd": 0.0008516,
+      "latencyMs": 4491,
+      "traceId": "0734213a0cb3e0f138c5e472d7c5a522",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-202",
+      "lines": {
+        "1": "F202-L1",
+        "2": "F202-L2",
+        "3": "F202-L3"
+      }
+    },
+    {
+      "caseId": "B05-near-duplicate-by-quantity",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-202|1=F202-L1,2=F202-L2,3=F202-L3",
+      "confidence": "HIGH",
+      "inputTokens": 4411,
+      "outputTokens": 754,
+      "requests": 2,
+      "costUsd": 0.0008181,
+      "latencyMs": 4492,
+      "traceId": "c119e3c2f0e7ff1bb07fcd8563b034cd",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-202",
+      "lines": {
+        "1": "F202-L1",
+        "2": "F202-L2",
+        "3": "F202-L3"
+      }
+    },
+    {
+      "caseId": "B05-near-duplicate-by-quantity",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-202|1=F202-L1,2=F202-L2,3=F202-L3",
+      "confidence": "HIGH",
+      "inputTokens": 4411,
+      "outputTokens": 750,
+      "requests": 2,
+      "costUsd": 0.0008161,
+      "latencyMs": 4192,
+      "traceId": "6cbbf9e50327291e7a420291416a1f90",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-202",
+      "lines": {
+        "1": "F202-L1",
+        "2": "F202-L2",
+        "3": "F202-L3"
+      }
+    },
+    {
+      "caseId": "B05-near-duplicate-by-quantity",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-202|1=F202-L1,2=F202-L2,3=F202-L3",
+      "confidence": "HIGH",
+      "inputTokens": 4411,
+      "outputTokens": 605,
+      "requests": 2,
+      "costUsd": 0.0007436000000000001,
+      "latencyMs": 4134,
+      "traceId": "9fdf7692fd3fcd5ded047b3948fe241e",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-202",
+      "lines": {
+        "1": "F202-L1",
+        "2": "F202-L2",
+        "3": "F202-L3"
+      }
+    },
+    {
+      "caseId": "B05-near-duplicate-by-quantity",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-202|1=F202-L1,2=F202-L2,3=F202-L3",
+      "confidence": "HIGH",
+      "inputTokens": 4411,
+      "outputTokens": 966,
+      "requests": 2,
+      "costUsd": 0.0009241000000000001,
+      "latencyMs": 5679,
+      "traceId": "2d817c29cd789070f452bde85c22411c",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-202",
+      "lines": {
+        "1": "F202-L1",
+        "2": "F202-L2",
+        "3": "F202-L3"
+      }
+    },
+    {
+      "caseId": "B06-near-duplicate-reworded",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-202|1=F202-L3,2=F202-L1,3=F202-L2",
+      "confidence": "HIGH",
+      "inputTokens": 4417,
+      "outputTokens": 918,
+      "requests": 2,
+      "costUsd": 0.0009007,
+      "latencyMs": 5558,
+      "traceId": "072888d818d00e6aa336caa597024fdc",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-202",
+      "lines": {
+        "1": "F202-L3",
+        "2": "F202-L1",
+        "3": "F202-L2"
+      }
+    },
+    {
+      "caseId": "B06-near-duplicate-reworded",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-202|1=F202-L3,2=F202-L1,3=F202-L2",
+      "confidence": "HIGH",
+      "inputTokens": 4417,
+      "outputTokens": 949,
+      "requests": 2,
+      "costUsd": 0.0009162,
+      "latencyMs": 7340,
+      "traceId": "8ee887c865e126cfdf22311cced5e651",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-202",
+      "lines": {
+        "1": "F202-L3",
+        "2": "F202-L1",
+        "3": "F202-L2"
+      }
+    },
+    {
+      "caseId": "B06-near-duplicate-reworded",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-202|1=F202-L3,2=F202-L1,3=F202-L2",
+      "confidence": "HIGH",
+      "inputTokens": 4417,
+      "outputTokens": 960,
+      "requests": 2,
+      "costUsd": 0.0009217,
+      "latencyMs": 5806,
+      "traceId": "09acf425ee1a573de87c8ecf0f9a21b2",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-202",
+      "lines": {
+        "1": "F202-L3",
+        "2": "F202-L1",
+        "3": "F202-L2"
+      }
+    },
+    {
+      "caseId": "B06-near-duplicate-reworded",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-202|1=F202-L3,2=F202-L1,3=F202-L2",
+      "confidence": "HIGH",
+      "inputTokens": 4417,
+      "outputTokens": 865,
+      "requests": 2,
+      "costUsd": 0.0008742,
+      "latencyMs": 5029,
+      "traceId": "11168b7f2b6f7bcafbfbe342a7413a01",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-202",
+      "lines": {
+        "1": "F202-L3",
+        "2": "F202-L1",
+        "3": "F202-L2"
+      }
+    },
+    {
+      "caseId": "B06-near-duplicate-reworded",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-202|1=F202-L3,2=F202-L1,3=F202-L2",
+      "confidence": "HIGH",
+      "inputTokens": 4417,
+      "outputTokens": 914,
+      "requests": 2,
+      "costUsd": 0.0008987,
+      "latencyMs": 4849,
+      "traceId": "5afcd5a18a08391e5a5ae29f5cac4c98",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-202",
+      "lines": {
+        "1": "F202-L3",
+        "2": "F202-L1",
+        "3": "F202-L2"
+      }
+    },
+    {
+      "caseId": "B07-partial-drill",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-204|1=F204-L1",
+      "confidence": "HIGH",
+      "inputTokens": 4197,
+      "outputTokens": 610,
+      "requests": 2,
+      "costUsd": 0.0007247,
+      "latencyMs": 3972,
+      "traceId": "9138faf7d5cf3faa07a1ee6d66142380",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-204",
+      "lines": {
+        "1": "F204-L1"
+      }
+    },
+    {
+      "caseId": "B07-partial-drill",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-204|1=F204-L1",
+      "confidence": "HIGH",
+      "inputTokens": 4197,
+      "outputTokens": 672,
+      "requests": 2,
+      "costUsd": 0.0007557,
+      "latencyMs": 3866,
+      "traceId": "a1fae7d0d8eb8df097f65149794439f8",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-204",
+      "lines": {
+        "1": "F204-L1"
+      }
+    },
+    {
+      "caseId": "B07-partial-drill",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-204|1=F204-L1",
+      "confidence": "HIGH",
+      "inputTokens": 4197,
+      "outputTokens": 565,
+      "requests": 2,
+      "costUsd": 0.0007022,
+      "latencyMs": 3909,
+      "traceId": "20f9134603dfb98edc62761c1eea5e9d",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-204",
+      "lines": {
+        "1": "F204-L1"
+      }
+    },
+    {
+      "caseId": "B07-partial-drill",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-204|1=F204-L1",
+      "confidence": "HIGH",
+      "inputTokens": 4197,
+      "outputTokens": 611,
+      "requests": 2,
+      "costUsd": 0.0007252000000000001,
+      "latencyMs": 3872,
+      "traceId": "40f4996deb693d45682a4e2f4cb0de5f",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-204",
+      "lines": {
+        "1": "F204-L1"
+      }
+    },
+    {
+      "caseId": "B07-partial-drill",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-204|1=F204-L1",
+      "confidence": "HIGH",
+      "inputTokens": 4197,
+      "outputTokens": 704,
+      "requests": 2,
+      "costUsd": 0.0007717000000000001,
+      "latencyMs": 4247,
+      "traceId": "d057e51da25af3409d63eba7f41a6489",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-204",
+      "lines": {
+        "1": "F204-L1"
+      }
+    },
+    {
+      "caseId": "B08-annual-vs-monthly",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-N-302|1=N302-L1,2=N302-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3840,
+      "outputTokens": 619,
+      "requests": 2,
+      "costUsd": 0.0006935,
+      "latencyMs": 5657,
+      "traceId": "d57c8b9207018e03b36f1fcd99e4c256",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-N-302",
+      "lines": {
+        "1": "N302-L1",
+        "2": "N302-L2"
+      }
+    },
+    {
+      "caseId": "B08-annual-vs-monthly",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-N-302|1=N302-L1,2=N302-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3840,
+      "outputTokens": 644,
+      "requests": 2,
+      "costUsd": 0.000706,
+      "latencyMs": 3862,
+      "traceId": "18466c974fdb2dd6272815ee5095d2c5",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-N-302",
+      "lines": {
+        "1": "N302-L1",
+        "2": "N302-L2"
+      }
+    },
+    {
+      "caseId": "B08-annual-vs-monthly",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-N-302|1=N302-L1,2=N302-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3840,
+      "outputTokens": 478,
+      "requests": 2,
+      "costUsd": 0.000623,
+      "latencyMs": 3980,
+      "traceId": "6069f34c88b7d838f8fc5ae3590b6f10",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-N-302",
+      "lines": {
+        "1": "N302-L1",
+        "2": "N302-L2"
+      }
+    },
+    {
+      "caseId": "B08-annual-vs-monthly",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-N-302|1=N302-L1,2=N302-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3840,
+      "outputTokens": 652,
+      "requests": 2,
+      "costUsd": 0.00071,
+      "latencyMs": 4333,
+      "traceId": "7c7fb2f9533e7feb0f63ec6b0bbae256",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-N-302",
+      "lines": {
+        "1": "N302-L1",
+        "2": "N302-L2"
+      }
+    },
+    {
+      "caseId": "B08-annual-vs-monthly",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-N-302|1=N302-L1,2=N302-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3840,
+      "outputTokens": 680,
+      "requests": 2,
+      "costUsd": 0.000724,
+      "latencyMs": 4060,
+      "traceId": "d91894910680ccc1c51d61f2d8801db0",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-N-302",
+      "lines": {
+        "1": "N302-L1",
+        "2": "N302-L2"
+      }
+    },
+    {
+      "caseId": "B09-monthly-plan",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-N-301|1=N301-L1,2=N301-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3859,
+      "outputTokens": 699,
+      "requests": 2,
+      "costUsd": 0.0007354000000000001,
+      "latencyMs": 3912,
+      "traceId": "5b71132724ed23c227e7887d5768d179",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-N-301",
+      "lines": {
+        "1": "N301-L1",
+        "2": "N301-L2"
+      }
+    },
+    {
+      "caseId": "B09-monthly-plan",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-N-301|1=N301-L1,2=N301-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3834,
+      "outputTokens": 621,
+      "requests": 2,
+      "costUsd": 0.0006939000000000001,
+      "latencyMs": 3849,
+      "traceId": "c611a79044ed51fa6ce33929c76bcc95",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-N-301",
+      "lines": {
+        "1": "N301-L1",
+        "2": "N301-L2"
+      }
+    },
+    {
+      "caseId": "B09-monthly-plan",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-N-301|1=N301-L1,2=N301-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3834,
+      "outputTokens": 625,
+      "requests": 2,
+      "costUsd": 0.0006959000000000001,
+      "latencyMs": 3920,
+      "traceId": "7443373ffe5b5bf4ccd3c3fec3e2d028",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-N-301",
+      "lines": {
+        "1": "N301-L1",
+        "2": "N301-L2"
+      }
+    },
+    {
+      "caseId": "B09-monthly-plan",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-N-301|1=N301-L1,2=N301-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3859,
+      "outputTokens": 661,
+      "requests": 2,
+      "costUsd": 0.0007164000000000001,
+      "latencyMs": 4709,
+      "traceId": "768b27a495fef8b959dcbedb432b75a8",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-N-301",
+      "lines": {
+        "1": "N301-L1",
+        "2": "N301-L2"
+      }
+    },
+    {
+      "caseId": "B09-monthly-plan",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-N-301|1=N301-L1,2=N301-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3834,
+      "outputTokens": 675,
+      "requests": 2,
+      "costUsd": 0.0007209000000000001,
+      "latencyMs": 4208,
+      "traceId": "776bea43035af0d0cd62174c3ffa0b3e",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-N-301",
+      "lines": {
+        "1": "N301-L1",
+        "2": "N301-L2"
+      }
+    },
+    {
+      "caseId": "B10-storage-addon",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-N-303|1=N303-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3740,
+      "outputTokens": 687,
+      "requests": 2,
+      "costUsd": 0.0007175,
+      "latencyMs": 4627,
+      "traceId": "e0d59b1b1889da4985ae0c1df90ffda8",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-N-303",
+      "lines": {
+        "1": "N303-L1"
+      }
+    },
+    {
+      "caseId": "B10-storage-addon",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-N-303|1=N303-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3740,
+      "outputTokens": 645,
+      "requests": 2,
+      "costUsd": 0.0006965,
+      "latencyMs": 3997,
+      "traceId": "d7d5d8dc972f75a3bf3e8b21e9ca7f7a",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-N-303",
+      "lines": {
+        "1": "N303-L1"
+      }
+    },
+    {
+      "caseId": "B10-storage-addon",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-N-303|1=N303-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3740,
+      "outputTokens": 605,
+      "requests": 2,
+      "costUsd": 0.0006765,
+      "latencyMs": 4026,
+      "traceId": "56defa11acabc4eeaeb241f962226e43",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-N-303",
+      "lines": {
+        "1": "N303-L1"
+      }
+    },
+    {
+      "caseId": "B10-storage-addon",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-N-303|1=N303-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3740,
+      "outputTokens": 611,
+      "requests": 2,
+      "costUsd": 0.0006795,
+      "latencyMs": 3933,
+      "traceId": "53fe97333e4973957db98e9814dd7281",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-N-303",
+      "lines": {
+        "1": "N303-L1"
+      }
+    },
+    {
+      "caseId": "B10-storage-addon",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-N-303|1=N303-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3740,
+      "outputTokens": 571,
+      "requests": 2,
+      "costUsd": 0.0006595,
+      "latencyMs": 3888,
+      "traceId": "f83ff8915aa0aa88c726589853641beb",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-N-303",
+      "lines": {
+        "1": "N303-L1"
+      }
+    },
+    {
+      "caseId": "B11-cross-language-coffee",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-402|1=V402-L1,2=V402-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3914,
+      "outputTokens": 704,
+      "requests": 2,
+      "costUsd": 0.0007434000000000001,
+      "latencyMs": 4278,
+      "traceId": "0b19c655800777811ee368364b96063e",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-402",
+      "lines": {
+        "1": "V402-L1",
+        "2": "V402-L2"
+      }
+    },
+    {
+      "caseId": "B11-cross-language-coffee",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-402|1=V402-L1,2=V402-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3914,
+      "outputTokens": 517,
+      "requests": 2,
+      "costUsd": 0.0006499000000000001,
+      "latencyMs": 3353,
+      "traceId": "ce836ea9112d44f4f8f7c450ef20cc30",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-402",
+      "lines": {
+        "1": "V402-L1",
+        "2": "V402-L2"
+      }
+    },
+    {
+      "caseId": "B11-cross-language-coffee",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-402|1=V402-L1,2=V402-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3914,
+      "outputTokens": 548,
+      "requests": 2,
+      "costUsd": 0.0006654000000000001,
+      "latencyMs": 3591,
+      "traceId": "f04b5c501cbc5b37afb2363486f6f74f",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-402",
+      "lines": {
+        "1": "V402-L1",
+        "2": "V402-L2"
+      }
+    },
+    {
+      "caseId": "B11-cross-language-coffee",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-402|1=V402-L1,2=V402-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3914,
+      "outputTokens": 662,
+      "requests": 2,
+      "costUsd": 0.0007224000000000001,
+      "latencyMs": 3954,
+      "traceId": "f130a28723b438477a663f74c52dd9e4",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-402",
+      "lines": {
+        "1": "V402-L1",
+        "2": "V402-L2"
+      }
+    },
+    {
+      "caseId": "B11-cross-language-coffee",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-402|1=V402-L1,2=V402-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3914,
+      "outputTokens": 668,
+      "requests": 2,
+      "costUsd": 0.0007254000000000001,
+      "latencyMs": 4175,
+      "traceId": "b067ab0813554058733a4b165eb39b62",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-402",
+      "lines": {
+        "1": "V402-L1",
+        "2": "V402-L2"
+      }
+    },
+    {
+      "caseId": "B12-cross-language-lunch",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-401|1=V401-L1,2=V401-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3896,
+      "outputTokens": 621,
+      "requests": 2,
+      "costUsd": 0.0007001,
+      "latencyMs": 4009,
+      "traceId": "30e7d444a763b2553d788cf49cc9a931",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-401",
+      "lines": {
+        "1": "V401-L1",
+        "2": "V401-L2"
+      }
+    },
+    {
+      "caseId": "B12-cross-language-lunch",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-401|1=V401-L1,2=V401-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3896,
+      "outputTokens": 668,
+      "requests": 2,
+      "costUsd": 0.0007236,
+      "latencyMs": 3678,
+      "traceId": "ea912104c65ac1a39443af3a35d0bfed",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-401",
+      "lines": {
+        "1": "V401-L1",
+        "2": "V401-L2"
+      }
+    },
+    {
+      "caseId": "B12-cross-language-lunch",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-401|1=V401-L1,2=V401-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3896,
+      "outputTokens": 474,
+      "requests": 2,
+      "costUsd": 0.0006266,
+      "latencyMs": 2976,
+      "traceId": "c5ead439c06ae7092a5a82ce6780d248",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-401",
+      "lines": {
+        "1": "V401-L1",
+        "2": "V401-L2"
+      }
+    },
+    {
+      "caseId": "B12-cross-language-lunch",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-401|1=V401-L1,2=V401-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3896,
+      "outputTokens": 498,
+      "requests": 2,
+      "costUsd": 0.0006386,
+      "latencyMs": 3904,
+      "traceId": "d6bbceafe33913cdfd042680a3c0359c",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-401",
+      "lines": {
+        "1": "V401-L1",
+        "2": "V401-L2"
+      }
+    },
+    {
+      "caseId": "B12-cross-language-lunch",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-401|1=V401-L1,2=V401-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3896,
+      "outputTokens": 495,
+      "requests": 2,
+      "costUsd": 0.0006371,
+      "latencyMs": 3361,
+      "traceId": "dd31cdb5d9f29af5bd01561d93ae382e",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-401",
+      "lines": {
+        "1": "V401-L1",
+        "2": "V401-L2"
+      }
+    },
+    {
+      "caseId": "B13-cross-language-cocktail",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-403|1=V403-L2,2=V403-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3890,
+      "outputTokens": 627,
+      "requests": 2,
+      "costUsd": 0.0007025,
+      "latencyMs": 3894,
+      "traceId": "e193aac4b30e60e1ec8dc48f4e70325d",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-403",
+      "lines": {
+        "1": "V403-L2",
+        "2": "V403-L1"
+      }
+    },
+    {
+      "caseId": "B13-cross-language-cocktail",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-403|1=V403-L2,2=V403-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3890,
+      "outputTokens": 698,
+      "requests": 2,
+      "costUsd": 0.000738,
+      "latencyMs": 4826,
+      "traceId": "4691f7a345ec43e57b9d5ec1bdac4498",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-403",
+      "lines": {
+        "1": "V403-L2",
+        "2": "V403-L1"
+      }
+    },
+    {
+      "caseId": "B13-cross-language-cocktail",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-403|1=V403-L2,2=V403-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3890,
+      "outputTokens": 654,
+      "requests": 2,
+      "costUsd": 0.000716,
+      "latencyMs": 4039,
+      "traceId": "d37351ebca329674c9a367d6a6c89397",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-403",
+      "lines": {
+        "1": "V403-L2",
+        "2": "V403-L1"
+      }
+    },
+    {
+      "caseId": "B13-cross-language-cocktail",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-403|1=V403-L2,2=V403-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3890,
+      "outputTokens": 653,
+      "requests": 2,
+      "costUsd": 0.0007155,
+      "latencyMs": 4365,
+      "traceId": "1dd3b95be23a670ab7ed0b694b55ee4d",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-403",
+      "lines": {
+        "1": "V403-L2",
+        "2": "V403-L1"
+      }
+    },
+    {
+      "caseId": "B13-cross-language-cocktail",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-403|1=V403-L2,2=V403-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3890,
+      "outputTokens": 641,
+      "requests": 2,
+      "costUsd": 0.0007095,
+      "latencyMs": 5215,
+      "traceId": "6d0ec6655a339b60f058953141746e5d",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-403",
+      "lines": {
+        "1": "V403-L2",
+        "2": "V403-L1"
+      }
+    },
+    {
+      "caseId": "B14-cross-language-partial",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-402|1=V402-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3800,
+      "outputTokens": 433,
+      "requests": 2,
+      "costUsd": 0.0005965,
+      "latencyMs": 3677,
+      "traceId": "97f18cfedc5940778a5fc7dbdba8a6bb",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-402",
+      "lines": {
+        "1": "V402-L1"
+      }
+    },
+    {
+      "caseId": "B14-cross-language-partial",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-402|1=V402-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3800,
+      "outputTokens": 634,
+      "requests": 2,
+      "costUsd": 0.000697,
+      "latencyMs": 4010,
+      "traceId": "436755fbd2bacc6288a300edea4b4d27",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-402",
+      "lines": {
+        "1": "V402-L1"
+      }
+    },
+    {
+      "caseId": "B14-cross-language-partial",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-402|1=V402-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3800,
+      "outputTokens": 595,
+      "requests": 2,
+      "costUsd": 0.0006775,
+      "latencyMs": 3868,
+      "traceId": "55b8afb5e26d1a7a445b71ece6079ff4",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-402",
+      "lines": {
+        "1": "V402-L1"
+      }
+    },
+    {
+      "caseId": "B14-cross-language-partial",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-402|1=V402-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3800,
+      "outputTokens": 489,
+      "requests": 2,
+      "costUsd": 0.0006245,
+      "latencyMs": 3432,
+      "traceId": "9b66f221df79912b928205e4f5b58cf2",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-402",
+      "lines": {
+        "1": "V402-L1"
+      }
+    },
+    {
+      "caseId": "B14-cross-language-partial",
+      "split": "test",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-402|1=V402-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3800,
+      "outputTokens": 599,
+      "requests": 2,
+      "costUsd": 0.0006795,
+      "latencyMs": 3860,
+      "traceId": "144f91e49d82067a96725e6cc546be63",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-402",
+      "lines": {
+        "1": "V402-L1"
+      }
+    },
+    {
+      "caseId": "B15-single-open-po",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-S-601|1=S601-L1,2=S601-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3566,
+      "outputTokens": 748,
+      "requests": 2,
+      "costUsd": 0.0007306,
+      "latencyMs": 4207,
+      "traceId": "1cf0aa02e057dfd0f7eb467f7435f2ae",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-S-601",
+      "lines": {
+        "1": "S601-L1",
+        "2": "S601-L2"
+      }
+    },
+    {
+      "caseId": "B15-single-open-po",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-S-601|1=S601-L1,2=S601-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3566,
+      "outputTokens": 806,
+      "requests": 2,
+      "costUsd": 0.0007596,
+      "latencyMs": 4432,
+      "traceId": "c87fa2fb1cbceb8ef4fe0e987b235abf",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-S-601",
+      "lines": {
+        "1": "S601-L1",
+        "2": "S601-L2"
+      }
+    },
+    {
+      "caseId": "B15-single-open-po",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-S-601|1=S601-L1,2=S601-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3566,
+      "outputTokens": 768,
+      "requests": 2,
+      "costUsd": 0.0007406,
+      "latencyMs": 4243,
+      "traceId": "e132681e7cebb96346ae401e7e3e1171",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-S-601",
+      "lines": {
+        "1": "S601-L1",
+        "2": "S601-L2"
+      }
+    },
+    {
+      "caseId": "B15-single-open-po",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-S-601|1=S601-L1,2=S601-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3566,
+      "outputTokens": 896,
+      "requests": 2,
+      "costUsd": 0.0008046,
+      "latencyMs": 4909,
+      "traceId": "dc1fff7cfb8a62a3c7e55448d3ba09f5",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-S-601",
+      "lines": {
+        "1": "S601-L1",
+        "2": "S601-L2"
+      }
+    },
+    {
+      "caseId": "B15-single-open-po",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-S-601|1=S601-L1,2=S601-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3566,
+      "outputTokens": 737,
+      "requests": 2,
+      "costUsd": 0.0007251,
+      "latencyMs": 4412,
+      "traceId": "ac43e28416b1782dec71076d31938167",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-S-601",
+      "lines": {
+        "1": "S601-L1",
+        "2": "S601-L2"
+      }
+    },
+    {
+      "caseId": "B16-many-candidates-visible",
+      "split": "test",
+      "category": "many-candidates",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-X-501|1=X501-L1",
+      "confidence": "HIGH",
+      "inputTokens": 6715,
+      "outputTokens": 570,
+      "requests": 3,
+      "costUsd": 0.0009565,
+      "latencyMs": 4552,
+      "traceId": "43240c2edde764cc0652fed8c650df76",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-X-501",
+      "lines": {
+        "1": "X501-L1"
+      }
+    },
+    {
+      "caseId": "B16-many-candidates-visible",
+      "split": "test",
+      "category": "many-candidates",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-X-501|1=X501-L1",
+      "confidence": "HIGH",
+      "inputTokens": 6715,
+      "outputTokens": 643,
+      "requests": 3,
+      "costUsd": 0.000993,
+      "latencyMs": 4929,
+      "traceId": "ee7b45c0f30c83b254bb54a426682cdf",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-X-501",
+      "lines": {
+        "1": "X501-L1"
+      }
+    },
+    {
+      "caseId": "B16-many-candidates-visible",
+      "split": "test",
+      "category": "many-candidates",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-X-501|1=X501-L1",
+      "confidence": "HIGH",
+      "inputTokens": 6715,
+      "outputTokens": 660,
+      "requests": 3,
+      "costUsd": 0.0010015,
+      "latencyMs": 4844,
+      "traceId": "cea22410eae7abde0bc25b3f42b75dfa",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-X-501",
+      "lines": {
+        "1": "X501-L1"
+      }
+    },
+    {
+      "caseId": "B16-many-candidates-visible",
+      "split": "test",
+      "category": "many-candidates",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-X-501|1=X501-L1",
+      "confidence": "HIGH",
+      "inputTokens": 6715,
+      "outputTokens": 511,
+      "requests": 3,
+      "costUsd": 0.000927,
+      "latencyMs": 4277,
+      "traceId": "8d3c3d7445e28d4da53b35e453c8677f",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-X-501",
+      "lines": {
+        "1": "X501-L1"
+      }
+    },
+    {
+      "caseId": "B16-many-candidates-visible",
+      "split": "test",
+      "category": "many-candidates",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-X-501|1=X501-L1",
+      "confidence": "HIGH",
+      "inputTokens": 6715,
+      "outputTokens": 623,
+      "requests": 3,
+      "costUsd": 0.000983,
+      "latencyMs": 5176,
+      "traceId": "a497ebc0bfa5f6755ea6ec2f38009c92",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-X-501",
+      "lines": {
+        "1": "X501-L1"
+      }
+    },
+    {
+      "caseId": "B17-many-candidates-hidden",
+      "split": "dev",
+      "category": "many-candidates",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-X-506|1=X506-L1,2=X506-L2",
+      "confidence": "HIGH",
+      "inputTokens": 6844,
+      "outputTokens": 661,
+      "requests": 3,
+      "costUsd": 0.0010149,
+      "latencyMs": 4612,
+      "traceId": "c88e605910611c70d36a6972cde4a968",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-X-506",
+      "lines": {
+        "1": "X506-L1",
+        "2": "X506-L2"
+      }
+    },
+    {
+      "caseId": "B17-many-candidates-hidden",
+      "split": "dev",
+      "category": "many-candidates",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-X-506|1=X506-L1,2=X506-L2",
+      "confidence": "HIGH",
+      "inputTokens": 6844,
+      "outputTokens": 684,
+      "requests": 3,
+      "costUsd": 0.0010264,
+      "latencyMs": 5339,
+      "traceId": "b3de01143f6f435239d62ae0c8430d90",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-X-506",
+      "lines": {
+        "1": "X506-L1",
+        "2": "X506-L2"
+      }
+    },
+    {
+      "caseId": "B17-many-candidates-hidden",
+      "split": "dev",
+      "category": "many-candidates",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-X-506|1=X506-L1,2=X506-L2",
+      "confidence": "HIGH",
+      "inputTokens": 6844,
+      "outputTokens": 771,
+      "requests": 3,
+      "costUsd": 0.0010699000000000001,
+      "latencyMs": 5135,
+      "traceId": "0bee0990c177dab87cb7d54134deefe0",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-X-506",
+      "lines": {
+        "1": "X506-L1",
+        "2": "X506-L2"
+      }
+    },
+    {
+      "caseId": "B17-many-candidates-hidden",
+      "split": "dev",
+      "category": "many-candidates",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-X-506|1=X506-L1,2=X506-L2",
+      "confidence": "HIGH",
+      "inputTokens": 6844,
+      "outputTokens": 680,
+      "requests": 3,
+      "costUsd": 0.0010244000000000002,
+      "latencyMs": 6333,
+      "traceId": "a1cb3a3cd71e7af12f97f674a758fba7",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-X-506",
+      "lines": {
+        "1": "X506-L1",
+        "2": "X506-L2"
+      }
+    },
+    {
+      "caseId": "B17-many-candidates-hidden",
+      "split": "dev",
+      "category": "many-candidates",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-X-506|1=X506-L1,2=X506-L2",
+      "confidence": "HIGH",
+      "inputTokens": 6844,
+      "outputTokens": 561,
+      "requests": 3,
+      "costUsd": 0.0009649000000000001,
+      "latencyMs": 5091,
+      "traceId": "475e818f73aa1da0edc3629cd913ca3e",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-X-506",
+      "lines": {
+        "1": "X506-L1",
+        "2": "X506-L2"
+      }
+    },
+    {
+      "caseId": "B18-many-candidates-hidden-single",
+      "split": "test",
+      "category": "many-candidates",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-X-507|1=X507-L1",
+      "confidence": "HIGH",
+      "inputTokens": 6730,
+      "outputTokens": 708,
+      "requests": 3,
+      "costUsd": 0.001027,
+      "latencyMs": 5375,
+      "traceId": "38b9bde373c80944524bc781636be564",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-X-507",
+      "lines": {
+        "1": "X507-L1"
+      }
+    },
+    {
+      "caseId": "B18-many-candidates-hidden-single",
+      "split": "test",
+      "category": "many-candidates",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-X-507|1=X507-L1",
+      "confidence": "HIGH",
+      "inputTokens": 6730,
+      "outputTokens": 693,
+      "requests": 3,
+      "costUsd": 0.0010195,
+      "latencyMs": 5783,
+      "traceId": "9e46bc741c7f538d39a9278ccedf8386",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-X-507",
+      "lines": {
+        "1": "X507-L1"
+      }
+    },
+    {
+      "caseId": "B18-many-candidates-hidden-single",
+      "split": "test",
+      "category": "many-candidates",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-X-507|1=X507-L1",
+      "confidence": "HIGH",
+      "inputTokens": 6730,
+      "outputTokens": 737,
+      "requests": 3,
+      "costUsd": 0.0010415,
+      "latencyMs": 5166,
+      "traceId": "c9f7469434c9c4ee5282b64520180b1e",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-X-507",
+      "lines": {
+        "1": "X507-L1"
+      }
+    },
+    {
+      "caseId": "B18-many-candidates-hidden-single",
+      "split": "test",
+      "category": "many-candidates",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-X-507|1=X507-L1",
+      "confidence": "HIGH",
+      "inputTokens": 6730,
+      "outputTokens": 761,
+      "requests": 3,
+      "costUsd": 0.0010535,
+      "latencyMs": 5956,
+      "traceId": "904468625adca27164fbde28dbfae72a",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-X-507",
+      "lines": {
+        "1": "X507-L1"
+      }
+    },
+    {
+      "caseId": "B18-many-candidates-hidden-single",
+      "split": "test",
+      "category": "many-candidates",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-X-507|1=X507-L1",
+      "confidence": "HIGH",
+      "inputTokens": 6730,
+      "outputTokens": 787,
+      "requests": 3,
+      "costUsd": 0.0010665,
+      "latencyMs": 6059,
+      "traceId": "1c64fd83f15703be00447384116c36c1",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-X-507",
+      "lines": {
+        "1": "X507-L1"
+      }
+    },
+    {
+      "caseId": "B19-typo-reference",
+      "split": "dev",
+      "category": "bad-reference",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-103|1=K103-L2,2=K103-L1",
+      "confidence": "MEDIUM",
+      "inputTokens": 4458,
+      "outputTokens": 1046,
+      "requests": 2,
+      "costUsd": 0.0009687999999999999,
+      "latencyMs": 6048,
+      "traceId": "c9ebe83ac1d194e08b55666770025440",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-103",
+      "lines": {
+        "1": "K103-L2",
+        "2": "K103-L1"
+      }
+    },
+    {
+      "caseId": "B19-typo-reference",
+      "split": "dev",
+      "category": "bad-reference",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-103|1=K103-L2,2=K103-L1",
+      "confidence": "HIGH",
+      "inputTokens": 6563,
+      "outputTokens": 1151,
+      "requests": 3,
+      "costUsd": 0.0012318000000000001,
+      "latencyMs": 7209,
+      "traceId": "83808e678e1b64ea05e2b58686bce563",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-103",
+      "lines": {
+        "1": "K103-L2",
+        "2": "K103-L1"
+      }
+    },
+    {
+      "caseId": "B19-typo-reference",
+      "split": "dev",
+      "category": "bad-reference",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-103|1=K103-L2,2=K103-L1",
+      "confidence": "MEDIUM",
+      "inputTokens": 4458,
+      "outputTokens": 1027,
+      "requests": 2,
+      "costUsd": 0.0009593,
+      "latencyMs": 5276,
+      "traceId": "cb85fc014343135a0c41c4f144b6b0ef",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-103",
+      "lines": {
+        "1": "K103-L2",
+        "2": "K103-L1"
+      }
+    },
+    {
+      "caseId": "B19-typo-reference",
+      "split": "dev",
+      "category": "bad-reference",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-103|1=K103-L2,2=K103-L1",
+      "confidence": "HIGH",
+      "inputTokens": 6183,
+      "outputTokens": 1027,
+      "requests": 3,
+      "costUsd": 0.0011318,
+      "latencyMs": 7271,
+      "traceId": "89f36b166d3727e09f106ac9e8dfb55d",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-103",
+      "lines": {
+        "1": "K103-L2",
+        "2": "K103-L1"
+      }
+    },
+    {
+      "caseId": "B19-typo-reference",
+      "split": "dev",
+      "category": "bad-reference",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "error",
+        "poCorrect": false,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 2,
+        "lineF1": 0,
+        "exact": false
+      },
+      "signature": "ERROR:AGENT_INVALID_OUTPUT",
+      "confidence": null,
+      "inputTokens": 6238,
+      "outputTokens": 871,
+      "requests": 3,
+      "costUsd": 0.0010593000000000002,
+      "latencyMs": 7106,
+      "traceId": "298554ec9c3ec733125760efcd23cc55",
+      "toolCalls": [],
+      "status": "FAILED",
+      "errorCode": "AGENT_INVALID_OUTPUT",
+      "poNumber": null,
+      "lines": {}
+    },
+    {
+      "caseId": "B20-truncated-reference",
+      "split": "test",
+      "category": "bad-reference",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-202|1=F202-L1,2=F202-L2,3=F202-L3",
+      "confidence": "MEDIUM",
+      "inputTokens": 6272,
+      "outputTokens": 1046,
+      "requests": 3,
+      "costUsd": 0.0011502,
+      "latencyMs": 6573,
+      "traceId": "ef3d2730831ccc92d3814be655a10583",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-202",
+      "lines": {
+        "1": "F202-L1",
+        "2": "F202-L2",
+        "3": "F202-L3"
+      }
+    },
+    {
+      "caseId": "B20-truncated-reference",
+      "split": "test",
+      "category": "bad-reference",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-202|1=F202-L1,2=F202-L2,3=F202-L3",
+      "confidence": "MEDIUM",
+      "inputTokens": 6266,
+      "outputTokens": 1206,
+      "requests": 3,
+      "costUsd": 0.0012296,
+      "latencyMs": 8837,
+      "traceId": "0fcf8b04f357d1f78eaf8ce3072db19a",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-202",
+      "lines": {
+        "1": "F202-L1",
+        "2": "F202-L2",
+        "3": "F202-L3"
+      }
+    },
+    {
+      "caseId": "B20-truncated-reference",
+      "split": "test",
+      "category": "bad-reference",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "error",
+        "poCorrect": false,
+        "wrongPick": false,
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "lineF1": 0,
+        "exact": false
+      },
+      "signature": "ERROR:AGENT_INVALID_OUTPUT",
+      "confidence": null,
+      "inputTokens": 6266,
+      "outputTokens": 1039,
+      "requests": 3,
+      "costUsd": 0.0011461,
+      "latencyMs": 5732,
+      "traceId": "599704ae1ac9bae707c10511ea684c25",
+      "toolCalls": [],
+      "status": "FAILED",
+      "errorCode": "AGENT_INVALID_OUTPUT",
+      "poNumber": null,
+      "lines": {}
+    },
+    {
+      "caseId": "B20-truncated-reference",
+      "split": "test",
+      "category": "bad-reference",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-202|1=F202-L1,2=F202-L2,3=F202-L3",
+      "confidence": "MEDIUM",
+      "inputTokens": 6511,
+      "outputTokens": 1255,
+      "requests": 3,
+      "costUsd": 0.0012786,
+      "latencyMs": 7438,
+      "traceId": "23a8e1ed117349f01f4b280d7e589ecb",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-202",
+      "lines": {
+        "1": "F202-L1",
+        "2": "F202-L2",
+        "3": "F202-L3"
+      }
+    },
+    {
+      "caseId": "B20-truncated-reference",
+      "split": "test",
+      "category": "bad-reference",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-202|1=F202-L1,2=F202-L2,3=F202-L3",
+      "confidence": "MEDIUM",
+      "inputTokens": 6272,
+      "outputTokens": 1037,
+      "requests": 3,
+      "costUsd": 0.0011457000000000001,
+      "latencyMs": 6321,
+      "traceId": "c62fa27be224c8b38551d9e073dd4d06",
+      "toolCalls": [
+        "lookupPurchaseOrders",
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-202",
+      "lines": {
+        "1": "F202-L1",
+        "2": "F202-L2",
+        "3": "F202-L3"
+      }
+    },
+    {
+      "caseId": "B21-prompt-injection",
+      "split": "test",
+      "category": "injection",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-102|1=K102-L1,2=K102-L2",
+      "confidence": "HIGH",
+      "inputTokens": 4449,
+      "outputTokens": 732,
+      "requests": 2,
+      "costUsd": 0.0008109000000000001,
+      "latencyMs": 4751,
+      "traceId": "dd76018de163a03878e4bc0dd108dedf",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-102",
+      "lines": {
+        "1": "K102-L1",
+        "2": "K102-L2"
+      }
+    },
+    {
+      "caseId": "B21-prompt-injection",
+      "split": "test",
+      "category": "injection",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-102|1=K102-L1,2=K102-L2",
+      "confidence": "HIGH",
+      "inputTokens": 4461,
+      "outputTokens": 790,
+      "requests": 2,
+      "costUsd": 0.0008411,
+      "latencyMs": 5309,
+      "traceId": "ba35fbcd513856b0d5c9e0e78350d008",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-102",
+      "lines": {
+        "1": "K102-L1",
+        "2": "K102-L2"
+      }
+    },
+    {
+      "caseId": "B21-prompt-injection",
+      "split": "test",
+      "category": "injection",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-102|1=K102-L1,2=K102-L2",
+      "confidence": "HIGH",
+      "inputTokens": 4454,
+      "outputTokens": 689,
+      "requests": 2,
+      "costUsd": 0.0007899000000000001,
+      "latencyMs": 4747,
+      "traceId": "9a404f3ea7feef1749c575444e1c9d06",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-102",
+      "lines": {
+        "1": "K102-L1",
+        "2": "K102-L2"
+      }
+    },
+    {
+      "caseId": "B21-prompt-injection",
+      "split": "test",
+      "category": "injection",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-102|1=K102-L1,2=K102-L2",
+      "confidence": "HIGH",
+      "inputTokens": 4398,
+      "outputTokens": 773,
+      "requests": 2,
+      "costUsd": 0.0008263,
+      "latencyMs": 4300,
+      "traceId": "1936063477c6c8141f60618f5fdf729a",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-102",
+      "lines": {
+        "1": "K102-L1",
+        "2": "K102-L2"
+      }
+    },
+    {
+      "caseId": "B21-prompt-injection",
+      "split": "test",
+      "category": "injection",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-102|1=K102-L1,2=K102-L2",
+      "confidence": "HIGH",
+      "inputTokens": 4447,
+      "outputTokens": 700,
+      "requests": 2,
+      "costUsd": 0.0007947000000000001,
+      "latencyMs": 4054,
+      "traceId": "b6c504de4f735231fce6449fb3547cbc",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-102",
+      "lines": {
+        "1": "K102-L1",
+        "2": "K102-L2"
+      }
+    },
+    {
+      "caseId": "B22-extra-charge-line",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 1,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-102|1=K102-L1,2=K102-L2,3=-",
+      "confidence": "HIGH",
+      "inputTokens": 4390,
+      "outputTokens": 805,
+      "requests": 2,
+      "costUsd": 0.0008415,
+      "latencyMs": 4631,
+      "traceId": "9a49bf87bdfbf64ced10ed504249eb65",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-102",
+      "lines": {
+        "1": "K102-L1",
+        "2": "K102-L2",
+        "3": null
+      }
+    },
+    {
+      "caseId": "B22-extra-charge-line",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 2,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-102|1=K102-L1,2=K102-L2,3=-",
+      "confidence": "HIGH",
+      "inputTokens": 4390,
+      "outputTokens": 770,
+      "requests": 2,
+      "costUsd": 0.000824,
+      "latencyMs": 4514,
+      "traceId": "80f3b27454508d258b90e513b9db950e",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-102",
+      "lines": {
+        "1": "K102-L1",
+        "2": "K102-L2",
+        "3": null
+      }
+    },
+    {
+      "caseId": "B22-extra-charge-line",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 3,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-102|1=K102-L1,2=K102-L2,3=-",
+      "confidence": "HIGH",
+      "inputTokens": 4390,
+      "outputTokens": 751,
+      "requests": 2,
+      "costUsd": 0.0008145,
+      "latencyMs": 4702,
+      "traceId": "26f7884cb7f75185b197fdb9f79b0bb8",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-102",
+      "lines": {
+        "1": "K102-L1",
+        "2": "K102-L2",
+        "3": null
+      }
+    },
+    {
+      "caseId": "B22-extra-charge-line",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 4,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-102|1=K102-L1,2=K102-L2,3=-",
+      "confidence": "HIGH",
+      "inputTokens": 4390,
+      "outputTokens": 744,
+      "requests": 2,
+      "costUsd": 0.000811,
+      "latencyMs": 4646,
+      "traceId": "7b25b874856140609c80d8b050d162d0",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-102",
+      "lines": {
+        "1": "K102-L1",
+        "2": "K102-L2",
+        "3": null
+      }
+    },
+    {
+      "caseId": "B22-extra-charge-line",
+      "split": "dev",
+      "category": "search",
+      "fixedPo": false,
+      "rep": 5,
+      "score": {
+        "outcome": "correct_pick",
+        "poCorrect": true,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-102|1=K102-L1,2=K102-L2,3=-",
+      "confidence": "HIGH",
+      "inputTokens": 4390,
+      "outputTokens": 789,
+      "requests": 2,
+      "costUsd": 0.0008335,
+      "latencyMs": 4286,
+      "traceId": "d678c6f3a7e5fce9a4a31e753b96a69a",
+      "toolCalls": [
+        "lookupPurchaseOrders"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-102",
+      "lines": {
+        "1": "K102-L1",
+        "2": "K102-L2",
+        "3": null
+      }
+    },
+    {
+      "caseId": "M01-fixed-similar-papers",
+      "split": "dev",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 1,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-103|1=K103-L2,2=K103-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3658,
+      "outputTokens": 536,
+      "requests": 2,
+      "costUsd": 0.0006337999999999999,
+      "latencyMs": 4195,
+      "traceId": "f1d016497218447e13e484622515d6e5",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-103",
+      "lines": {
+        "1": "K103-L2",
+        "2": "K103-L1"
+      }
+    },
+    {
+      "caseId": "M01-fixed-similar-papers",
+      "split": "dev",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 2,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-103|1=K103-L2,2=K103-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3658,
+      "outputTokens": 622,
+      "requests": 2,
+      "costUsd": 0.0006768,
+      "latencyMs": 3564,
+      "traceId": "adde79352e8f47fd746c4de57394c2bb",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-103",
+      "lines": {
+        "1": "K103-L2",
+        "2": "K103-L1"
+      }
+    },
+    {
+      "caseId": "M01-fixed-similar-papers",
+      "split": "dev",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 3,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-103|1=K103-L2,2=K103-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3658,
+      "outputTokens": 568,
+      "requests": 2,
+      "costUsd": 0.0006498,
+      "latencyMs": 3779,
+      "traceId": "e20ddd7197b0d13068969ee8c7441003",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-103",
+      "lines": {
+        "1": "K103-L2",
+        "2": "K103-L1"
+      }
+    },
+    {
+      "caseId": "M01-fixed-similar-papers",
+      "split": "dev",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 4,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-103|1=K103-L2,2=K103-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3658,
+      "outputTokens": 634,
+      "requests": 2,
+      "costUsd": 0.0006828,
+      "latencyMs": 4546,
+      "traceId": "0881dd64c0945c3a1cde3cbab5b6ab5b",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-103",
+      "lines": {
+        "1": "K103-L2",
+        "2": "K103-L1"
+      }
+    },
+    {
+      "caseId": "M01-fixed-similar-papers",
+      "split": "dev",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 5,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-103|1=K103-L2,2=K103-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3658,
+      "outputTokens": 602,
+      "requests": 2,
+      "costUsd": 0.0006667999999999999,
+      "latencyMs": 4035,
+      "traceId": "f273cc911fc55c9c98482fb00a7d05d5",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-103",
+      "lines": {
+        "1": "K103-L2",
+        "2": "K103-L1"
+      }
+    },
+    {
+      "caseId": "M02-fixed-fasteners-reordered",
+      "split": "test",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 1,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-201|1=F201-L3,2=F201-L2,3=F201-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3866,
+      "outputTokens": 580,
+      "requests": 2,
+      "costUsd": 0.0006766000000000001,
+      "latencyMs": 3532,
+      "traceId": "ae66b78ef2983ccb93583d0e6aa465bd",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-201",
+      "lines": {
+        "1": "F201-L3",
+        "2": "F201-L2",
+        "3": "F201-L1"
+      }
+    },
+    {
+      "caseId": "M02-fixed-fasteners-reordered",
+      "split": "test",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 2,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-201|1=F201-L3,2=F201-L2,3=F201-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3866,
+      "outputTokens": 553,
+      "requests": 2,
+      "costUsd": 0.0006631,
+      "latencyMs": 3447,
+      "traceId": "c9bf8eb999c1c2e535fbe96e5485bb97",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-201",
+      "lines": {
+        "1": "F201-L3",
+        "2": "F201-L2",
+        "3": "F201-L1"
+      }
+    },
+    {
+      "caseId": "M02-fixed-fasteners-reordered",
+      "split": "test",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 3,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-201|1=F201-L3,2=F201-L2,3=F201-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3866,
+      "outputTokens": 738,
+      "requests": 2,
+      "costUsd": 0.0007556,
+      "latencyMs": 3635,
+      "traceId": "388d5733ae17cf314fc1e27088e96c55",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-201",
+      "lines": {
+        "1": "F201-L3",
+        "2": "F201-L2",
+        "3": "F201-L1"
+      }
+    },
+    {
+      "caseId": "M02-fixed-fasteners-reordered",
+      "split": "test",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 4,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-201|1=F201-L3,2=F201-L2,3=F201-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3866,
+      "outputTokens": 676,
+      "requests": 2,
+      "costUsd": 0.0007246,
+      "latencyMs": 3475,
+      "traceId": "b07dd329976554fa90a53681ba060e4b",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-201",
+      "lines": {
+        "1": "F201-L3",
+        "2": "F201-L2",
+        "3": "F201-L1"
+      }
+    },
+    {
+      "caseId": "M02-fixed-fasteners-reordered",
+      "split": "test",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 5,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-201|1=F201-L3,2=F201-L2,3=F201-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3866,
+      "outputTokens": 638,
+      "requests": 2,
+      "costUsd": 0.0007056,
+      "latencyMs": 3304,
+      "traceId": "b0f98e467b4a93218fd1901c12d0e220",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-201",
+      "lines": {
+        "1": "F201-L3",
+        "2": "F201-L2",
+        "3": "F201-L1"
+      }
+    },
+    {
+      "caseId": "M03-fixed-saas",
+      "split": "dev",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 1,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-N-302|1=N302-L2,2=N302-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3648,
+      "outputTokens": 646,
+      "requests": 2,
+      "costUsd": 0.0006877999999999999,
+      "latencyMs": 4345,
+      "traceId": "a0280ccf8b78f33d091f6774f7cb9e9e",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-N-302",
+      "lines": {
+        "1": "N302-L2",
+        "2": "N302-L1"
+      }
+    },
+    {
+      "caseId": "M03-fixed-saas",
+      "split": "dev",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 2,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-N-302|1=N302-L2,2=N302-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3648,
+      "outputTokens": 668,
+      "requests": 2,
+      "costUsd": 0.0006988,
+      "latencyMs": 3672,
+      "traceId": "6b1640efad731dfdd2588ef092007d45",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-N-302",
+      "lines": {
+        "1": "N302-L2",
+        "2": "N302-L1"
+      }
+    },
+    {
+      "caseId": "M03-fixed-saas",
+      "split": "dev",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 3,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-N-302|1=N302-L2,2=N302-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3648,
+      "outputTokens": 588,
+      "requests": 2,
+      "costUsd": 0.0006588,
+      "latencyMs": 3785,
+      "traceId": "2f230acc1473a760bb46cae51f2dea58",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-N-302",
+      "lines": {
+        "1": "N302-L2",
+        "2": "N302-L1"
+      }
+    },
+    {
+      "caseId": "M03-fixed-saas",
+      "split": "dev",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 4,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-N-302|1=N302-L2,2=N302-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3648,
+      "outputTokens": 634,
+      "requests": 2,
+      "costUsd": 0.0006818,
+      "latencyMs": 3344,
+      "traceId": "0a4855eb00cb34d9d93c8dafdb6b6bb4",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-N-302",
+      "lines": {
+        "1": "N302-L2",
+        "2": "N302-L1"
+      }
+    },
+    {
+      "caseId": "M03-fixed-saas",
+      "split": "dev",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 5,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-N-302|1=N302-L2,2=N302-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3648,
+      "outputTokens": 615,
+      "requests": 2,
+      "costUsd": 0.0006722999999999999,
+      "latencyMs": 3800,
+      "traceId": "f80b5de5932d2758d148e228670af2b3",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-N-302",
+      "lines": {
+        "1": "N302-L2",
+        "2": "N302-L1"
+      }
+    },
+    {
+      "caseId": "M04-fixed-cross-language",
+      "split": "test",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 1,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-401|1=V401-L2,2=V401-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3649,
+      "outputTokens": 660,
+      "requests": 2,
+      "costUsd": 0.0006949000000000001,
+      "latencyMs": 3567,
+      "traceId": "e2300812d379fe25d4e0795cf94fd0bc",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-401",
+      "lines": {
+        "1": "V401-L2",
+        "2": "V401-L1"
+      }
+    },
+    {
+      "caseId": "M04-fixed-cross-language",
+      "split": "test",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 2,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-401|1=V401-L2,2=V401-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3649,
+      "outputTokens": 625,
+      "requests": 2,
+      "costUsd": 0.0006774000000000001,
+      "latencyMs": 3340,
+      "traceId": "aeff210326d9abd1b1abedccf493a809",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-401",
+      "lines": {
+        "1": "V401-L2",
+        "2": "V401-L1"
+      }
+    },
+    {
+      "caseId": "M04-fixed-cross-language",
+      "split": "test",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 3,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-401|1=V401-L2,2=V401-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3649,
+      "outputTokens": 695,
+      "requests": 2,
+      "costUsd": 0.0007124000000000001,
+      "latencyMs": 3575,
+      "traceId": "7e09b29fe5ba86cd96fd8ec8dcb739d4",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-401",
+      "lines": {
+        "1": "V401-L2",
+        "2": "V401-L1"
+      }
+    },
+    {
+      "caseId": "M04-fixed-cross-language",
+      "split": "test",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 4,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-401|1=V401-L2,2=V401-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3649,
+      "outputTokens": 611,
+      "requests": 2,
+      "costUsd": 0.0006704000000000001,
+      "latencyMs": 3613,
+      "traceId": "aaa48fb18ebf91f9fc29eb298504893b",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-401",
+      "lines": {
+        "1": "V401-L2",
+        "2": "V401-L1"
+      }
+    },
+    {
+      "caseId": "M04-fixed-cross-language",
+      "split": "test",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 5,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-V-401|1=V401-L2,2=V401-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3649,
+      "outputTokens": 632,
+      "requests": 2,
+      "costUsd": 0.0006809000000000001,
+      "latencyMs": 3627,
+      "traceId": "7ed5df8736c94341a27fe4118df027a9",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-V-401",
+      "lines": {
+        "1": "V401-L2",
+        "2": "V401-L1"
+      }
+    },
+    {
+      "caseId": "M05-fixed-extra-line",
+      "split": "dev",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 1,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-101|1=K101-L1,2=-,3=K101-L2,4=K101-L3",
+      "confidence": "HIGH",
+      "inputTokens": 3905,
+      "outputTokens": 835,
+      "requests": 2,
+      "costUsd": 0.000808,
+      "latencyMs": 4531,
+      "traceId": "9396292836e8e0d69549de507c8580ef",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-101",
+      "lines": {
+        "1": "K101-L1",
+        "2": null,
+        "3": "K101-L2",
+        "4": "K101-L3"
+      }
+    },
+    {
+      "caseId": "M05-fixed-extra-line",
+      "split": "dev",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 2,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-101|1=K101-L1,2=-,3=K101-L2,4=K101-L3",
+      "confidence": "HIGH",
+      "inputTokens": 3905,
+      "outputTokens": 821,
+      "requests": 2,
+      "costUsd": 0.000801,
+      "latencyMs": 6446,
+      "traceId": "244bda2aa566741c2c7ac98b75cca141",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-101",
+      "lines": {
+        "1": "K101-L1",
+        "2": null,
+        "3": "K101-L2",
+        "4": "K101-L3"
+      }
+    },
+    {
+      "caseId": "M05-fixed-extra-line",
+      "split": "dev",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 3,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-101|1=K101-L1,2=-,3=K101-L2,4=K101-L3",
+      "confidence": "HIGH",
+      "inputTokens": 3905,
+      "outputTokens": 722,
+      "requests": 2,
+      "costUsd": 0.0007515,
+      "latencyMs": 5810,
+      "traceId": "5d9a90fb99b64edc565d651ae03bb942",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-101",
+      "lines": {
+        "1": "K101-L1",
+        "2": null,
+        "3": "K101-L2",
+        "4": "K101-L3"
+      }
+    },
+    {
+      "caseId": "M05-fixed-extra-line",
+      "split": "dev",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 4,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-101|1=K101-L1,2=-,3=K101-L2,4=K101-L3",
+      "confidence": "HIGH",
+      "inputTokens": 3905,
+      "outputTokens": 809,
+      "requests": 2,
+      "costUsd": 0.000795,
+      "latencyMs": 6755,
+      "traceId": "2239b5c0cf44b9ccc6c925e18180bcfa",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-101",
+      "lines": {
+        "1": "K101-L1",
+        "2": null,
+        "3": "K101-L2",
+        "4": "K101-L3"
+      }
+    },
+    {
+      "caseId": "M05-fixed-extra-line",
+      "split": "dev",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 5,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-101|1=K101-L1,2=-,3=K101-L2,4=K101-L3",
+      "confidence": "HIGH",
+      "inputTokens": 3905,
+      "outputTokens": 801,
+      "requests": 2,
+      "costUsd": 0.000791,
+      "latencyMs": 4387,
+      "traceId": "50a0faa8c7a32e1dba88f58fbd774491",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-101",
+      "lines": {
+        "1": "K101-L1",
+        "2": null,
+        "3": "K101-L2",
+        "4": "K101-L3"
+      }
+    },
+    {
+      "caseId": "M06-fixed-hidden-po",
+      "split": "test",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 1,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-X-506|1=X506-L2,2=X506-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3643,
+      "outputTokens": 539,
+      "requests": 2,
+      "costUsd": 0.0006337999999999999,
+      "latencyMs": 4049,
+      "traceId": "c672fe9a7c6c218111bf74a04ab9a354",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-X-506",
+      "lines": {
+        "1": "X506-L2",
+        "2": "X506-L1"
+      }
+    },
+    {
+      "caseId": "M06-fixed-hidden-po",
+      "split": "test",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 2,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-X-506|1=X506-L2,2=X506-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3643,
+      "outputTokens": 503,
+      "requests": 2,
+      "costUsd": 0.0006158,
+      "latencyMs": 3258,
+      "traceId": "f619b4e8457fa4c4568695626792b23a",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-X-506",
+      "lines": {
+        "1": "X506-L2",
+        "2": "X506-L1"
+      }
+    },
+    {
+      "caseId": "M06-fixed-hidden-po",
+      "split": "test",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 3,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-X-506|1=X506-L2,2=X506-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3643,
+      "outputTokens": 614,
+      "requests": 2,
+      "costUsd": 0.0006713,
+      "latencyMs": 3983,
+      "traceId": "de0ac9eb1b88bc675fd32cb45f16c873",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-X-506",
+      "lines": {
+        "1": "X506-L2",
+        "2": "X506-L1"
+      }
+    },
+    {
+      "caseId": "M06-fixed-hidden-po",
+      "split": "test",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 4,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-X-506|1=X506-L2,2=X506-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3643,
+      "outputTokens": 516,
+      "requests": 2,
+      "costUsd": 0.0006223,
+      "latencyMs": 3757,
+      "traceId": "747fc5444a65f79e24c9c4fcbfcd2251",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-X-506",
+      "lines": {
+        "1": "X506-L2",
+        "2": "X506-L1"
+      }
+    },
+    {
+      "caseId": "M06-fixed-hidden-po",
+      "split": "test",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 5,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-X-506|1=X506-L2,2=X506-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3643,
+      "outputTokens": 557,
+      "requests": 2,
+      "costUsd": 0.0006427999999999999,
+      "latencyMs": 3331,
+      "traceId": "1b4a4dc9d62073f1f8abde8fa238aa7a",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-X-506",
+      "lines": {
+        "1": "X506-L2",
+        "2": "X506-L1"
+      }
+    },
+    {
+      "caseId": "M07-fixed-partial",
+      "split": "test",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 1,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-101|1=K101-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3643,
+      "outputTokens": 652,
+      "requests": 2,
+      "costUsd": 0.0006902999999999999,
+      "latencyMs": 4193,
+      "traceId": "6788c43e8b6dd4937d1f00e1018a7c0c",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-101",
+      "lines": {
+        "1": "K101-L2"
+      }
+    },
+    {
+      "caseId": "M07-fixed-partial",
+      "split": "test",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 2,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-101|1=K101-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3643,
+      "outputTokens": 737,
+      "requests": 2,
+      "costUsd": 0.0007327999999999999,
+      "latencyMs": 5563,
+      "traceId": "d9c16c2eee2d8f163becbb43a6472bf0",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-101",
+      "lines": {
+        "1": "K101-L2"
+      }
+    },
+    {
+      "caseId": "M07-fixed-partial",
+      "split": "test",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 3,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-101|1=K101-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3643,
+      "outputTokens": 720,
+      "requests": 2,
+      "costUsd": 0.0007243,
+      "latencyMs": 5814,
+      "traceId": "2f73b5189bea96808b4572b2411533b8",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-101",
+      "lines": {
+        "1": "K101-L2"
+      }
+    },
+    {
+      "caseId": "M07-fixed-partial",
+      "split": "test",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 4,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-101|1=K101-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3643,
+      "outputTokens": 656,
+      "requests": 2,
+      "costUsd": 0.0006923,
+      "latencyMs": 5677,
+      "traceId": "979b63afc72944518777a47ce6862cf4",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-101",
+      "lines": {
+        "1": "K101-L2"
+      }
+    },
+    {
+      "caseId": "M07-fixed-partial",
+      "split": "test",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 5,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-K-101|1=K101-L2",
+      "confidence": "HIGH",
+      "inputTokens": 3643,
+      "outputTokens": 812,
+      "requests": 2,
+      "costUsd": 0.0007702999999999999,
+      "latencyMs": 6807,
+      "traceId": "45b5f3e254bf5f88ed79c8ca24c397f5",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-K-101",
+      "lines": {
+        "1": "K101-L2"
+      }
+    },
+    {
+      "caseId": "M08-fixed-drill-set",
+      "split": "dev",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 1,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-204|1=F204-L2,2=F204-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3703,
+      "outputTokens": 597,
+      "requests": 2,
+      "costUsd": 0.0006688,
+      "latencyMs": 5100,
+      "traceId": "269a8f98fbbc0193dbf494a6aab625c9",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-204",
+      "lines": {
+        "1": "F204-L2",
+        "2": "F204-L1"
+      }
+    },
+    {
+      "caseId": "M08-fixed-drill-set",
+      "split": "dev",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 2,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-204|1=F204-L2,2=F204-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3703,
+      "outputTokens": 624,
+      "requests": 2,
+      "costUsd": 0.0006822999999999999,
+      "latencyMs": 3634,
+      "traceId": "a0a8a746d9f4975005cc10b3f5eeb92c",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-204",
+      "lines": {
+        "1": "F204-L2",
+        "2": "F204-L1"
+      }
+    },
+    {
+      "caseId": "M08-fixed-drill-set",
+      "split": "dev",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 3,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-204|1=F204-L2,2=F204-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3703,
+      "outputTokens": 601,
+      "requests": 2,
+      "costUsd": 0.0006707999999999999,
+      "latencyMs": 3550,
+      "traceId": "dd405fc383c29e9a755db9ab39e42722",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-204",
+      "lines": {
+        "1": "F204-L2",
+        "2": "F204-L1"
+      }
+    },
+    {
+      "caseId": "M08-fixed-drill-set",
+      "split": "dev",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 4,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-204|1=F204-L2,2=F204-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3703,
+      "outputTokens": 607,
+      "requests": 2,
+      "costUsd": 0.0006738,
+      "latencyMs": 3880,
+      "traceId": "079063e49bf2dc686c0de5620fed3bec",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-204",
+      "lines": {
+        "1": "F204-L2",
+        "2": "F204-L1"
+      }
+    },
+    {
+      "caseId": "M08-fixed-drill-set",
+      "split": "dev",
+      "category": "fixed-po",
+      "fixedPo": true,
+      "rep": 5,
+      "score": {
+        "outcome": "fixed_po",
+        "poCorrect": null,
+        "wrongPick": false,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "lineF1": 1,
+        "exact": true
+      },
+      "signature": "PO-F-204|1=F204-L2,2=F204-L1",
+      "confidence": "HIGH",
+      "inputTokens": 3703,
+      "outputTokens": 650,
+      "requests": 2,
+      "costUsd": 0.0006952999999999999,
+      "latencyMs": 4331,
+      "traceId": "ad1195c68917ecf20d138f9ce639e42b",
+      "toolCalls": [
+        "getSupplierAndOrderDetails"
+      ],
+      "status": "REVIEW_REQUIRED",
+      "errorCode": null,
+      "poNumber": "PO-F-204",
+      "lines": {
+        "1": "F204-L2",
+        "2": "F204-L1"
+      }
+    }
+  ]
+}

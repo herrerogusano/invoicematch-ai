@@ -16,6 +16,7 @@ export class BudgetExceededError extends Error {
 /** USD per million tokens. Unknown models get a deliberately pessimistic price. */
 const PRICES: Record<string, { input: number; output: number }> = {
   "claude-haiku-5-5": { input: 0.1, output: 0.5 },
+  "claude-sonnet-5-5": { input: 2, output: 10 },
 };
 const PESSIMISTIC = { input: 15, output: 75 };
 

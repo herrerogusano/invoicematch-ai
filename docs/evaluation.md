@@ -62,7 +62,11 @@ In S12 the model inspected all three candidate POs and declined to choose. This 
 
 `EVAL_LIVE_CONFIRM=yes npm run eval:live` runs only S12, S13 and S16, the agent-dependent scenarios. It uses `AGENT_MODE=anthropic` inside the budget ledger. It writes `evals/results/live-latest.json` with the model id, tool calls and usage. A difference from the label is reported as a qualitative LLM-selection signal (`DIFF`), not as a rule failure. This is a single small sample, not a statistical accuracy claim.
 
-## 4. Tracing
+## 4. Agent benchmark with Claude (`npm run eval:bench`)
+
+36 labeled agent cases (PO selection and line mapping) on a separate synthetic catalog, dev/test split, repeated runs, scores in Langfuse. On 2026-10-27 it moved Haiku 5.5 from 92.9 % to **100 %** PO accuracy on the test split with **0 wrong picks**, and cut cost per run by 28 % and p50 latency by 34 %. Sonnet 5.5 was compared and not adopted. Full study, Langfuse metrics and limits: [agent-evaluation.md](agent-evaluation.md).
+
+## 5. Tracing
 
 - Instrumentation: VERIFIED offline. `tracing.test.ts` asserts spans of type `workflow_run`, `agent_run`, `model_generation` and `tool_call` (both tools) under one trace id equal to the one stored on the reconciliation, with the reconciliation id in metadata and no secret patterns in span payloads.
 - Delivery to Langfuse Cloud: VERIFIED 2026-10-15: `npm run check:langfuse` ran a mock S13 reconciliation and found the full trace in Langfuse Cloud EU via the v2 observations API (22 observations: workflow, steps, agent, 2 model generations, `lookupPurchaseOrders` and `getSupplierAndOrderDetails`). Organizations created on or after 2026-09-16 get HTTP 410 from the legacy `/api/public/traces` and `/api/public/observations` endpoints; use `/api/public/v2/observations`. With keys, the exporter is registered automatically and the owner page links `LANGFUSE_PROJECT_URL/traces/<traceId>`.

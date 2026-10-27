@@ -1,10 +1,15 @@
-import { catalog } from "@/fixtures";
+import { catalog as demoCatalog } from "@/fixtures";
 import { documentTotals, formatMoney, lineAmounts } from "@/domain/money";
 import { withTransaction } from "./pool";
 import { insertInvoice } from "./repository";
 
-/** Idempotent: re-running leaves exactly one copy of every fixture row. */
-export async function seed(log: (msg: string) => void = console.log): Promise<void> {
+type Catalog = typeof demoCatalog;
+
+/**
+ * Idempotent: re-running leaves exactly one copy of every fixture row. The agent benchmark passes
+ * its own catalog; everything else uses the demo catalog.
+ */
+export async function seed(log: (msg: string) => void = console.log, catalog: Catalog = demoCatalog): Promise<void> {
   await withTransaction(async (client) => {
     await client.query("select pg_advisory_xact_lock(hashtext('invoicematch-seed'))");
     for (const s of catalog.suppliers) {

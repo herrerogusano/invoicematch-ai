@@ -22,11 +22,12 @@ function scopeFrom(ctx: { requestContext?: { get: (k: string) => unknown } }): T
 export const lookupPurchaseOrders = createTool({
   id: "lookupPurchaseOrders",
   description:
-    "List at most 5 purchase orders of the invoice's supplier. Optionally filter by an exact PO number. Returns summaries only (no lines).",
+    "List up to 5 purchase orders of the invoice's supplier per page, each with its lines (lineId, description, quantity, unitPrice). Optionally filter by an exact PO number. When hasMore is true, call again with offset = offset + candidates.length to see the next page.",
   inputSchema: z.object({
     poNumber: z.string().trim().min(1).max(64).nullish().describe("Exact PO number, if the invoice references one"),
     includeClosed: z.boolean().default(false),
     limit: z.number().int().min(1).max(MAX_CANDIDATES).default(MAX_CANDIDATES),
+    offset: z.number().int().min(0).max(1000).default(0).describe("Number of candidates to skip (paging)"),
   }),
   outputSchema: z.object({
     candidates: z.array(
@@ -37,18 +38,23 @@ export const lookupPurchaseOrders = createTool({
         currency: z.string(),
         total: z.string(),
         lineCount: z.number(),
+        lines: z.array(z.object({ lineId: z.string(), description: z.string(), quantity: z.string(), unitPrice: z.string() })),
       }),
     ),
+    total: z.number().describe("Number of matching purchase orders across all pages"),
+    offset: z.number(),
+    hasMore: z.boolean(),
   }),
   execute: async (input, ctx) => {
     const scope = scopeFrom(ctx);
-    const candidates = await searchPurchaseOrders({
+    const { candidates, total } = await searchPurchaseOrders({
       supplierId: scope.supplierId,
       poNumber: input.poNumber ?? null,
       includeClosed: input.includeClosed,
       limit: input.limit,
+      offset: input.offset,
     });
-    return { candidates };
+    return { candidates, total, offset: input.offset, hasMore: input.offset + candidates.length < total };
   },
 });
 
