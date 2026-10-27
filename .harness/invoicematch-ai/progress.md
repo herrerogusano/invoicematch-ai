@@ -26,8 +26,7 @@ Handoff per the Harness Run workflow. Updated 2026-10-21.
 
 ## Open
 
-- Windows native worker exit seen once in `api-security.test.ts`.
-- `npm audit`: moderate `sprintf-js` advisory via Mastra (not reachable).
+- None. 2026-10-27: the Windows worker exit did not reproduce (10/10 file runs, 2/2 full suites). `npm audit fix` moved `undici` to 7.30.1 (three high advisories via the AI SDK); `npm audit` now reports 0 vulnerabilities.
 
 ## Next action
 
