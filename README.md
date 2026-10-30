@@ -84,6 +84,8 @@ npm run dev                     # http://localhost:3000
 | `ANTHROPIC_API_KEY`, `ANTHROPIC_MODEL`, `LLM_BUDGET_USD`, `LLM_MAX_REQUESTS` | live mode only |
 | `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_BASE_URL`, `LANGFUSE_PROJECT_URL` | optional tracing (`LANGFUSE_PROJECT_URL` = `https://cloud.langfuse.com/project/<id>`, without `/traces`) |
 
+Next.js loads `.env.local` by itself. The `tsx` scripts (`db:*`, `eval:*`, `check:langfuse`) load `.env.local` and then `.env` through `scripts/load-env.ts`, and a variable already set in the shell wins. Keep API keys in this git-ignored file, not as user-wide or machine-wide environment variables.
+
 Demo credentials policy: there are no shared demo credentials. The owner sets their own passphrase locally; deployments must use Supabase Auth.
 
 ## Commands
