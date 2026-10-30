@@ -43,7 +43,7 @@ if (mock) {
   process.env.AGENT_MODE = "mock";
 } else {
   if (!process.env.ANTHROPIC_API_KEY) {
-    console.error("eval:bench refused: ANTHROPIC_API_KEY is not set. No calls made.");
+    console.error("eval:bench refused: ANTHROPIC_API_KEY is not set in the environment, .env.local or .env. No calls made.");
     process.exit(2);
   }
   if (process.env.EVAL_LIVE_CONFIRM !== "yes") {

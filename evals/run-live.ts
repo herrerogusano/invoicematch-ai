@@ -14,7 +14,7 @@ loadLocalEnv();
 const LIVE_SAMPLE = ["S12-ambiguous-candidates", "S13-agent-selected-po", "S16-semantic-line-mapping"];
 
 if (!process.env.ANTHROPIC_API_KEY) {
-  console.error("eval:live refused: ANTHROPIC_API_KEY is not set (BLOCKED_CREDITS). No calls made.");
+  console.error("eval:live refused: ANTHROPIC_API_KEY is not set in the environment, .env.local or .env (BLOCKED_CREDITS). No calls made.");
   process.exit(2);
 }
 if (process.env.EVAL_LIVE_CONFIRM !== "yes") {
